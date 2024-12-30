@@ -10,3 +10,22 @@ listing:
 page-layout: full
 title-block-banner: true
 ---
+
+Bienvenue sur le **blog BOOZY** !
+
+Je m'appelle **Boozy *\[surnom\]*** et je suis ravi(e) de vous accueillir sur mon espace dédié à l'apprentissage de l'analyse de données et de la statistique, en particulier avec R.\
+Si vous êtes étudiant(e), débutant(e), ou simplement curieux(se) d'en apprendre davantage sur ces sujets, vous êtes au bon endroit. 🎓
+
+Sur ce blog, vous trouverez :
+
+-   🌟 Des tutoriels simples et clairs pour apprendre R étape par étape.
+
+-   📊 Des explications accessibles pour comprendre les concepts statistiques essentiels.
+
+-   🛠️ Des conseils pratiques pour analyser vos données avec assurance.
+
+-   🌱 Des histoires personnelles et des anecdotes pour rendre l'apprentissage plus vivant.
+
+Mon objectif est de vous montrer que l'analyse de données, souvent perçue comme complexe, peut être à la fois **intéressante** et **accessible** à tous. Ensemble, explorons ce monde fascinant, un sujet à la fois.
+
+Prêt(e) à commencer ? Consultez les derniers articles ***\[bientot\]*** ou découvrez-en plus sur moi sur la page **À propos**.
