@@ -4,6 +4,9 @@ image: Identité.png
 about:
   template: jolla
   links:
+    - icon: envelope
+      text: Email
+      href: mailto:mahamoud.koureichi@gmail.com
     - icon: twitter
       text: Twitter
       href: https://twitter.com
