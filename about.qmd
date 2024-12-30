@@ -1,6 +1,6 @@
 ---
 title: "A propos de moi"
-image: profile.jpg
+image: Identité.png
 about:
   template: jolla
   links:
