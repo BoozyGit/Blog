@@ -1,5 +1,5 @@
 ---
-title: "About"
+title: "A propos de moi"
 image: profile.jpg
 about:
   template: jolla
@@ -13,7 +13,32 @@ about:
     - icon: github
       text: Github
       href: https://github.com
-
 ---
 
-About this blog
+Bonjour, moi c’est Mahamoud M. KOUREICHI ! 😊\
+Je suis passionné(e) par les données, les statistiques, et, surtout, par **le plaisir d’apprendre et de partager**. Depuis plusieurs années, j'accompagne des étudiant(e)s et des débutant(e)s dans leur parcours pour maîtriser R et démystifier les concepts statistiques.
+
+Pourquoi ce blog ?\
+Je me souviens à quel point mes débuts en analyse de données étaient intimidants. Mais, avec le temps, j'ai découvert que, bien expliquée, la statistique pouvait devenir un jeu d'enfant. Ce blog est né de ma volonté de **partager cette découverte** et d'aider d'autres personnes à surmonter leurs propres défis.
+
+#### Ce que vous trouverez ici
+
+-   🌍 **Des ressources éducatives** pour les étudiant(e)s et autodidactes en analyse de données.
+
+-   ✨ **Des astuces pour R**, adaptées aux débutants, avec des exemples concrets.
+
+-   🎓 **Un espace bienveillant** pour apprendre à votre rythme, sans pression.
+
+#### Mon style, ma philosophie
+
+Je crois fermement que :
+
+-   **Apprendre doit être amusant.**\
+    Un peu d’humour et des exemples du quotidien rendent les concepts plus mémorables.
+
+-   **Il n’y a pas de questions bêtes.**\
+    C’est en posant des questions qu’on avance. Alors, n’hésitez pas à commenter ou à m’écrire.
+
+### **Et maintenant ?**
+
+Je vous invite à explorer mes articles ***\[à venir...\]*** ou à commencer par les tutoriels pour poser les bases. Ensemble, faisons de l’analyse de données un atout pour vos études et projets. 🚀
