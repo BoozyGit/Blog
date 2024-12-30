@@ -1,12 +1,47 @@
 ---
-title: "Welcome To My Blog"
-author: "Tristan O'Malley"
-date: "2024-12-27"
+title: "References bibliographiques sur ZOTORO"
+author: "Boozy Notorius"
+date: "2024-12-30"
+image: "zotero.png"
 categories: [news]
 ---
 
-This is the first post in a Quarto blog. Welcome!
+### **BUT**
 
-![](thumbnail.jpg)
+Le but de la réalisation de ce SOP est de permettre à un rédacteur scientifique novice (étudiant) d’élaborer (pas à pas) la bibliographie de son document avec le logiciel gratuit ZOTERO. Après installation de ZOTERO, installer l’extension zotero-connector dans le navigateur [ZOTERO](https://www.zotero.org/download "telecharger").
 
-Since this post doesn't specify an explicit `image`, the first image in the post will be used in the listing page of posts.
+### **Du NAVIGATEUR à ZOTERO**
+
+La première étape de la rédaction d’un document scientifique après, s’être fixé des objectifs, est la revue de la littérature. Cette revue peut se fait à l’aide d’un navigateur web. Dans notre cas de figure, ce navigateur devra comporter un outil (extension) complémentaire qui permettra au lecteur d’importer d’importantes informations concernant la source des informations qu’il utilisera plus tard. Cet outil (Zotero-connector) importera automatiquement les métadonnées pour la référence à la source vers Zotero qui devra être en marche au même moment. La nature de ces métadonnées dépend du style de référence utilisé par le rédacteur et du type de référence utilisé.
+
+::: callout-tip
+## Article de revue
+
+Auteur(s).Titre.Abrév journal.Date;volume(numéro):pagination.
+:::
+
+::: callout-tip
+## Page Web
+
+Auteur.Titre.Date consultation.URL.
+:::
+
+::: callout-tip
+## Thèse/Memoire
+
+Auteur.Titre \[Nature manuscrit\].Université;date.
+:::
+
+![Navigateur à Zotero](suite.png)
+
+**De ZOTERO à WORD**
+
+Une fois les sources d’informations importées depuis Google-Chrome via Zotero-connector, il faut s’assurer que les métadonnées sont correctement renseignées dans Zotero selon le type de référence. Après cette étape, vient celle de l’insertion des références dans le document ainsi que la création de la bibliographie. Pour ce faire, il faut en premier lieu cliquer sur Zotero sur la palette supérieure de Word. Parmi les options qui s’affichent, « **Ajouter une citation** » sert à insérer un numéro dans le texte. L’option « **Ajouter bibliographie** » sert à insérer les références des sources d’informations en tant que bibliographie. 
+
+### 
+
+**Récapitulatif**
+
+Afin d’ajouter de la crédibilité aux informations qu’un rédacteur fourni à ses lecteurs, il lui faut impérativement citer ses sources. Une façon tres rapide car automatique de faire cela est l’utilisation du logiciel ZOTERO. L’astuce consiste à utiliser le connector du logiciel depuis la revue de la littérature à travers le navigateur pour faire une collection de sources. Cette banque de données ainsi constituée est corrigée et arrangée depuis ZOTERO. Ensuite, il suffit de les insérer au corps du document au fur et à mesure que la rédaction avance. De ce fait, le logiciel ZOTERO offre la possibilité d’insérer la bibliographie des références une fois la rédaction terminée.
+
+![Recap du circuit](circuit.png)
