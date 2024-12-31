@@ -1,5 +1,5 @@
 ---
-title: "References bibliographiques sur ZOTORO"
+title: "References bibliographiques sur ZOTERO"
 author: "Boozy Notorius"
 date: "2024-12-30"
 image: "zotero.png"

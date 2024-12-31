@@ -10,5 +10,11 @@
   },
   "about.qmd": {
     "about.html": "16e9a0a1"
+  },
+  "posts/Zotero/index.qmd": {
+    "index.html": "ce54b50d"
+  },
+  "posts/Plan d'analyse/index.qmd": {
+    "index.html": "e61fb064"
   }
 }
