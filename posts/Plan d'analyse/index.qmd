@@ -2,7 +2,7 @@
 title: "Conception de plan d'analyse"
 author: "Boozy Notorius"
 date: "2024-12-30"
-categories: [news, code, analysis]
+categories: [Astuces, Redaction, Analyse]
 image: "plan.png"
 ---
 
