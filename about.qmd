@@ -2,7 +2,7 @@
 title: "A propos de moi"
 image: Identité.png
 about:
-  template: jolla
+  template: broadside
   links:
     - icon: envelope
       text: Email
@@ -19,7 +19,7 @@ about:
 ---
 
 Bonjour, moi c’est Mahamoud M. KOUREICHI ! 😊\
-Je suis passionné(e) par les données, les statistiques, et, surtout, par **le plaisir d’apprendre et de partager**. Depuis plusieurs années, j'accompagne des étudiant(e)s et des débutant(e)s dans leur parcours pour maîtriser R et démystifier les concepts statistiques.
+Je suis passionné par les données, les statistiques, et, surtout, par **le plaisir d’apprendre et de partager**. Depuis plusieurs années, j'accompagne des étudiant(e)s et des débutant(e)s dans leur parcours pour maîtriser R et démystifier les concepts statistiques.
 
 Pourquoi ce blog ?\
 Je me souviens à quel point mes débuts en analyse de données étaient intimidants. Mais, avec le temps, j'ai découvert que, bien expliquée, la statistique pouvait devenir un jeu d'enfant. Ce blog est né de ma volonté de **partager cette découverte** et d'aider d'autres personnes à surmonter leurs propres défis.

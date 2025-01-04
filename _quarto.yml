@@ -10,7 +10,6 @@ website:
       - index.qmd
       - icon: github
         href: https://github.com/
-
   html:
     theme: lumen
     css: styles.css
