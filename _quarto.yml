@@ -7,11 +7,10 @@ website:
   navbar:
     right:
       - about.qmd
+      - index.qmd
       - icon: github
         href: https://github.com/
-      - icon: twitter
-        href: https://twitter.com
-format:
+
   html:
     theme: lumen
     css: styles.css

@@ -2,10 +2,187 @@
 title: "Conception de plan d'analyse"
 author: "Boozy Notorius"
 date: "2024-12-30"
+date-modified: "2025-01-04"
 categories: [Astuces, Redaction, Analyse]
 image: "plan.png"
+bibliography: packages.bib
+csl: vancouver-brackets.csl
 ---
 
-La conception d'un plan d'analyse est essentielle pour la conduite de l'analyse des données. Il s'agit d'une etape tres souvent negligée par les utilisateurs ponctuel de logiciels d'analyse, notament les étudiants.
+La conception d’un plan d’analyse est une étape essentielle dans la conduite de toute analyse de données. Pourtant, elle est souvent négligée, notamment par les utilisateurs occasionnels de logiciels d’analyse, comme les étudiants débutants. Un plan d’analyse bien structuré offre une feuille de route claire pour répondre aux questions de recherche ou aux objectifs de l’étude. Il se compose généralement de plusieurs parties clés, que nous explorerons dans cet article.
 
-Le plan d'analyse est composé de plus partie...
+### **Pourquoi concevoir un plan d’analyse de données  ?**
+
+Un plan d’analyse bien structuré agit comme une boussole, permettant de rester concentré sur les objectifs et d’éviter les pièges courants, comme l’exploration excessive ou les erreurs de traitement. Dans cet article, nous allons découvrir les éléments clés pour concevoir un plan d’analyse efficace.
+
+### **Les étapes clés d’un plan d’analyse**
+
+#### 1. **Définir les objectifs de l’analyse**
+
+::: callout-tip
+#### Proverbe
+
+Chaque connaissance est la reponse à une question
+:::
+
+Avant même d’ouvrir R, posez-vous les bonnes questions :
+
+-   Quel est l’objectif principal de votre analyse ?
+
+-   Quelles sont les hypothèses ou questions de recherche auxquelles vous cherchez à répondre ?
+
+#### 2. **Décrire les données**
+
+Un bon plan d’analyse commence par une description détaillée des données  :
+
+-   Quelle est leur source ?
+
+-   Quels sont les types de variables présentes (quantitatives, qualitatives) ?
+
+-   Y a-t-il des données manquantes, aberantes ou des incoherences ?
+
+Exemple
+
+```{r}
+library(labelled)  # Chargement du package labelled
+
+load("data.RData") # Chargement du jeu de données
+
+look_for(data)     # Résumé de la structure des données
+```
+
+Cette sortie montre un aperçu de la structure d'un jeu de données que j'ai créé et appelé "data" obtenu avec la commande `look_for(data)` dans R. La fonction ***`look_for`*** du package ***`labelled`*** @R-labelled est très pratique pour les débutants qui souhaitent explorer leurs données.
+
+Chaque ligne correspond à une variable (ou colonne) du tableau (jeu de données), avec des informations clés : son nom (`variable`), une description simplifiée (`label`), son type (`col_type`, par exemple `dbl` pour des données numériques *`variable quantitative`* ou `chr` pour du texte *`variable qualitative`*), et le nombre de valeurs manquantes. Par exemple, on y voit que la variable `age` représente l'âge des participants en années et contient uniquement des données numériques sans valeur manquante. Ce type de résumé aide à comprendre rapidement la composition des données, à repérer d'éventuelles anomalies, et à planifier les étapes d'analyse avec plus de clarté.
+
+#### 3. **Planifier les étapes d’analyse**
+
+1.  **Pré-traitement des données :** nettoyage, gestion des valeurs manquantes et transformation des variables \[***fera l'objet d'un post insha Allah***\].
+
+2.  **Analyses descriptives :** explorer les tendances générales.\
+    Exemple : **La distribution de l'age**
+
+    ```{r}
+    # Histogramme de la variable age
+    hist(data$age,
+         ylim = c(0,10),
+         main = "Distribution en fonction des classes d'âge", 
+         xlab = "Âge", 
+         ylab = "Frequence",
+         col = "skyblue",
+         las = 1)
+    ```
+
+3.  **Analyses spécifiques :** appliquer les tests ou modèles statistiques nécessaires pour répondre aux objectifs.\
+    Exemple avec `GGally` @R-GGally : **La correlation entre l'age et l'IMC**
+
+```{r}
+#| message: false
+#| warning: false
+
+# Chargement du package necessaire
+library(GGally) 
+
+# Visualisation graphique de la correlation
+ggpairs(data[, c("age", "imc")])
+```
+
+#### 4. **Préparer la présentation des résultats**
+
+Enfin, anticipez la présentation des résultats : quels graphiques, tableaux ou métriques permettront de transmettre vos conclusions efficacement ?
+
+Exemple **1** avec `ggplot2`@R-ggplot2 et `plotly` @R-plotly:
+
+```{r}
+#| message: false
+#| warning: false
+
+library(ggplot2)
+library(plotly)
+
+ggplotly(ggplot(data) +
+  aes(x = age, y = imc) +
+  geom_point() +
+  geom_smooth(method = "lm", col = "indianred2") +
+  labs(title = "Relation entre l'âge et l'indice de masse corporel",
+       x = "Âge", y = "IMC") +
+  theme_light())
+
+```
+
+Exemple **2** avec `gtsummary`@R-gtsummary : Repartition des participants en fonction de l'appreciation de la glycemie, du sexe, du type de fibrose et de la prise de Metformine
+
+```{r}
+
+#| message: false
+#| warning: false
+
+library(gtsummary)
+theme_gtsummary_language("fr",",")
+theme_gtsummary_printer("flextable")
+
+tbl_summary(data,
+            include = c(sexe,
+                        apri,
+                        met),
+            by = gly,
+            digits = ~ c(0,1)) |>
+  modify_spanning_header(all_stat_cols() ~ "**Glycemie**") |>
+  add_overall(last = T) |>
+  add_p(pvalue_fun = label_style_pvalue(digits = 3)) |>
+  bold_labels() |>
+  italicize_levels()
+  
+```
+
+### **Checklist pour concevoir un plan d’analyse de données**
+
+Voici une checklist rapide pour vous aider à structurer vos analyses de données. Prenez le plaisir de cochez chaque étape au fur et à mesure :
+
+1.  **Définir les objectifs de l’analyse**
+
+    -    Avez-vous clairement identifié la question ou l’hypothèse à tester ?
+
+    -    Les objectifs sont-ils réalistes compte tenu des données disponibles ?
+
+2.  **Décrire les données**
+
+    -    Avez-vous examiné la source et la qualité des données ?
+
+    -    Connaissez-vous les types de variables présentes (quantitatives, qualitatives) ?
+
+    -    Avez-vous repéré les valeurs manquantes ou aberrantes ?
+
+3.  **Planifier les étapes d’analyse**
+
+    -    Avez-vous préparé les données (nettoyage, transformation, etc.) ?
+
+    -    Avez-vous réalisé des analyses descriptives pour mieux comprendre vos données ?
+
+    -    Avez-vous sélectionné les méthodes statistiques ou les modèles adaptés à vos objectifs ?
+
+4.  **Organiser la présentation des résultats**
+
+    -    Avez-vous préparé des graphiques ou des tableaux pour illustrer vos conclusions ?
+
+    -    Vos résultats sont-ils présentés de manière claire et concise ?
+
+5.  **Vérifier la reproductibilité**
+
+    -    Avez-vous documenté votre code et votre méthodologie ?
+
+    -    Votre analyse peut-elle être facilement reproduite par quelqu’un d’autre ?
+
+La checklist est là pour vous guider et vous assurer que vous n’oubliez aucune étape clé. Si vous débutez, gardez en tête qu’il est normal de tâtonner un peu au départ. Plus vous pratiquerez, plus ces étapes deviendront naturelles  !
+
+### **Conclusion**
+
+La conception d’un plan d’analyse est une compétence cruciale pour quiconque souhaite réaliser des analyses de données de manière rigoureuse et reproductible. Bien qu’elle demande un investissement initial en temps et en réflexion, elle permet d’éviter des erreurs coûteuses et d’obtenir des résultats clairs et exploitables.
+
+::: {.callout-tip appearance="simple"}
+## Vas-y
+
+***Pour toute suggestion ou proposition, écris-moi*** [Mail](mailto:mahamoud.koureichi@gmail.com).
+:::
+
+### Références des packages utilisés
