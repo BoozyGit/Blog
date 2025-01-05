@@ -5,6 +5,10 @@ date: "2024-12-30"
 date-modified: "2025-01-04"
 categories: [Astuces, Redaction, Analyse]
 image: "plan.png"
+format:
+  html:
+    code-fold: true
+    code-summary: "Voir le code"
 bibliography: packages.bib
 csl: vancouver-brackets.csl
 ---
@@ -44,6 +48,7 @@ Un bon plan d’analyse commence par une description détaillée des données �
 Exemple
 
 ```{r}
+
 library(labelled)  # Chargement du package labelled
 
 load("data.RData") # Chargement du jeu de données
@@ -141,37 +146,37 @@ Voici une checklist rapide pour vous aider à structurer vos analyses de donnée
 
 1.  **Définir les objectifs de l’analyse**
 
-    -    Avez-vous clairement identifié la question ou l’hypothèse à tester ?
+    -   Avez-vous clairement identifié la question ou l’hypothèse à tester ?
 
-    -    Les objectifs sont-ils réalistes compte tenu des données disponibles ?
+    -   Les objectifs sont-ils réalistes compte tenu des données disponibles ?
 
 2.  **Décrire les données**
 
-    -    Avez-vous examiné la source et la qualité des données ?
+    -   Avez-vous examiné la source et la qualité des données ?
 
-    -    Connaissez-vous les types de variables présentes (quantitatives, qualitatives) ?
+    -   Connaissez-vous les types de variables présentes (quantitatives, qualitatives) ?
 
-    -    Avez-vous repéré les valeurs manquantes ou aberrantes ?
+    -   Avez-vous repéré les valeurs manquantes ou aberrantes ?
 
 3.  **Planifier les étapes d’analyse**
 
-    -    Avez-vous préparé les données (nettoyage, transformation, etc.) ?
+    -   Avez-vous préparé les données (nettoyage, transformation, etc.) ?
 
-    -    Avez-vous réalisé des analyses descriptives pour mieux comprendre vos données ?
+    -   Avez-vous réalisé des analyses descriptives pour mieux comprendre vos données ?
 
-    -    Avez-vous sélectionné les méthodes statistiques ou les modèles adaptés à vos objectifs ?
+    -   Avez-vous sélectionné les méthodes statistiques ou les modèles adaptés à vos objectifs ?
 
 4.  **Organiser la présentation des résultats**
 
-    -    Avez-vous préparé des graphiques ou des tableaux pour illustrer vos conclusions ?
+    -   Avez-vous préparé des graphiques ou des tableaux pour illustrer vos conclusions ?
 
-    -    Vos résultats sont-ils présentés de manière claire et concise ?
+    -   Vos résultats sont-ils présentés de manière claire et concise ?
 
 5.  **Vérifier la reproductibilité**
 
-    -    Avez-vous documenté votre code et votre méthodologie ?
+    -   Avez-vous documenté votre code et votre méthodologie ?
 
-    -    Votre analyse peut-elle être facilement reproduite par quelqu’un d’autre ?
+    -   Votre analyse peut-elle être facilement reproduite par quelqu’un d’autre ?
 
 La checklist est là pour vous guider et vous assurer que vous n’oubliez aucune étape clé. Si vous débutez, gardez en tête qu’il est normal de tâtonner un peu au départ. Plus vous pratiquerez, plus ces étapes deviendront naturelles  !
 

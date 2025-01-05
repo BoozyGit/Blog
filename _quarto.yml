@@ -6,11 +6,12 @@ website:
   title: "Blog"
   navbar:
     right:
-      - about.qmd
       - index.qmd
-      - icon: github
-        href: https://github.com/
-  html:
+      - about.qmd
+      - icon: envelope
+        href: mailto:mahamoud.koureichi@gmail.com
+
+html:
     theme: lumen
     css: styles.css
 
