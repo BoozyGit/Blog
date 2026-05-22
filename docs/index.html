@@ -7,7 +7,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
 
 
-<title>Accueil – Blog</title>
+<title>Blog</title>
 <style>
 code{white-space: pre-wrap;}
 span.smallcaps{font-variant: small-caps;}
@@ -71,20 +71,20 @@ ul.task-list li input[type="checkbox"] {
 <script>
 
   window.document.addEventListener("DOMContentLoaded", function (_event) {
-    const listingTargetEl = window.document.querySelector('#listing-listing .list');
+    const listingTargetEl = window.document.querySelector('#listing-latest-posts .list');
     if (!listingTargetEl) {
       // No listing discovered, do not attach.
       return; 
     }
 
     const options = {
-      valueNames: ['listing-date','listing-title','listing-author','listing-image','listing-description','listing-categories',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
+      valueNames: ['listing-image','listing-date','listing-title','listing-description','listing-categories','listing-reading-time',{ data: ['index'] },{ data: ['categories'] },{ data: ['listing-date-sort'] },{ data: ['listing-file-modified-sort'] }],
       
-      searchColumns: ["listing-date","listing-title","listing-author","listing-image","listing-description","listing-categories"],
+      searchColumns: ["listing-title","listing-author","listing-date","listing-image","listing-description","listing-categories"],
     };
 
     window['quarto-listings'] = window['quarto-listings'] || {};
-    window['quarto-listings']['listing-listing'] = new List('listing-listing', options);
+    window['quarto-listings']['listing-latest-posts'] = new List('listing-latest-posts', options);
 
     if (window['quarto-listing-loaded']) {
       window['quarto-listing-loaded']();
@@ -133,7 +133,7 @@ window.Quarto = {
 <body class="nav-fixed">
 
 <div id="quarto-search-results"></div>
-  <header id="quarto-header" class="headroom fixed-top quarto-banner">
+  <header id="quarto-header" class="headroom fixed-top">
     <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
       <div class="navbar-container container-fluid">
       <div class="navbar-brand-container mx-auto">
@@ -149,11 +149,11 @@ window.Quarto = {
             <ul class="navbar-nav navbar-nav-scroll ms-auto">
   <li class="nav-item">
     <a class="nav-link active" href="./index.html" aria-current="page"> 
-<span class="menu-text">Accueil</span></a>
+<span class="menu-text">Articles récents</span></a>
   </li>  
   <li class="nav-item">
     <a class="nav-link" href="./about.html"> 
-<span class="menu-text">A propos</span></a>
+<span class="menu-text">À propos</span></a>
   </li>  
   <li class="nav-item compact">
     <a class="nav-link" href="mailto:mahamoud.koureichi@gmail.com"> <i class="bi bi-envelope" role="img">
@@ -168,57 +168,364 @@ window.Quarto = {
     </nav>
 </header>
 <!-- content -->
-<header id="title-block-header" class="quarto-title-block default page-columns page-full">
-  <div class="quarto-title-banner page-columns page-full">
-    <div class="quarto-title column-page-left">
-      <h1 class="title">Accueil</h1>
-                      </div>
-  </div>
-    
-  
-  <div class="quarto-title-meta column-page-left">
-
-      
-    
-      
-    </div>
-    
-  
-  </header><div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-full page-navbar">
 <!-- sidebar -->
 <!-- margin-sidebar -->
     <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
-        
     <h5 class="quarto-listing-category-title">Categories</h5><div class="quarto-listing-category category-default"><div class="category" data-category="">All <span class="quarto-category-count">(2)</span></div><div class="category" data-category="QW5hbHlzZQ==">Analyse <span class="quarto-category-count">(1)</span></div><div class="category" data-category="QXN0dWNlcw==">Astuces <span class="quarto-category-count">(1)</span></div><div class="category" data-category="UmVkYWN0aW9u">Redaction <span class="quarto-category-count">(2)</span></div></div></div>
 <!-- main -->
-<main class="content quarto-banner-title-block column-page-left" id="quarto-document-content">
+<main class="content column-page-left" id="quarto-document-content">
 
 
 
 
+<style>
+/* ── QIBAR Blog — Page d'accueil ─────────────────────────────────────────── */
 
-<p>Bienvenue sur le <strong>blog BOOZY</strong> !</p>
-<p>Je m’appelle <strong>Boozy <em>[surnom]</em></strong> et je suis ravi(e) de vous accueillir sur mon espace dédié à l’apprentissage de l’analyse de données et de la statistique, en particulier avec R.<br>
-Si vous êtes étudiant(e), débutant(e), ou simplement curieux(se) d’en apprendre davantage sur ces sujets, vous êtes au bon endroit. 🎓</p>
-<p>Prêt(e) à commencer ? Consultez les derniers articles <strong><em>[bientot]</em></strong> ou découvrez-en plus sur moi sur la page <strong>À propos</strong>.</p>
+/* Hero */
+.qibar-hero {
+  background: linear-gradient(135deg, #0C2440 0%, #1A3A5C 60%, #2A5A8C 100%);
+  border-radius: 18px;
+  padding: 3.5rem 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.qibar-hero::before {
+  content: "Q";
+  position: absolute;
+  right: -1rem;
+  top: -2rem;
+  font-family: Georgia, serif;
+  font-size: 14rem;
+  font-weight: 700;
+  color: rgba(200,169,110,0.07);
+  pointer-events: none;
+  line-height: 1;
+}
+.qibar-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+.qibar-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(200,169,110,0.15);
+  border: 1px solid rgba(200,169,110,0.35);
+  border-radius: 99px;
+  padding: 4px 14px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #C8A96E;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.qibar-hero h1 {
+  font-family: Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  border: none;
+  padding: 0;
+}
+.qibar-hero h1 span {
+  color: #C8A96E;
+}
+.qibar-hero .hero-sub {
+  font-size: 1rem;
+  color: #B5C8DD;
+  line-height: 1.7;
+  margin: 0 0 2rem;
+}
+.hero-cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-cta-primary {
+  background: #C8A96E;
+  color: #1A3A5C;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 9px;
+  text-decoration: none;
+  transition: opacity .2s;
+  letter-spacing: 0.02em;
+}
+.hero-cta-primary:hover { opacity: 0.88; color: #1A3A5C; }
+.hero-cta-secondary {
+  background: transparent;
+  color: #F0E6CC;
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 9px;
+  border: 1px solid rgba(200,169,110,0.4);
+  text-decoration: none;
+  transition: all .2s;
+}
+.hero-cta-secondary:hover {
+  background: rgba(200,169,110,0.1);
+  color: #F0E6CC;
+}
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+.hero-stat .stat-val {
+  font-family: Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #C8A96E;
+  display: block;
+  line-height: 1;
+}
+.hero-stat .stat-label {
+  font-size: 0.78rem;
+  color: #7A9AB8;
+  display: block;
+  margin-top: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
+/* Section titres */
+.qibar-section-hd {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 2.5rem 0 1.25rem;
+}
+.qibar-section-hd h2 {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1A3A5C;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.qibar-section-hd .sec-line {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(to right, #C8A96E, transparent);
+}
+.qibar-section-hd .sec-tag {
+  font-size: 0.78rem;
+  color: #7A7068;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
 
+/* Thématiques */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 2.5rem;
+}
+.topic-card {
+  background: #F5F2EE;
+  border-radius: 12px;
+  padding: 1.1rem 1rem;
+  border-bottom: 3px solid #D8D0C5;
+  transition: transform .2s, border-color .2s;
+  cursor: default;
+}
+.topic-card:hover {
+  transform: translateY(-3px);
+  border-color: #1A3A5C;
+}
+.topic-icon {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.topic-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1A3A5C;
+  margin: 0 0 3px;
+}
+.topic-desc {
+  font-size: 0.78rem;
+  color: #7A7068;
+  margin: 0;
+  line-height: 1.5;
+}
 
+/* Encadré À qui s'adresse ce blog */
+.audience-box {
+  background: #1A3A5C;
+  border-radius: 14px;
+  padding: 2rem 2rem;
+  margin: 2.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+.audience-item .aud-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #C8A96E;
+  margin: 0 0 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.audience-item .aud-desc {
+  font-size: 0.83rem;
+  color: #B5C8DD;
+  margin: 0;
+  line-height: 1.55;
+}
 
-<div class="quarto-listing quarto-listing-container-default" id="listing-listing">
-<div class="list quarto-listing-default">
-<div class="quarto-post image-right" data-index="0" data-categories="QXN0dWNlcyxSZWRhY3Rpb24sQW5hbHlzZQ==" data-listing-date-sort="1735516800000" data-listing-file-modified-sort="1736022396650" data-listing-date-modified-sort="1735948800000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1129">
-<div class="thumbnail">
-<p><a href="./posts/Plan d'analyse/index.html" class="no-external"></a></p><a href="./posts/Plan d'analyse/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/Plan d'analyse/plan.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/Plan d'analyse/index.html" class="no-external"></a></p>
+/* Encadré QIBAR Center */
+.qibar-cta-box {
+  background: linear-gradient(135deg, #1A3A5C, #0C2440);
+  border-radius: 14px;
+  padding: 2rem 2.25rem;
+  margin: 2.5rem 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.qibar-cta-box .cta-text p {
+  font-size: 0.83rem;
+  color: #7A9AB8;
+  margin: 4px 0 0;
+}
+.qibar-cta-box .cta-text strong {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  color: #F0E6CC;
+}
+.qibar-cta-btn {
+  background: #C8A96E;
+  color: #1A3A5C;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 9px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity .2s;
+}
+.qibar-cta-btn:hover { opacity: 0.88; color: #1A3A5C; }
+</style>
+
+<!-- ── HERO ──────────────────────────────────────────────────────────────── -->
+<div class="qibar-hero">
+  <div class="qibar-hero-inner">
+    <div class="qibar-hero-badge">● QIBAR &nbsp;·&nbsp; Data · Research · Formation</div>
+    <h1>L'analyse de données,<br><span>au service de la recherche en santé.</span></h1>
+    <p class="hero-sub">
+      Un espace de partage pour chercheurs, étudiants et professionnels de santé
+      qui veulent maîtriser R, produire des analyses rigoureuses
+      et publier des résultats solides.
+    </p>
+    <div class="hero-cta-row">
+      <a href="#latest-posts" class="hero-cta-primary">Lire les articles →</a>
+      <a href="about.html" class="hero-cta-secondary">À propos de QIBAR</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="stat-val">R</span>
+        <span class="stat-label">Langage principal</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-val">6+</span>
+        <span class="stat-label">Domaines couverts</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-val">AF</span>
+        <span class="stat-label">Bamako · Afrique</span>
+      </div>
+    </div>
+  </div>
 </div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Plan d'analyse/index.html" class="no-external">Conception de plan d’analyse</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Plan d'analyse/index.html" class="no-external"></a>
+
+<!-- ── THÉMATIQUES ───────────────────────────────────────────────────────── -->
+<div class="qibar-section-hd">
+  <h2 class="anchored">Thématiques</h2>
+  <div class="sec-line"></div>
+  <span class="sec-tag">Ce qu'on couvre</span>
+</div>
+<div class="topics-grid">
+  <div class="topic-card">
+    <span class="topic-icon">📊</span>
+    <p class="topic-name">Analyse statistique</p>
+    <p class="topic-desc">Tests, régression, modélisation sous R</p>
+  </div>
+  <div class="topic-card">
+    <span class="topic-icon">🗺️</span>
+    <p class="topic-name">Cartographie</p>
+    <p class="topic-desc">Épidémiologie spatiale, cartes avec sf &amp; ggplot2</p>
+  </div>
+  <div class="topic-card">
+    <span class="topic-icon">🔬</span>
+    <p class="topic-name">Méta-analyse</p>
+    <p class="topic-desc">Forest plots, hétérogénéité, meta &amp; metafor</p>
+  </div>
+  <div class="topic-card">
+    <span class="topic-icon">📝</span>
+    <p class="topic-name">Rédaction scientifique</p>
+    <p class="topic-desc">Plans d'analyse, méthodes, résultats, Zotero</p>
+  </div>
+  <div class="topic-card">
+    <span class="topic-icon">📈</span>
+    <p class="topic-name">Visualisation</p>
+    <p class="topic-desc">Figures pub-ready, tableaux cliniques, Shiny</p>
+  </div>
+  <div class="topic-card">
+    <span class="topic-icon">🧬</span>
+    <p class="topic-name">Santé publique</p>
+    <p class="topic-desc">Épidémiologie, drépanocytose, études de terrain</p>
+  </div>
+</div>
+
+<!-- ── À QUI ─────────────────────────────────────────────────────────────── -->
+<div class="audience-box">
+  <div class="audience-item">
+    <p class="aud-title">🎓 Étudiants</p>
+    <p class="aud-desc">Master, doctorat, thèse de médecine — des tutos pas à pas pour analyser tes données et rédiger tes résultats avec confiance.</p>
+  </div>
+  <div class="audience-item">
+    <p class="aud-title">🔭 Chercheurs</p>
+    <p class="aud-desc">Protocoles, plans d'analyse, méta-analyses, visualisations publication-ready — des ressources pour chaque étape de ta recherche.</p>
+  </div>
+  <div class="audience-item">
+    <p class="aud-title">🏥 Professionnels de santé</p>
+    <p class="aud-desc">Épidémiologistes, data managers, médecins en exercice — des outils concrets pour valoriser tes données de terrain.</p>
+  </div>
+</div>
+<section id="articles-récents" class="level2 qibar-section-hd">
+<h2 class="qibar-section-hd anchored" data-anchor-id="articles-récents">Articles récents</h2>
+<div id="listing-latest-posts" class="quarto-listing quarto-listing-container-grid">
+<div class="list grid quarto-listing-cols-3">
+<div class="g-col-1" data-index="0" data-categories="QXN0dWNlcyxSZWRhY3Rpb24sQW5hbHlzZQ==" data-listing-date-sort="1735516800000" data-listing-file-modified-sort="1779279631162" data-listing-date-modified-sort="1735948800000" data-listing-reading-time-sort="6" data-listing-word-count-sort="1095">
+<a href="./posts/Plan d'analyse/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/Plan d'analyse/plan.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+Conception de plan d’analyse
+</h5>
+<div class="listing-reading-time card-text text-muted">
+6 min
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('QXN0dWNlcw=='); return false;">
@@ -231,59 +538,67 @@ Redaction
 Analyse
 </div>
 </div>
-<div class="listing-description">
-<a href="./posts/Plan d'analyse/index.html" class="no-external">La conception d’un plan d’analyse est une étape essentielle dans la conduite de toute analyse de données. Pourtant, elle est souvent négligée, notamment par les utilisateurs…</a>
+<div class="card-text listing-description">
+La conception d’un plan d’analyse est une étape essentielle dans la conduite de toute analyse de données. Pourtant, elle est souvent négligée, notamment par les utilisateurs…
 </div>
-</div>
-<div class="metadata">
-<a href="./posts/Plan d'analyse/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Dec 30, 2024
 </div>
-<div class="listing-author">
-Boozy Notorius
+</div>
+</div>
 </div>
 </a>
 </div>
-</div>
-<div class="quarto-post image-right" data-index="1" data-categories="UmVkYWN0aW9u" data-listing-date-sort="1735516800000" data-listing-file-modified-sort="1735655924645" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="372">
-<div class="thumbnail">
-<p><a href="./posts/Zotero/index.html" class="no-external"></a></p><a href="./posts/Zotero/index.html" class="no-external">
-<p><img loading="lazy" src="./posts/Zotero/zotero.png" class="thumbnail-image"></p>
-</a><p><a href="./posts/Zotero/index.html" class="no-external"></a></p>
-</div>
-<div class="body">
-<h3 class="no-anchor listing-title">
-<a href="./posts/Zotero/index.html" class="no-external">References bibliographiques sur ZOTERO</a>
-</h3>
-<div class="listing-subtitle">
-<a href="./posts/Zotero/index.html" class="no-external"></a>
+<div class="g-col-1" data-index="1" data-categories="UmVkYWN0aW9u" data-listing-date-sort="1735516800000" data-listing-file-modified-sort="1735655924645" data-listing-date-modified-sort="NaN" data-listing-reading-time-sort="2" data-listing-word-count-sort="372">
+<a href="./posts/Zotero/index.html" class="quarto-grid-link">
+<div class="quarto-grid-item card h-100 card-left">
+<p class="card-img-top">
+<img loading="lazy" src="./posts/Zotero/zotero.png" class="thumbnail-image card-img" style="height: 150px;">
+</p>
+<div class="card-body post-contents">
+<h5 class="no-anchor card-title listing-title">
+References bibliographiques sur ZOTERO
+</h5>
+<div class="listing-reading-time card-text text-muted">
+2 min
 </div>
 <div class="listing-categories">
 <div class="listing-category" onclick="window.quartoListingCategory('UmVkYWN0aW9u'); return false;">
 Redaction
 </div>
 </div>
-<div class="listing-description">
-<a href="./posts/Zotero/index.html" class="no-external">Le but de la réalisation de ce SOP est de permettre à un rédacteur scientifique novice (étudiant) d’élaborer (pas à pas) la bibliographie de son document avec le logiciel…</a>
+<div class="card-text listing-description">
+Le but de la réalisation de ce SOP est de permettre à un rédacteur scientifique novice (étudiant) d’élaborer (pas à pas) la bibliographie de son document avec le logiciel…
 </div>
-</div>
-<div class="metadata">
-<a href="./posts/Zotero/index.html" class="no-external">
+<div class="card-attribution card-text-small end">
 <div class="listing-date">
 Dec 30, 2024
 </div>
-<div class="listing-author">
-Boozy Notorius
+</div>
+</div>
 </div>
 </a>
-</div>
 </div>
 </div>
 <div class="listing-no-matching d-none">
 No matching items
 </div>
-</div></main> <!-- /main -->
+</div>
+<!-- ── CTA QIBAR CENTER ───────────────────────────────────────────────────── -->
+<div class="qibar-cta-box">
+  <div class="cta-text">
+    <strong>Besoin d'aide pour votre analyse de données ?</strong>
+    <p>QIBAR Conseil accompagne étudiants, chercheurs et institutions — de la conception à la publication.</p>
+  </div>
+  <a href="mailto:mahamoud.koureichi@gmail.com" class="qibar-cta-btn">Contacter QIBAR →</a>
+</div>
+
+
+
+</section>
+
+</main> <!-- /main -->
 <script id="quarto-html-after-body" type="application/javascript">
 window.document.addEventListener("DOMContentLoaded", function (event) {
   const toggleBodyColorMode = (bsSheetEl) => {

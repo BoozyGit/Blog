@@ -1,19 +1,364 @@
 ---
-title: "Accueil"
+title: ""
+page-layout: full
+toc: false
 listing:
+  id: latest-posts
   contents: posts
   sort: "date desc"
-  type: default
+  type: grid
+  max-items: 6
+  grid-columns: 3
+  fields: [image, date, title, description, categories, reading-time]
   categories: true
-  sort-ui: false
-  filter-ui: false
-page-layout: full
-title-block-banner: true
 ---
 
-Bienvenue sur le **blog BOOZY** !
+```{=html}
+<style>
+/* ── QIBAR Blog — Page d'accueil ─────────────────────────────────────────── */
 
-Je m'appelle **Boozy *\[surnom\]*** et je suis ravi(e) de vous accueillir sur mon espace dédié à l'apprentissage de l'analyse de données et de la statistique, en particulier avec R.\
-Si vous êtes étudiant(e), débutant(e), ou simplement curieux(se) d'en apprendre davantage sur ces sujets, vous êtes au bon endroit. 🎓
+/* Hero */
+.qibar-hero {
+  background: linear-gradient(135deg, #0C2440 0%, #1A3A5C 60%, #2A5A8C 100%);
+  border-radius: 18px;
+  padding: 3.5rem 2.5rem;
+  margin-bottom: 3rem;
+  position: relative;
+  overflow: hidden;
+}
+.qibar-hero::before {
+  content: "Q";
+  position: absolute;
+  right: -1rem;
+  top: -2rem;
+  font-family: Georgia, serif;
+  font-size: 14rem;
+  font-weight: 700;
+  color: rgba(200,169,110,0.07);
+  pointer-events: none;
+  line-height: 1;
+}
+.qibar-hero-inner {
+  position: relative;
+  z-index: 1;
+  max-width: 680px;
+}
+.qibar-hero-badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  background: rgba(200,169,110,0.15);
+  border: 1px solid rgba(200,169,110,0.35);
+  border-radius: 99px;
+  padding: 4px 14px;
+  font-size: 0.78rem;
+  font-weight: 500;
+  color: #C8A96E;
+  letter-spacing: 0.06em;
+  text-transform: uppercase;
+  margin-bottom: 1.25rem;
+}
+.qibar-hero h1 {
+  font-family: Georgia, serif;
+  font-size: 2.4rem;
+  font-weight: 700;
+  color: #ffffff;
+  line-height: 1.2;
+  margin: 0 0 1rem;
+  border: none;
+  padding: 0;
+}
+.qibar-hero h1 span {
+  color: #C8A96E;
+}
+.qibar-hero .hero-sub {
+  font-size: 1rem;
+  color: #B5C8DD;
+  line-height: 1.7;
+  margin: 0 0 2rem;
+}
+.hero-cta-row {
+  display: flex;
+  gap: 12px;
+  flex-wrap: wrap;
+}
+.hero-cta-primary {
+  background: #C8A96E;
+  color: #1A3A5C;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 9px;
+  text-decoration: none;
+  transition: opacity .2s;
+  letter-spacing: 0.02em;
+}
+.hero-cta-primary:hover { opacity: 0.88; color: #1A3A5C; }
+.hero-cta-secondary {
+  background: transparent;
+  color: #F0E6CC;
+  font-weight: 400;
+  font-size: 0.9rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 9px;
+  border: 1px solid rgba(200,169,110,0.4);
+  text-decoration: none;
+  transition: all .2s;
+}
+.hero-cta-secondary:hover {
+  background: rgba(200,169,110,0.1);
+  color: #F0E6CC;
+}
+.hero-stats {
+  display: flex;
+  gap: 2rem;
+  margin-top: 2.5rem;
+  flex-wrap: wrap;
+}
+.hero-stat .stat-val {
+  font-family: Georgia, serif;
+  font-size: 1.6rem;
+  font-weight: 700;
+  color: #C8A96E;
+  display: block;
+  line-height: 1;
+}
+.hero-stat .stat-label {
+  font-size: 0.78rem;
+  color: #7A9AB8;
+  display: block;
+  margin-top: 3px;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
 
-Prêt(e) à commencer ? Consultez les derniers articles ***\[bientot\]*** ou découvrez-en plus sur moi sur la page **À propos**.
+/* Section titres */
+.qibar-section-hd {
+  display: flex;
+  align-items: baseline;
+  gap: 14px;
+  margin: 2.5rem 0 1.25rem;
+}
+.qibar-section-hd h2 {
+  font-family: Georgia, serif;
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #1A3A5C;
+  margin: 0;
+  border: none;
+  padding: 0;
+}
+.qibar-section-hd .sec-line {
+  flex: 1;
+  height: 1.5px;
+  background: linear-gradient(to right, #C8A96E, transparent);
+}
+.qibar-section-hd .sec-tag {
+  font-size: 0.78rem;
+  color: #7A7068;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  white-space: nowrap;
+}
+
+/* Thématiques */
+.topics-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(150px, 1fr));
+  gap: 10px;
+  margin-bottom: 2.5rem;
+}
+.topic-card {
+  background: #F5F2EE;
+  border-radius: 12px;
+  padding: 1.1rem 1rem;
+  border-bottom: 3px solid #D8D0C5;
+  transition: transform .2s, border-color .2s;
+  cursor: default;
+}
+.topic-card:hover {
+  transform: translateY(-3px);
+  border-color: #1A3A5C;
+}
+.topic-icon {
+  font-size: 1.4rem;
+  margin-bottom: 0.5rem;
+  display: block;
+}
+.topic-name {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1A3A5C;
+  margin: 0 0 3px;
+}
+.topic-desc {
+  font-size: 0.78rem;
+  color: #7A7068;
+  margin: 0;
+  line-height: 1.5;
+}
+
+/* Encadré À qui s'adresse ce blog */
+.audience-box {
+  background: #1A3A5C;
+  border-radius: 14px;
+  padding: 2rem 2rem;
+  margin: 2.5rem 0;
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 1.5rem;
+}
+.audience-item .aud-title {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #C8A96E;
+  margin: 0 0 0.35rem;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+}
+.audience-item .aud-desc {
+  font-size: 0.83rem;
+  color: #B5C8DD;
+  margin: 0;
+  line-height: 1.55;
+}
+
+/* Encadré QIBAR Center */
+.qibar-cta-box {
+  background: linear-gradient(135deg, #1A3A5C, #0C2440);
+  border-radius: 14px;
+  padding: 2rem 2.25rem;
+  margin: 2.5rem 0 0;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.5rem;
+  flex-wrap: wrap;
+}
+.qibar-cta-box .cta-text p {
+  font-size: 0.83rem;
+  color: #7A9AB8;
+  margin: 4px 0 0;
+}
+.qibar-cta-box .cta-text strong {
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  color: #F0E6CC;
+}
+.qibar-cta-btn {
+  background: #C8A96E;
+  color: #1A3A5C;
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.65rem 1.5rem;
+  border-radius: 9px;
+  text-decoration: none;
+  white-space: nowrap;
+  transition: opacity .2s;
+}
+.qibar-cta-btn:hover { opacity: 0.88; color: #1A3A5C; }
+</style>
+
+<!-- ── HERO ──────────────────────────────────────────────────────────────── -->
+<div class="qibar-hero">
+  <div class="qibar-hero-inner">
+    <div class="qibar-hero-badge">&#9679; QIBAR &nbsp;·&nbsp; Data · Research · Formation</div>
+    <h1>L'analyse de données,<br><span>au service de la recherche en santé.</span></h1>
+    <p class="hero-sub">
+      Un espace de partage pour chercheurs, étudiants et professionnels de santé
+      qui veulent maîtriser R, produire des analyses rigoureuses
+      et publier des résultats solides.
+    </p>
+    <div class="hero-cta-row">
+      <a href="#latest-posts" class="hero-cta-primary">Lire les articles →</a>
+      <a href="about.html" class="hero-cta-secondary">À propos de QIBAR</a>
+    </div>
+    <div class="hero-stats">
+      <div class="hero-stat">
+        <span class="stat-val">R</span>
+        <span class="stat-label">Langage principal</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-val">6+</span>
+        <span class="stat-label">Domaines couverts</span>
+      </div>
+      <div class="hero-stat">
+        <span class="stat-val">AF</span>
+        <span class="stat-label">Bamako · Afrique</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ── THÉMATIQUES ───────────────────────────────────────────────────────── -->
+<div class="qibar-section-hd">
+  <h2>Thématiques</h2>
+  <div class="sec-line"></div>
+  <span class="sec-tag">Ce qu'on couvre</span>
+</div>
+<div class="topics-grid">
+  <div class="topic-card">
+    <span class="topic-icon">📊</span>
+    <p class="topic-name">Analyse statistique</p>
+    <p class="topic-desc">Tests, régression, modélisation sous R</p>
+  </div>
+  <div class="topic-card">
+    <span class="topic-icon">🗺️</span>
+    <p class="topic-name">Cartographie</p>
+    <p class="topic-desc">Épidémiologie spatiale, cartes avec sf & ggplot2</p>
+  </div>
+  <div class="topic-card">
+    <span class="topic-icon">🔬</span>
+    <p class="topic-name">Méta-analyse</p>
+    <p class="topic-desc">Forest plots, hétérogénéité, meta & metafor</p>
+  </div>
+  <div class="topic-card">
+    <span class="topic-icon">📝</span>
+    <p class="topic-name">Rédaction scientifique</p>
+    <p class="topic-desc">Plans d'analyse, méthodes, résultats, Zotero</p>
+  </div>
+  <div class="topic-card">
+    <span class="topic-icon">📈</span>
+    <p class="topic-name">Visualisation</p>
+    <p class="topic-desc">Figures pub-ready, tableaux cliniques, Shiny</p>
+  </div>
+  <div class="topic-card">
+    <span class="topic-icon">🧬</span>
+    <p class="topic-name">Santé publique</p>
+    <p class="topic-desc">Épidémiologie, drépanocytose, études de terrain</p>
+  </div>
+</div>
+
+<!-- ── À QUI ─────────────────────────────────────────────────────────────── -->
+<div class="audience-box">
+  <div class="audience-item">
+    <p class="aud-title">🎓 Étudiants</p>
+    <p class="aud-desc">Master, doctorat, thèse de médecine — des tutos pas à pas pour analyser tes données et rédiger tes résultats avec confiance.</p>
+  </div>
+  <div class="audience-item">
+    <p class="aud-title">🔭 Chercheurs</p>
+    <p class="aud-desc">Protocoles, plans d'analyse, méta-analyses, visualisations publication-ready — des ressources pour chaque étape de ta recherche.</p>
+  </div>
+  <div class="audience-item">
+    <p class="aud-title">🏥 Professionnels de santé</p>
+    <p class="aud-desc">Épidémiologistes, data managers, médecins en exercice — des outils concrets pour valoriser tes données de terrain.</p>
+  </div>
+</div>
+```
+
+## Articles récents {.qibar-section-hd}
+
+::: {#latest-posts}
+:::
+
+```{=html}
+<!-- ── CTA QIBAR CENTER ───────────────────────────────────────────────────── -->
+<div class="qibar-cta-box">
+  <div class="cta-text">
+    <strong>Besoin d'aide pour votre analyse de données ?</strong>
+    <p>QIBAR Conseil accompagne étudiants, chercheurs et institutions — de la conception à la publication.</p>
+  </div>
+  <a href="mailto:mahamoud.koureichi@gmail.com" class="qibar-cta-btn">Contacter QIBAR →</a>
+</div>
+```
