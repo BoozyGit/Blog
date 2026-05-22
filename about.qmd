@@ -1,32 +1,232 @@
 ---
-title: "A propos"
-image: Myb4.png
-about:
-  template: broadside
-  links:
-    - icon: envelope
-      text: Email
-      href: mailto:mahamoud.koureichi@gmail.com
+title: "À propos"
+page-layout: full
+toc: false
 ---
 
-Bonjour, moi c’est Mahamoud M. KOUREICHI ! 😊\
-Je suis passionné par les données, les statistiques, et, surtout, par **le plaisir d’apprendre et de partager**. Depuis plusieurs années, j'accompagne des étudiant(e)s et des débutant(e)s dans leur parcours pour maîtriser R et démystifier les concepts statistiques.
+```{=html}
+<style>
+/* ── QIBAR About page — charte bleu nuit + or saharien ─────────────────── */
+.about-hero {
+  background: #1A3A5C;
+  border-radius: 16px;
+  padding: 2.5rem 2rem;
+  margin-bottom: 2.5rem;
+  display: flex;
+  align-items: flex-start;
+  gap: 2rem;
+  flex-wrap: wrap;
+}
+.about-monogram {
+  width: 72px;
+  height: 72px;
+  border-radius: 14px;
+  background: #C8A96E;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, serif;
+  font-size: 40px;
+  font-weight: 700;
+  color: #1A3A5C;
+  flex-shrink: 0;
+}
+.about-hero-text h1 {
+  font-family: Georgia, serif;
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: #ffffff;
+  margin: 0 0 0.25rem;
+  border: none;
+  padding: 0;
+}
+.about-hero-text .credentials {
+  font-size: 0.9rem;
+  color: #C8A96E;
+  font-weight: 500;
+  letter-spacing: 0.04em;
+  margin: 0 0 0.75rem;
+}
+.about-hero-text .tagline {
+  font-family: Georgia, serif;
+  font-size: 1rem;
+  font-style: italic;
+  color: #F0E6CC;
+  margin: 0;
+  line-height: 1.6;
+}
+.about-section {
+  margin-bottom: 2.25rem;
+}
+.about-section h2 {
+  font-family: Georgia, serif;
+  font-size: 1.3rem;
+  color: #1A3A5C;
+  border-bottom: 2px solid #C8A96E;
+  padding-bottom: 0.4rem;
+  margin-bottom: 1rem;
+}
+.about-section p {
+  font-size: 0.97rem;
+  line-height: 1.75;
+  color: #3D3428;
+}
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 12px;
+  margin-top: 1rem;
+}
+.skill-card {
+  background: #F5F2EE;
+  border-radius: 10px;
+  padding: 1rem 1.1rem;
+  border-left: 4px solid #1A3A5C;
+}
+.skill-card .skill-title {
+  font-size: 0.88rem;
+  font-weight: 600;
+  color: #1A3A5C;
+  margin: 0 0 0.3rem;
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+.skill-card .skill-body {
+  font-size: 0.85rem;
+  color: #7A7068;
+  margin: 0;
+  line-height: 1.5;
+}
+.services-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(180px, 1fr));
+  gap: 12px;
+  margin-top: 1rem;
+}
+.service-card {
+  background: #ffffff;
+  border: 0.5px solid #D8D0C5;
+  border-top: 3px solid #C8A96E;
+  border-radius: 10px;
+  padding: 1rem;
+}
+.service-card .service-name {
+  font-size: 0.9rem;
+  font-weight: 600;
+  color: #1A3A5C;
+  margin: 0 0 0.3rem;
+}
+.service-card .service-desc {
+  font-size: 0.83rem;
+  color: #7A7068;
+  margin: 0;
+  line-height: 1.5;
+}
+.cta-box {
+  background: #1A3A5C;
+  border-radius: 12px;
+  padding: 1.75rem 2rem;
+  text-align: center;
+  margin-top: 2.5rem;
+}
+.cta-box p {
+  color: #F0E6CC;
+  font-family: Georgia, serif;
+  font-size: 1.1rem;
+  font-style: italic;
+  margin: 0 0 1.1rem;
+}
+.cta-box a {
+  display: inline-block;
+  background: #C8A96E;
+  color: #1A3A5C;
+  font-weight: 600;
+  font-size: 0.9rem;
+  padding: 0.6rem 1.6rem;
+  border-radius: 8px;
+  text-decoration: none;
+  letter-spacing: 0.03em;
+  transition: opacity .2s;
+}
+.cta-box a:hover { opacity: 0.85; }
+</style>
 
-Pourquoi ce blog ?\
-Je me souviens à quel point mes débuts en analyse de données étaient intimidants. Mais, avec le temps, j'ai découvert que, bien expliquée, la statistique pouvait devenir un jeu d'enfant. Ce blog est né de ma volonté de **partager cette découverte** et d'aider d'autres personnes à surmonter leurs propres défis.
+<!-- ── Hero ──────────────────────────────────────────────────────────────── -->
+<div class="about-hero">
+  <div class="about-monogram">Q</div>
+  <div class="about-hero-text">
+    <h1>Mahamoud M. KOUREICHI</h1>
+    <p class="credentials">Dr. en Médecine · MPH Épidémiologie · Data Analyst</p>
+    <p class="tagline">
+      Je transforme des données brutes en décisions éclairées —<br>
+      avec la rigueur du chercheur et les outils du data scientist.
+    </p>
+  </div>
+</div>
+```
 
-Sur ce blog, vous trouverez :
+## Qui suis-je {.about-section}
 
--   🌟 Des tutoriels simples et clairs pour apprendre R étape par étape.
+Je suis médecin, titulaire d'un master en santé publique option épidémiologie, **Assistant de recherche** au niveau de l'unité de Recherche et de Formation sur les Maladies Tropicales Négligées et **Data manager** au Centre de Recherche et de Lutte contre la Drépanocytose (CRLD) à Bamako.
 
--   📊 Des explications accessibles pour comprendre les concepts statistiques essentiels.
+Depuis plusieurs années, j'accompagne chercheurs, étudiants et institutions dans l'analyse de leurs données — souvent dans un cadre informel, parce que le besoin est immense et les ressources rares. QIBAR est la structure que j'ai créée pour formaliser cet accompagnement et le rendre accessible à tous, en Afrique et dans la diaspora.
 
--   🛠️ Des conseils pratiques pour analyser vos données avec assurance.
+Je me forme de façon autodidacte et continue sur R — analyse quantitative, cartographie épidémiologique, modélisation statistique, méta-analyse, analyse lexicale — et je partage ici ce que j'apprends au fil de ma pratique.
 
--   🌱 Des histoires personnelles et des anecdotes pour rendre l'apprentissage plus vivant.
+```{=html}
+<!-- ── Compétences ─────────────────────────────────────────────────────── -->
+<div class="about-section">
+<h2>Ce que je maîtrise</h2>
+<div class="skills-grid">
+  <div class="skill-card">
+    <p class="skill-title">Analyse statistique</p>
+    <p class="skill-body">Statistiques descriptives, inférence, régression, survie, modèles mixtes — sous R avec tidyverse, gtsummary, survival.</p>
+  </div>
+  <div class="skill-card">
+    <p class="skill-title">Méta-analyse</p>
+    <p class="skill-body">Revues systématiques, forest plots, hétérogénéité (I²), biais de publication — packages meta, metafor.</p>
+  </div>
+  <div class="skill-card">
+    <p class="skill-title">Cartographie</p>
+    <p class="skill-body">Épidémiologie spatiale, cartes thématiques et épidemiologiques — sf, ggplot2.</p>
+  </div>
+  <div class="skill-card">
+    <p class="skill-title">Visualisation</p>
+    <p class="skill-body">Figures publication-ready et tableaux publication-ready — ggplot2, flextable.</p>
+  </div>
+  <div class="skill-card">
+    <p class="skill-title">Épidémiologie</p>
+    <p class="skill-body">Conception d'études, plans d'analyse, interprétation clinique des résultats statistiques.</p>
+  </div>
+  <div class="skill-card">
+    <p class="skill-title">Formation & pédagogie</p>
+    <p class="skill-body">Ateliers R pour étudiants, professionnels de santé et équipes de recherche.</p>
+  </div>
+</div>
+</div>
 
-Mon objectif est de vous montrer que l'analyse de données, souvent perçue comme complexe, peut être à la fois **intéressante** et **accessible** à tous. Ensemble, explorons ce monde fascinant, un sujet à la fois.
+<!-- ── Services ───────────────────────────────────────────────────────── -->
+<div class="about-section">
+<h2>Ce que je propose via QIBAR-Center</h2>
+<div class="services-grid">
+  <div class="service-card">
+    <p class="service-name">QIBAR Conseil</p>
+    <p class="service-desc">Analyse de données pour mémoires, thèses, articles et rapports d'étude.</p>
+  </div>
+  <div class="service-card">
+    <p class="service-name">QIBAR Académie</p>
+    <p class="service-desc">Formations R en groupe — initiation, épidémiologie, méta-analyse, cartographie.</p>
+  </div>
+  <div class="service-card">
+    <p class="service-name">QIBAR Lab</p>
+    <p class="service-desc">Dashboards Shiny, rapports automatisés et outils d'analyse pour institutions et ONG.</p>
+  </div>
+</div>
+</div>
 
-### **Et maintenant ?**
-
-Je vous invite à explorer mes articles ***\[à venir...\]*** ou à commencer par les tutoriels pour poser les bases. Ensemble, faisons de l’analyse de données un atout pour vos études et projets. 🚀
+<!-- ── CTA ────────────────────────────────────────────────────────────── -->
+<div class="cta-box">
+  <p>Un projet d'analyse, une thèse à finaliser, une formation à organiser ?</p>
+  <a href="mailto:contact@qibar.com">Contactez QIBAR →</a>
+</div>
+```
