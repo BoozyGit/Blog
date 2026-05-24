@@ -217,3 +217,47 @@ table tbody td { padding: 0.5rem 0.9rem; font-size: 0.9rem; }
 }
 .post-cta a:hover { opacity: 0.85; color: var(--qibar-bleu); }
 
+/* ── Corrections navbar ──────────────────────────────────────────────────── */
+
+/* Logo : contraindre la taille pour éviter le collapse */
+.navbar-brand img {
+  max-height: 32px !important;
+  width: auto !important;
+}
+
+/* Forcer la navbar horizontale dès 768px */
+@media (min-width: 768px) {
+  .navbar-collapse {
+    display: flex !important;
+    flex-basis: auto;
+  }
+  .navbar-toggler {
+    display: none !important;
+  }
+}
+
+/* Dropdown Articles — fond bleu nuit */
+.navbar .dropdown-menu {
+  background-color: #1A3A5C !important;
+  border: 1px solid rgba(200,169,110,0.3) !important;
+  border-radius: 10px !important;
+  margin-top: 4px !important;
+}
+.navbar .dropdown-item {
+  color: #B5C8DD !important;
+  font-size: 0.88rem;
+  padding: 6px 16px;
+}
+.navbar .dropdown-item:hover {
+  background-color: rgba(200,169,110,0.15) !important;
+  color: #C8A96E !important;
+}
+
+/* Titre QIBAR dans la navbar — si pas de logo image */
+.navbar-brand {
+  font-family: Georgia, serif !important;
+  font-size: 1.2rem !important;
+  font-weight: 700 !important;
+  color: #ffffff !important;
+  letter-spacing: 0.02em;
+}

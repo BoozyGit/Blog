@@ -90,7 +90,7 @@ website:
 # ── Format HTML global ───────────────────────────────────────────────────────
 format:
   html:
-    theme: lumen
+    theme: flatly
     css: styles.css
     highlight-style: github
     toc: true
