@@ -1,1 +1,219 @@
-/* css styles */
+/* ============================================================
+   QIBAR Blog — Feuille de styles personnalisée
+   Charte : Bleu nuit #1A3A5C · Or saharien #C8A96E
+   ============================================================ */
+
+/* ── Variables ───────────────────────────────────────────────────────────── */
+:root {
+  --qibar-bleu:     #1A3A5C;
+  --qibar-bleu-mid: #2A5A8C;
+  --qibar-or:       #C8A96E;
+  --qibar-or-light: #F0E6CC;
+  --qibar-sable:    #F5F2EE;
+  --qibar-terre:    #3D3428;
+  --qibar-gris:     #7A7068;
+  --qibar-bordure:  #D8D0C5;
+}
+
+/* ── Corps général ───────────────────────────────────────────────────────── */
+body {
+  background-color: var(--qibar-sable);
+  color: var(--qibar-terre);
+  font-family: "Lato", "Helvetica Neue", Arial, sans-serif;
+  font-size: 1rem;
+  line-height: 1.75;
+}
+
+/* ── Titres ──────────────────────────────────────────────────────────────── */
+h1, h2, h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  color: var(--qibar-bleu);
+  font-weight: 700;
+}
+h1 { font-size: 2rem; }
+h2 {
+  font-size: 1.4rem;
+  border-bottom: 2px solid var(--qibar-or);
+  padding-bottom: 0.35rem;
+  margin-top: 2.25rem;
+}
+h3 { font-size: 1.15rem; color: var(--qibar-bleu-mid); }
+
+/* ── Liens ───────────────────────────────────────────────────────────────── */
+a { color: var(--qibar-bleu-mid); text-decoration: none; }
+a:hover { color: var(--qibar-or); text-decoration: underline; }
+
+/* ── Navbar ──────────────────────────────────────────────────────────────── */
+.navbar {
+  border-bottom: 3px solid var(--qibar-or) !important;
+}
+.navbar-brand {
+  font-family: Georgia, serif;
+  font-weight: 700;
+  font-size: 1.2rem;
+  color: #fff !important;
+}
+.navbar-brand span { color: var(--qibar-or); }
+.navbar .nav-link { color: #B5C8DD !important; font-size: 0.9rem; }
+.navbar .nav-link:hover { color: var(--qibar-or) !important; }
+
+/* ── Footer ──────────────────────────────────────────────────────────────── */
+.nav-footer {
+  border-top: 2px solid var(--qibar-or) !important;
+}
+
+/* ── Blocs Boozy (callout personnalisé) ──────────────────────────────────── */
+.boozy-block {
+  background: linear-gradient(135deg, #0C2440, #1A3A5C);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  margin: 2rem 0 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.boozy-block::before {
+  content: "💬";
+  position: absolute;
+  top: -10px;
+  right: 10px;
+  font-size: 5rem;
+  opacity: 0.07;
+}
+.boozy-avatar {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  margin-bottom: 1rem;
+}
+.boozy-monogram {
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  background: var(--qibar-or);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-family: Georgia, serif;
+  font-size: 24px;
+  font-weight: 700;
+  color: var(--qibar-bleu);
+  flex-shrink: 0;
+}
+.boozy-name {
+  font-size: 0.78rem;
+  font-weight: 600;
+  color: var(--qibar-or);
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  display: block;
+}
+.boozy-role {
+  font-size: 0.78rem;
+  color: #7A9AB8;
+  display: block;
+}
+.boozy-speech {
+  font-family: Georgia, serif;
+  font-style: italic;
+  font-size: 1.05rem;
+  color: #F0EBE3;
+  line-height: 1.65;
+  margin: 0;
+}
+
+/* ── Blocs "Le décryptage / L'astuce" ───────────────────────────────────── */
+.qibar-callout {
+  border-left: 4px solid var(--qibar-or);
+  background: #ffffff;
+  border-radius: 0 10px 10px 0;
+  padding: 1rem 1.25rem;
+  margin: 1.5rem 0;
+}
+.qibar-callout .callout-title {
+  font-size: 0.82rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.07em;
+  color: var(--qibar-or);
+  margin: 0 0 0.5rem;
+}
+.qibar-callout p { margin: 0; font-size: 0.94rem; color: var(--qibar-terre); }
+
+/* ── Badges catégorie ────────────────────────────────────────────────────── */
+.badge-technique  { background: #EEF2F7; color: var(--qibar-bleu); }
+.badge-mindset    { background: #FBF5EB; color: #8B6F3A; }
+.badge-neuro      { background: #F3EEFA; color: #6B4C9A; }
+.badge-epi        { background: #EBF5F0; color: #2D7A5F; }
+
+/* ── Listing (grille d'articles) ─────────────────────────────────────────── */
+.quarto-listing-category-title { color: var(--qibar-bleu); }
+.listing-category {
+  background: var(--qibar-sable);
+  border: 1px solid var(--qibar-bordure);
+  border-radius: 99px;
+  font-size: 0.78rem;
+  padding: 2px 10px;
+  color: var(--qibar-gris);
+}
+.listing-category.category-default.active {
+  background: var(--qibar-bleu);
+  color: #fff;
+  border-color: var(--qibar-bleu);
+}
+.card {
+  border: 0.5px solid var(--qibar-bordure) !important;
+  border-radius: 12px !important;
+  background: #ffffff !important;
+  transition: transform 0.2s, box-shadow 0.2s;
+}
+.card:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 8px 24px rgba(26,58,92,0.1) !important;
+}
+.card .card-title { font-family: Georgia, serif; color: var(--qibar-bleu); }
+.card .listing-reading-time,
+.card .listing-date { font-size: 0.78rem; color: var(--qibar-gris); }
+
+/* ── Table des matières (TOC) ────────────────────────────────────────────── */
+#TOC {
+  border-left: 2px solid var(--qibar-or);
+  padding-left: 1rem;
+}
+#TOC a { color: var(--qibar-gris); font-size: 0.88rem; }
+#TOC a:hover, #TOC a.active { color: var(--qibar-bleu); font-weight: 500; }
+
+/* ── Blocs de code ───────────────────────────────────────────────────────── */
+pre, code { font-family: "Fira Code", "Courier New", monospace; font-size: 0.88rem; }
+pre.sourceCode { border-radius: 10px; border: 1px solid var(--qibar-bordure); }
+
+/* ── Tables ──────────────────────────────────────────────────────────────── */
+table thead tr { background: var(--qibar-bleu); color: #fff; }
+table thead th { font-weight: 600; padding: 0.6rem 0.9rem; }
+table tbody tr:nth-child(even) { background: var(--qibar-sable); }
+table tbody td { padding: 0.5rem 0.9rem; font-size: 0.9rem; }
+
+/* ── CTA inline bas d'article ────────────────────────────────────────────── */
+.post-cta {
+  background: linear-gradient(135deg, var(--qibar-bleu), #0C2440);
+  border-radius: 14px;
+  padding: 1.75rem 2rem;
+  margin-top: 3rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 1.25rem;
+  flex-wrap: wrap;
+}
+.post-cta p { color: #F0E6CC; margin: 0; font-family: Georgia, serif; font-style: italic; }
+.post-cta a {
+  background: var(--qibar-or);
+  color: var(--qibar-bleu);
+  font-weight: 600;
+  font-size: 0.88rem;
+  padding: 0.6rem 1.4rem;
+  border-radius: 8px;
+  text-decoration: none;
+  white-space: nowrap;
+}
+.post-cta a:hover { opacity: 0.85; color: var(--qibar-bleu); }
+

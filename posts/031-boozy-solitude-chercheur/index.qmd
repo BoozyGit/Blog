@@ -3,7 +3,7 @@ title: "[Boozy] : Je me sens seul dans ma recherche — est-ce normal ?"
 subtitle: "Isolement, biais du super-expert, et comment trouver ou devenir un mentor"
 description: "Boozy traverse une période de doute intense. Il travaille seul, son entourage ne comprend pas ce qu'il vit, et son mentor est introuvable. On décrypte ensemble pourquoi cette solitude est plus scientifique qu'émotionnelle, et comment s'en sortir."
 author: "QIBAR Center"
-date: "2025-06-01"
+date: "2026-05-24"
 categories:
   - Soft Skills
   - Mindset
@@ -141,9 +141,9 @@ Dans son entourage, personne ne semble vraiment comprendre ce qu'il traverse. Po
 
 ```{=html}
 <div class="crossover-box">
-  <p class="cx-label">🔀 Narration croisée — Mindset × Neurosciences</p>
-  <p>Ce post croise deux univers du blog QIBAR : les <strong style="color:#C8A96E">Soft Skills du chercheur</strong> (#31) et les mécanismes de <strong style="color:#C8A96E">neurosciences cognitives</strong> (#41 — la charge mentale). Parce qu'on ne peut pas parler de solitude du chercheur sans parler de ce que ça fait au cerveau.</p>
-  <span class="cx-link">→ À lire aussi : [#41] Boozy et la charge mentale : pourquoi le cerveau sature-t-il pendant l'analyse ?</span>
+  <p class="cx-label">🔀 Mindset × Neurosciences</p>
+  <p>Ce post croise deux univers du blog QIBAR : les <strong style="color:#C8A96E">Soft Skills du chercheur</strong> et les mécanismes de <strong style="color:#C8A96E">neurosciences cognitives</strong>. Parce qu'on ne peut pas parler de solitude du chercheur sans parler de ce que ça fait au cerveau.</p>
+  <span class="cx-link">→ À lire aussi : Boozy et la charge mentale : pourquoi le cerveau sature-t-il pendant l'analyse ?</span>
 </div>
 ```
 
@@ -192,7 +192,7 @@ Boozy a décidé de prendre trois décisions concrètes. Pas des vœux pieux —
 <div class="rule-box">
   <span class="rule-num">02</span>
   <span class="rule-title">Chercher la communauté de pairs, pas le mentor parfait</span>
-  <p>On fantasme souvent sur le mentor inaccessible — le Pr. X qui a tout vu, tout fait. Mais en pratique, <strong>un pair qui vit la même chose vaut souvent plus</strong> : il partage vos doutes, votre vocabulaire, vos galères avec R. Les groupes WhatsApp de promotions, les communautés R-Ladies, les forums Rstats francophones, ou même les chercheurs d'autres structures rencontrés en conférence sont des ressources massives et sous-exploitées.</p>
+  <p>On fantasme souvent sur le mentor inaccessible — le Pr. X qui a tout vu, tout fait. Mais en pratique, <strong>un pair qui vit la même chose vaut souvent plus</strong> : il partage vos doutes, votre vocabulaire, vos galères avec R. Les groupes WhatsApp de promotions, les communautés R, les forums Rstats, ou même les chercheurs d'autres structures rencontrés en conférence sont des ressources massives et sous-exploitées.</p>
 </div>
 
 <div class="rule-box">
@@ -213,7 +213,7 @@ C'est d'ailleurs l'une des raisons d'être de ce blog.
 ```{=html}
 <div class="qibar-section">
   <p class="qs-label">📋 Checklist — Que faire cette semaine ?</p>
-  <p>☐ Rejoindre un groupe de chercheurs francophones (WhatsApp, Slack, Discord)<br>
+  <p>☐ Rejoindre un groupe de chercheurs (WhatsApp, linkedin)<br>
   ☐ Identifier un pair dans votre structure ou dans une structure similaire<br>
   ☐ Écrire 3 lignes sur votre blocage actuel (le nommer précisément)<br>
   ☐ Tester la règle des 90 minutes pendant 5 jours consécutifs<br>
@@ -239,10 +239,10 @@ C'est d'ailleurs l'une des raisons d'être de ce blog.
 <!-- ── CTA QIBAR ──────────────────────────────────────────────────────────── -->
 <div class="post-cta">
   <p>Vous accompagnez des étudiants ou des équipes en recherche ?<br>QIBAR Conseil propose des sessions d'analyse et de formation adaptées.</p>
-  <a href="mailto:contact@qibar.com">Contacter QIBAR →</a>
+  <a href="mailto:mahamoud.koureichi@gmail.com">Contacter QIBAR →</a>
 </div>
 ```
 
----
+------------------------------------------------------------------------
 
-*Cet article est le **#31** de la série QIBAR Blog — Catégorie Soft Skills & Mindset. Les références scientifiques citées (Eisenberger & Lieberman, 2004 ; Nestojko et al., 2014) sont disponibles sur demande.*
+*Cet article est le **#31** de la série QIBAR Blog — Catégorie Soft Skills & Mindset.*

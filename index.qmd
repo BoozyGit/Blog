@@ -285,7 +285,7 @@ listing:
       </div>
       <div class="hero-stat">
         <span class="stat-val">A</span>
-        <span class="stat-label">Bamako · Afrique</span>
+        <span class="stat-label">Bamako · Mali</span>
       </div>
     </div>
   </div>

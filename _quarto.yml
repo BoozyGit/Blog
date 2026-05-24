@@ -53,7 +53,7 @@ website:
     background: "#1A3A5C"
     foreground: "#B5C8DD"
     left: |
-      © 2025 **QIBAR Center** · Bamako, Mali
+      © 2026 **QIBAR Center** · Bamako, Mali
     center: |
       *L'information au service de la décision.*
     right:
@@ -67,15 +67,15 @@ website:
   # ── Commentaires Giscus (GitHub Discussions — 100% gratuit) ──────────────
   comments:
     giscus:
-      repo: boozygit/Blog               # ← votre dépôt GitHub exact
-      repo-id: "R_kgDONkFFBg"            # ← à remplir (voir instructions)
-      category: "Commentaires"           # ← nom de la Discussion Category
-      category-id: "DIC_kwDONkFFBs4C9taP"                    # ← à remplir (voir instructions)
+      repo: BoozyGit/Blog
+      repo-id: "R_kgDONkFFBg"
+      category: "General"
+      category-id: "DIC_kwDONkFFBs4C9taP"
       mapping: pathname
       reactions-enabled: true
-      emit-metadata: false
       theme: noborder_light
       language: fr
+      input-position: bottom
 
   # ── Open Graph / partage réseaux sociaux ─────────────────────────────────
   open-graph:
@@ -90,8 +90,8 @@ website:
 # ── Format HTML global ───────────────────────────────────────────────────────
 format:
   html:
-    theme:
-      light: [lumen, styles.css]
+    theme: lumen
+    css: styles.css
     highlight-style: github
     toc: true
     toc-depth: 3
@@ -102,7 +102,7 @@ format:
     link-external-icon: false
     link-external-newwindow: true
     code-fold: true                     # blocs R repliables par défaut
-    code-tools: true                    # bouton "copier le code"
+    code-tools: false                    # bouton "copier le code"
     code-summary: "Voir le code R"
     fig-width: 8
     fig-height: 5
