@@ -5,12 +5,12 @@ project:
 website:
   title: "QIBAR · Data & Recherche"
   description: "Analyse de données, épidémiologie et mindset du chercheur — par QIBAR Center"
-  favicon: images/qibar_favicon.png   # à créer ou remplacer par votre favicon
+#  favicon: images/qibar_favicon.png   # à créer ou remplacer par votre favicon
 
   # ── Barre de navigation ──────────────────────────────────────────────────
   navbar:
     title: false                        # on gère le titre via logo
-    logo: images/qibar_logo.png         # optionnel : logo PNG dans images/
+#    logo: images/qibar_logo.png         # optionnel : logo PNG dans images/
     logo-alt: "QIBAR"
     background: "#1A3A5C"              # bleu nuit QIBAR
     foreground: "#F0EBE3"              # texte clair
@@ -69,7 +69,7 @@ website:
     giscus:
       repo: BoozyGit/Blog
       repo-id: "R_kgDONkFFBg"
-      category: "General"
+      category: "Commentaires"
       category-id: "DIC_kwDONkFFBs4C9taP"
       mapping: pathname
       reactions-enabled: true
