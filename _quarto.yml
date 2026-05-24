@@ -3,17 +3,111 @@ project:
   output-dir: docs
 
 website:
-  title: "Blog"
+  title: "QIBAR · Data & Recherche"
+  description: "Analyse de données, épidémiologie et mindset du chercheur — par QIBAR Center"
+  favicon: images/qibar_favicon.png   # à créer ou remplacer par votre favicon
+
+  # ── Barre de navigation ──────────────────────────────────────────────────
   navbar:
+    title: false                        # on gère le titre via logo
+    logo: images/qibar_logo.png         # optionnel : logo PNG dans images/
+    logo-alt: "QIBAR"
+    background: "#1A3A5C"              # bleu nuit QIBAR
+    foreground: "#F0EBE3"              # texte clair
+    pinned: true                        # navbar reste visible au scroll
+
+    left:
+      - text: "**Q**IBAR"
+        href: index.qmd
+        aria-label: "Accueil QIBAR"
+
     right:
-      - index.qmd
-      - about.qmd
+      - text: "Articles"
+        menu:
+          - text: "📊 Analyse & R"
+            href: index.qmd#analyse
+          - text: "🗺️ Cartographie"
+            href: index.qmd#carto
+          - text: "🔬 Méta-analyse"
+            href: index.qmd#meta
+          - text: "🧠 Mindset & Soft Skills"
+            href: index.qmd#mindset
+          - text: "🧬 Épidémiologie"
+            href: index.qmd#epi
+          - text: "⚡ Neurosciences"
+            href: index.qmd#neuro
+
+      - text: "À propos"
+        href: about.qmd
+
+      - text: "QIBAR Conseil"
+        href: mailto:mahamoud.koureichi@gmail.com
+        aria-label: "Contacter QIBAR Conseil"
+
       - icon: envelope
         href: mailto:mahamoud.koureichi@gmail.com
+        aria-label: "Email"
 
-html:
-    theme: lumen
-    css: styles.css
+  # ── Pied de page ─────────────────────────────────────────────────────────
+  page-footer:
+    background: "#1A3A5C"
+    foreground: "#B5C8DD"
+    left: |
+      © 2025 **QIBAR Center** · Bamako, Mali
+    center: |
+      *L'information au service de la décision.*
+    right:
+      - icon: envelope
+        href: mailto:mahamoud.koureichi@gmail.com
+      - icon: linkedin
+        href: https://www.linkedin.com/in/mahamoud-mahamadou-koureichi-b6a1361a7/   # ← à personnaliser
+      - icon: github
+        href: https://github.com/boozygit
+
+  # ── Commentaires Giscus (GitHub Discussions — 100% gratuit) ──────────────
+  comments:
+    giscus:
+      repo: boozygit/Blog               # ← votre dépôt GitHub exact
+      repo-id: "R_kgDONkFFBg"            # ← à remplir (voir instructions)
+      category: "Commentaires"           # ← nom de la Discussion Category
+      category-id: "DIC_kwDONkFFBs4C9taP"                    # ← à remplir (voir instructions)
+      mapping: pathname
+      reactions-enabled: true
+      emit-metadata: false
+      theme: noborder_light
+      language: fr
+
+  # ── Open Graph / partage réseaux sociaux ─────────────────────────────────
+  open-graph:
+    title: "QIBAR · Data & Recherche"
+    description: "Analyse de données, épidémiologie et mindset du chercheur"
+    image: images/qibar_partage.png          # image de partage (1200×630px)
+
+  twitter-card:
+    creator: "@mahamoudkourei1"           # ← à personnaliser
+    card-style: summary_large_image
+
+# ── Format HTML global ───────────────────────────────────────────────────────
+format:
+  html:
+    theme:
+      light: [lumen, styles.css]
+    highlight-style: github
+    toc: true
+    toc-depth: 3
+    toc-title: "Dans cet article"
+    toc-location: right
+    number-sections: false
+    smooth-scroll: true
+    link-external-icon: false
+    link-external-newwindow: true
+    code-fold: true                     # blocs R repliables par défaut
+    code-tools: true                    # bouton "copier le code"
+    code-summary: "Voir le code R"
+    fig-width: 8
+    fig-height: 5
+    fig-dpi: 150
+    fig-align: center
+    fig-cap-location: bottom
 
 editor: visual
-
