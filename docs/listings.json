@@ -2,7 +2,9 @@
   {
     "listing": "/index.html",
     "items": [
-      "/posts/031-boozy-solitude-chercheur/index.html"
+      "/posts/001-boozy-idee-question-recherche/index.html",
+      "/posts/031-boozy-solitude-chercheur/index.html",
+      "/posts/005-boozy-excel-vers-r/index.html"
     ]
   }
 ]

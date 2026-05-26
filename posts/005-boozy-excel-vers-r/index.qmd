@@ -1,0 +1,459 @@
+---
+title: "[Boozy] : Pourquoi je ne veux plus jamais manipuler mes données dans Excel"
+subtitle: "Reproductibilité, automatisation et dignité du chercheur — bienvenue dans R"
+description: "Boozy a failli changer de carrière après 4 heures perdues sur un tableau Excel. On décrypte ensemble pourquoi Excel est un piège pour le chercheur, et comment R — même sans être informaticien — change tout."
+author: "QIBAR Center"
+date: "2025-07-01"
+categories:
+  - Analyse & R
+  - Technique
+  - Outils
+image: "cover.png"
+lang: fr
+reading-time: true
+---
+
+```{=html}
+<style>
+/* ── Styles post #005 ─────────────────────────────────────────────────────── */
+.boozy-block {
+  background: linear-gradient(135deg, #0C2440, #1A3A5C);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  margin: 2rem 0 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.boozy-block::after {
+  content: "🖥️";
+  position: absolute;
+  top: -8px; right: 12px;
+  font-size: 6rem;
+  opacity: 0.06;
+  pointer-events: none;
+}
+.boozy-avatar { display: flex; align-items: center; gap: 12px; margin-bottom: 1.1rem; }
+.boozy-monogram {
+  width: 50px; height: 50px; border-radius: 50%;
+  background: #C8A96E;
+  display: flex; align-items: center; justify-content: center;
+  font-family: Georgia, serif; font-size: 26px; font-weight: 700;
+  color: #1A3A5C; flex-shrink: 0;
+}
+.boozy-name  { font-size:.78rem; font-weight:700; color:#C8A96E; letter-spacing:.07em; text-transform:uppercase; display:block; }
+.boozy-role  { font-size:.76rem; color:#7A9AB8; display:block; margin-top:2px; }
+.boozy-speech { font-family:Georgia,serif; font-style:italic; font-size:1.05rem; color:#F0EBE3; line-height:1.7; margin:0; }
+
+/* Comparaison visuelle Excel vs R */
+.compare-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 0;
+  border-radius: 14px;
+  overflow: hidden;
+  margin: 2rem 0;
+  box-shadow: 0 4px 20px rgba(26,58,92,0.12);
+}
+.compare-col { padding: 1.25rem 1.4rem; }
+.compare-col.excel { background: #FFF3CD; border-right: 3px solid #C8A96E; }
+.compare-col.r-lang { background: #EEF2F7; }
+.compare-header {
+  font-size: 0.82rem; font-weight: 700; text-transform: uppercase;
+  letter-spacing: .08em; margin: 0 0 1rem; padding-bottom: .5rem;
+  border-bottom: 2px solid currentColor;
+  display: flex; align-items: center; gap: 8px;
+}
+.compare-col.excel .compare-header { color: #856404; }
+.compare-col.r-lang .compare-header { color: #1A3A5C; }
+.compare-row {
+  display: flex; align-items: flex-start; gap: 8px;
+  margin-bottom: .7rem; font-size: .88rem; line-height: 1.5;
+}
+.compare-row .icon { flex-shrink: 0; font-size: 1rem; margin-top: 1px; }
+.compare-col.excel .compare-row { color: #664d03; }
+.compare-col.r-lang .compare-row { color: #1A3A5C; }
+
+/* Workflow ONG */
+.scenario-box {
+  background: linear-gradient(120deg, #1A3A5C 0%, #2D7A5F 100%);
+  border-radius: 14px;
+  padding: 1.5rem 1.75rem;
+  margin: 2rem 0;
+}
+.scenario-box .sc-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#9FE1CB; margin-bottom:.5rem; }
+.scenario-box p { font-size:.93rem; color:#F0EBE3; font-family:Georgia,serif; font-style:italic; line-height:1.65; margin:0 0 .5rem; }
+.scenario-box .sc-link { font-size:.82rem; color:#C8A96E; font-style:normal; }
+
+/* Étapes numérotées */
+.step-list { list-style:none; padding:0; margin:1.5rem 0; }
+.step-list li {
+  display: grid; grid-template-columns: 36px 1fr;
+  gap: 12px; align-items: flex-start;
+  margin-bottom: 1rem;
+}
+.step-num {
+  width:36px; height:36px; border-radius:50%;
+  background:#1A3A5C; color:#C8A96E;
+  display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:1rem; font-weight:700;
+  flex-shrink:0; margin-top:2px;
+}
+.step-content .step-title { font-size:.9rem; font-weight:600; color:#1A3A5C; margin:0 0 3px; }
+.step-content p { font-size:.88rem; color:#5F5E5A; margin:0; line-height:1.55; }
+
+/* Callout QIBAR */
+.qibar-section {
+  border-left: 4px solid #C8A96E;
+  background: #ffffff;
+  border-radius: 0 12px 12px 0;
+  padding: 1.1rem 1.4rem;
+  margin: 1.75rem 0;
+  box-shadow: 0 2px 12px rgba(26,58,92,0.06);
+}
+.qibar-section .qs-label {
+  font-size:.76rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.08em; color:#C8A96E; margin:0 0 .5rem;
+  display:flex; align-items:center; gap:6px;
+}
+.qibar-section p, .qibar-section li { font-size:.95rem; color:#3D3428; margin:0 0 .5rem; line-height:1.7; }
+
+/* Tableau correspondances */
+.corr-table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; border-radius:12px; overflow:hidden; }
+.corr-table thead tr { background:#1A3A5C; }
+.corr-table thead th { color:#C8A96E; font-weight:600; padding:.65rem 1rem; text-align:left; }
+.corr-table tbody tr:nth-child(even) { background:#F5F2EE; }
+.corr-table tbody tr:nth-child(odd)  { background:#ffffff; }
+.corr-table tbody td { padding:.55rem 1rem; color:#3D3428; vertical-align:middle; }
+.corr-table .r-code { font-family:'Courier New',monospace; font-size:.82rem; color:#1A3A5C; background:#EEF2F7; padding:2px 7px; border-radius:4px; }
+.corr-table .badge-ok { color:#2D7A5F; font-weight:600; }
+
+/* CTA bas */
+.post-cta {
+  background: linear-gradient(135deg, #1A3A5C, #0C2440);
+  border-radius: 14px; padding: 1.75rem 2rem; margin-top: 3rem;
+  display: flex; align-items: center; justify-content: space-between;
+  gap: 1.25rem; flex-wrap: wrap;
+}
+.post-cta p { color:#F0E6CC; margin:0; font-family:Georgia,serif; font-style:italic; font-size:1rem; }
+.post-cta a {
+  background:#C8A96E; color:#1A3A5C; font-weight:700;
+  font-size:.88rem; padding:.6rem 1.4rem; border-radius:8px;
+  text-decoration:none; white-space:nowrap;
+}
+</style>
+
+<!-- ── BLOC BOOZY ───────────────────────────────────────────────────────────── -->
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy</span>
+      <span class="boozy-role">Chercheur en crise existentielle · QIBAR Blog</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Salut ! Moi c'est Boozy.<br><br>
+    Vous vous souvenez de la dernière fois où j'ai passé <strong style="color:#C8A96E">4 heures à nettoyer un tableau de données</strong> — à supprimer des lignes vides, corriger des formats de date, et essayer de comprendre pourquoi mon TCD affichait "Erreur" sur une colonne que j'avais pourtant vérifiée trois fois ?<br><br>
+    J'étais à deux doigts de fermer mon ordinateur et de changer de carrière. Et là, j'ai eu une révélation : <strong style="color:#C8A96E">je ne suis pas un tableur. Je suis un chercheur.</strong> »
+  </p>
+</div>
+```
+
+## Le constat de Boozy
+
+Dans de nombreux projets d'ONG ou de thèses en Afrique francophone, Excel est la première — et souvent la seule — porte d'entrée vers les données. C'est compréhensible : c'est visuel, familier, et ne demande aucune installation particulière.
+
+Mais quand le volume augmente, quand il faut refaire la même analyse sur dix fichiers différents, quand le directeur de thèse demande des modifications à 23h la veille de la soutenance... **Excel devient un piège.**
+
+```{=html}
+<div class="scenario-box">
+  <p class="sc-label">🔀 Technique × Contexte ONG (post #21)</p>
+  <p>Imaginez Amara, coordinatrice de projet dans une ONG de santé à Bamako. Elle reçoit chaque mois les données de 12 centres de santé dans 12 fichiers Excel différents. Sa mission : consolider tout ça en un rapport mensuel pour les bailleurs. Chaque mois, elle passe deux jours entiers à copier-coller, reformater, corriger. Deux jours sur vingt jours ouvrables. C'est 10% de son temps de travail — évaporé.</p>
+  <span class="sc-link">→ À lire aussi : [#21] Boozy doit présenter ses résultats devant des décideurs — le langage du management</span>
+</div>
+
+<!-- ── COMPARAISON EXCEL vs R ───────────────────────────────────────────── -->
+<div class="compare-grid">
+  <div class="compare-col excel">
+    <p class="compare-header">📊 Excel — Le piège familier</p>
+    <div class="compare-row"><span class="icon">❌</span><span><strong>Manuel et fragile</strong> — Un clic de travers, une cellule écrasée, et vos résultats sont silencieusement faussés. Sans alerte.</span></div>
+    <div class="compare-row"><span class="icon">❌</span><span><strong>Non reproductible</strong> — "Comment as-tu obtenu ce résultat ?" — "Euh… une série de clics que je ne me rappelle plus."</span></div>
+    <div class="compare-row"><span class="icon">❌</span><span><strong>Formules illisibles</strong> — <code>=SI(NB.SI(A2:A100;"")>0;INDEX(...))</code> n'est pas de la science, c'est de l'archéologie.</span></div>
+    <div class="compare-row"><span class="icon">❌</span><span><strong>Ne scale pas</strong> — 500 lignes, ça va. 50 000 lignes ? Excel rame, plante, ou produit des résultats silencieusement erronés.</span></div>
+    <div class="compare-row"><span class="icon">❌</span><span><strong>Zéro statistique avancée</strong> — Régression logistique, survie, méta-analyse ? Il faudra des add-ins bricolés ou changer d'outil de toute façon.</span></div>
+  </div>
+  <div class="compare-col r-lang">
+    <p class="compare-header">📦 R — La liberté du script</p>
+    <div class="compare-row"><span class="icon">✅</span><span><strong>100% traçable</strong> — Chaque transformation est écrite noir sur blanc. Auditez, partagez, justifiez.</span></div>
+    <div class="compare-row"><span class="icon">✅</span><span><strong>Reproductible</strong> — Données mises à jour ? Relancez le script : nouveaux résultats en secondes.</span></div>
+    <div class="compare-row"><span class="icon">✅</span><span><strong>Lisible avec Tidyverse</strong> — <code>data |> filter(age > 18) |> group_by(sexe)</code> — c'est presque de l'anglais.</span></div>
+    <div class="compare-row"><span class="icon">✅</span><span><strong>Scale sans limite</strong> — 500 ou 5 millions de lignes, R ne voit pas la différence.</span></div>
+    <div class="compare-row"><span class="icon">✅</span><span><strong>Tout en un</strong> — Nettoyage, stats, visualisation, rapport, carte, méta-analyse. Un seul outil pour tout.</span></div>
+  </div>
+</div>
+```
+
+## Le décryptage : la puissance du "Script"
+
+La rupture fondamentale entre Excel et R tient à un seul concept : **la reproductibilité computationnelle**.
+
+En Excel, votre analyse est une série de gestes. Quand vous fermez le fichier, ces gestes disparaissent. Il ne reste que le résultat — impossible à auditer, impossible à vérifier, impossible à corriger proprement si une erreur est découverte six mois plus tard.
+
+En R, votre analyse est un **texte** — un script. Ce texte est :
+
+- **Lisible** par un humain (vous dans 6 mois, votre directeur, un reviewer)
+- **Exécutable** par une machine (résultats reproductibles à l'identique)
+- **Versionnable** avec Git (on y reviendra dans le post #28)
+
+```{=html}
+<div class="qibar-section">
+  <p class="qs-label">💡 Ce que dit la science</p>
+  <p>Une étude publiée dans <em>PLOS ONE</em> (Stodden et al., 2018) a testé la reproductibilité de 204 articles de sciences computationnelles : <strong>moins de 26% des analyses pouvaient être reproduites</strong> avec les données et le code fournis. La crise de reproductibilité n'est pas qu'une question de fraude — c'est souvent une question d'outillage. Excel en est l'un des facteurs.</p>
+</div>
+```
+
+## Le tableau de correspondance Excel → R
+
+Voici les équivalences directes pour les tâches les plus courantes. Rien d'intimidant — chaque ligne R est plus courte que la formule Excel correspondante.
+
+```{=html}
+<table class="corr-table">
+  <thead>
+    <tr>
+      <th>Ce que vous faites dans Excel</th>
+      <th>L'équivalent en R (Tidyverse)</th>
+      <th>Gain</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Filtrer des lignes (AutoFiltre)</td>
+      <td><span class="r-code">filter(age &gt; 18, sexe == "F")</span></td>
+      <td class="badge-ok">✅ Reproductible</td>
+    </tr>
+    <tr>
+      <td>Sélectionner des colonnes</td>
+      <td><span class="r-code">select(id, age, diagnostic)</span></td>
+      <td class="badge-ok">✅ Traçable</td>
+    </tr>
+    <tr>
+      <td>Créer une nouvelle colonne</td>
+      <td><span class="r-code">mutate(imc = poids / taille^2)</span></td>
+      <td class="badge-ok">✅ Versionnable</td>
+    </tr>
+    <tr>
+      <td>Tableau croisé dynamique</td>
+      <td><span class="r-code">group_by(groupe) |> summarise(n())</span></td>
+      <td class="badge-ok">✅ Automatisable</td>
+    </tr>
+    <tr>
+      <td>Trier les données</td>
+      <td><span class="r-code">arrange(desc(date_inclusion))</span></td>
+      <td class="badge-ok">✅ Scriptable</td>
+    </tr>
+    <tr>
+      <td>Recherche V (VLOOKUP)</td>
+      <td><span class="r-code">left_join(df1, df2, by = "id")</span></td>
+      <td class="badge-ok">✅ Sans risque d'erreur</td>
+    </tr>
+    <tr>
+      <td>Supprimer les doublons</td>
+      <td><span class="r-code">distinct(id, .keep_all = TRUE)</span></td>
+      <td class="badge-ok">✅ Auditable</td>
+    </tr>
+    <tr>
+      <td>Remplacer les valeurs manquantes</td>
+      <td><span class="r-code">replace_na(list(poids = 0))</span></td>
+      <td class="badge-ok">✅ Documenté</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## L'astuce de Boozy pour se lancer sans paniquer
+
+Boozy a failli rater son décollage avec R à cause d'une erreur classique : vouloir tout apprendre avant de commencer. Voici les trois règles qui l'ont sauvé.
+
+```{=html}
+<ul class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <p class="step-title">Ne convertissez pas tout — commencez par une seule tâche</p>
+      <p>Choisissez la manipulation Excel qui vous fait le plus perdre de temps. Juste celle-là. Cherchez comment la faire en R. Maîtrisez-la. Puis passez à la suivante. L'erreur classique : vouloir "migrer vers R" en un week-end.</p>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <p class="step-title">Installez le Tidyverse — votre porte d'entrée non-informaticien</p>
+      <p>Le Tidyverse est une collection de packages R conçue pour que le code ressemble à du langage naturel. <code>filter()</code>, <code>select()</code>, <code>mutate()</code>, <code>summarise()</code> — des verbes anglais simples. C'est délibéré : ses créateurs voulaient que des chercheurs en sciences sociales, biologie et santé publique puissent l'utiliser sans formation informatique.</p>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <p class="step-title">La méthode "Copier-Adapter-Avancer"</p>
+      <p>Pas besoin d'écrire du code parfait. Trouvez un exemple qui ressemble à ce que vous voulez faire (Stack Overflow, QIBAR Blog, documentation Tidyverse), copiez-le, adaptez les noms de colonnes à vos données, lancez-le. C'est comme ça que 90% des data scientists apprennent encore aujourd'hui.</p>
+    </div>
+  </li>
+</ul>
+```
+
+## Le script de Boozy — son tout premier nettoyage de données
+
+Voici exactement ce que Boozy a fait lors de sa première semaine avec R. Un script de nettoyage simple, commenté ligne par ligne, pour nettoyer un fichier de données collecté sur le terrain.
+
+```{r}
+#| eval: false
+#| code-fold: false
+
+# ── Installer les packages (une seule fois) ──────────────────────────────
+# install.packages("tidyverse")
+# install.packages("readxl")
+
+# ── Charger les librairies ───────────────────────────────────────────────
+library(tidyverse)   # pour tout : filter, mutate, select, etc.
+library(readxl)      # pour lire les fichiers Excel
+
+# ── 1. Importer les données ──────────────────────────────────────────────
+# On lit le fichier Excel directement — fini le copier-coller
+donnees_brutes <- read_excel("donnees_terrain.xlsx", sheet = "Feuil1")
+
+# Aperçu rapide : dimensions et premières lignes
+glimpse(donnees_brutes)
+
+# ── 2. Renommer les colonnes (noms propres, sans espaces) ────────────────
+donnees <- donnees_brutes |>
+  rename(
+    id          = `N° Patient`,
+    age         = `Age (ans)`,
+    sexe        = `Sexe`,
+    diagnostic  = `Diagnostic principal`,
+    date_visite = `Date de visite`
+  )
+
+# ── 3. Nettoyer les types de variables ───────────────────────────────────
+donnees <- donnees |>
+  mutate(
+    # Convertir la date (souvent mal lue depuis Excel)
+    date_visite = as.Date(date_visite),
+    
+    # Standardiser la variable sexe (majuscules, espaces)
+    sexe = str_to_upper(str_trim(sexe)),
+    sexe = case_when(
+      sexe %in% c("M", "MASCULIN", "HOMME") ~ "Masculin",
+      sexe %in% c("F", "FEMININ", "FEMME")  ~ "Féminin",
+      TRUE ~ NA_character_   # tout le reste → valeur manquante
+    ),
+    
+    # Supprimer les âges impossibles (< 0 ou > 120)
+    age = if_else(age >= 0 & age <= 120, age, NA_real_)
+  )
+
+# ── 4. Gérer les doublons ─────────────────────────────────────────────────
+n_avant <- nrow(donnees)
+donnees <- donnees |> distinct(id, .keep_all = TRUE)
+n_apres <- nrow(donnees)
+cat("Doublons supprimés :", n_avant - n_apres, "\n")
+
+# ── 5. Rapport de qualité des données ─────────────────────────────────────
+# Pourcentage de valeurs manquantes par colonne
+donnees |>
+  summarise(across(everything(), ~ mean(is.na(.)) * 100)) |>
+  pivot_longer(everything(), names_to = "variable", values_to = "pct_manquant") |>
+  arrange(desc(pct_manquant))
+```
+
+```{=html}
+<div class="qibar-section">
+  <p class="qs-label">⏱️ Comparaison de temps — cas réel</p>
+  <p><strong>Excel :</strong> 4h pour Amara (coordinatrice ONG) chaque mois — copier-coller, reformater, vérifier manuellement.<br>
+  <strong>R :</strong> 45 minutes pour écrire le script une fois. Ensuite : <strong>30 secondes par mois</strong> pour le relancer sur les nouveaux fichiers.<br><br>
+  Sur 12 mois : Excel = 48h perdues. R = 45min d'investissement + 6min de travail. <strong>L'équivalent de 6 jours de travail récupérés.</strong></p>
+</div>
+
+<!-- ── BOOZY — MOT DE LA FIN ──────────────────────────────────────────────── -->
+<div class="boozy-block" style="margin-top:2.5rem">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy — avant de te quitter</span>
+      <span class="boozy-role">Converti définitif à R</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Je ne dis pas qu'Excel est inutile. Pour faire un budget, partager un tableau simple avec un collègue non-technique, ou noter une liste : Excel est parfait.<br><br>
+    Mais pour <strong style="color:#C8A96E">analyser des données de recherche</strong> — nettoyer, transformer, tester, modéliser, visualiser, et défendre ses résultats devant un jury ou un bailleur — Excel n'est pas à la hauteur de ce que vous faites.<br><br>
+    Vous méritez un meilleur outil. Et cet outil s'appelle R. 🎯<br><br>
+    Dans le prochain article, je vous montrerai mon premier vrai tableau de statistiques descriptives — <strong style="color:#C8A96E">prêt à copier dans une thèse</strong>, généré en 10 lignes de code. »
+  </p>
+</div>
+
+<!-- ── CHECKLIST ──────────────────────────────────────────────────────────── -->
+<div class="qibar-section">
+  <p class="qs-label">📋 Actions pour cette semaine</p>
+  <p>
+    ☐ Installer R : <a href="https://cran.r-project.org" target="_blank">cran.r-project.org</a><br>
+    ☐ Installer RStudio : <a href="https://posit.co/download/rstudio-desktop/" target="_blank">posit.co</a><br>
+    ☐ Dans RStudio, taper : <code>install.packages("tidyverse")</code><br>
+    ☐ Identifier la manipulation Excel qui vous coûte le plus de temps<br>
+    ☐ Copier le script de nettoyage ci-dessus et l'adapter à vos données
+  </p>
+</div>
+
+<!-- ── QUESTION COMMUNAUTÉ ────────────────────────────────────────────────── -->
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Et vous ?</span>
+      <span class="boozy-role">Boozy veut savoir</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Est-ce qu'Excel vous a déjà joué des tours ? Quelle est la manipulation qui vous prend le plus de temps et que vous rêveriez d'automatiser ?<br><br>
+    Dites-le en commentaire — votre question pourrait devenir le sujet du prochain article. »
+  </p>
+</div>
+
+<!-- ── CTA QIBAR ──────────────────────────────────────────────────────────── -->
+<div class="post-cta">
+  <p>Vous avez un fichier Excel "impossible" à analyser ?<br>QIBAR Conseil s'en occupe — nettoyage, analyse, rapport.</p>
+  <a href="mailto:mahamoud.koureichi@gmail.com">Contacter QIBAR →</a>
+</div>
+```
+
+::: {style="
+```{=html}
+<p style="font-family:Georgia,serif;font-size:1.1rem;
+    font-style:italic;color:#F0EBE3;margin:0 0 .5rem">
+```
+
+Chaque nouvel article de Boozy dans ta boîte mail.
+
+</p>
+
+<p style="font-size:.85rem;color:#7A9AB8;margin:0 0 1.25rem">
+
+Pas de spam. Juste de la méthode, du R et de la motivation.
+
+</p>
+
+<!-- Remplace l'action par ton URL Brevo/Mailchimp -->
+
+<form action="https://05f21676.sibforms.com/serve/MUIFAHfzQavUsQ25ClxHkhgyITPxGFeTR79hKPi-i-VOfFk0F7R3HuIbFokqmCDqXvOhNsdF7CX5LhuQrvl6nKX_k08wLqu-LnjIdSjL4w2xH8boR3DhVGDterAmxByQH7Cyy5tWnpPJHGihMKzOlKClCXmgCFVLsj2_d9gZhFQu9U6QZK9zAQ0F-ABrMl4oZi1bgAJP8RPKvlo7LA==" method="post" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+
+<input type="email" name="EMAIL" placeholder="votre@email.com"
+      style="padding:.6rem 1rem;border-radius:8px;border:none;
+             font-size:.9rem;width:240px;outline:none"/> <button type="submit"
+      style="background:#C8A96E;color:#1A3A5C;font-weight:700;
+             padding:.6rem 1.4rem;border-radius:8px;border:none;
+             cursor:pointer;font-size:.9rem"> S'abonner → </button>
+
+</form>
+:::
+
+------------------------------------------------------------------------
+
+*Cet article est le **#5** de la série QIBAR Blog — Cycle 1 : La Fondation. Le script R présenté est disponible librement pour adaptation. Références : Stodden et al. (2018), "An empirical analysis of journal policy effectiveness for computational reproducibility", PNAS.*

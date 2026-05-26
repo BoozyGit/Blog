@@ -347,10 +347,37 @@ listing:
 </div>
 ```
 
-## Articles récents {.qibar-section-hd}
+::: {style="
+```{=html}
+<p style="font-family:Georgia,serif;font-size:1.1rem;
+    font-style:italic;color:#F0EBE3;margin:0 0 .5rem">
+```
 
-::: {#latest-posts}
+Chaque nouvel article de Boozy dans ta boîte mail.
+
+</p>
+
+<p style="font-size:.85rem;color:#7A9AB8;margin:0 0 1.25rem">
+
+Pas de spam. Juste de la méthode, du R, et de la motivation.
+
+</p>
+
+<!-- Remplace l'action par ton URL Brevo/Mailchimp -->
+
+<form action="https://05f21676.sibforms.com/serve/MUIFAHfzQavUsQ25ClxHkhgyITPxGFeTR79hKPi-i-VOfFk0F7R3HuIbFokqmCDqXvOhNsdF7CX5LhuQrvl6nKX_k08wLqu-LnjIdSjL4w2xH8boR3DhVGDterAmxByQH7Cyy5tWnpPJHGihMKzOlKClCXmgCFVLsj2_d9gZhFQu9U6QZK9zAQ0F-ABrMl4oZi1bgAJP8RPKvlo7LA==" method="post" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+
+<input type="email" name="EMAIL" placeholder="votre@email.com"
+      style="padding:.6rem 1rem;border-radius:8px;border:none;
+             font-size:.9rem;width:240px;outline:none"/> <button type="submit"
+      style="background:#C8A96E;color:#1A3A5C;font-weight:700;
+             padding:.6rem 1.4rem;border-radius:8px;border:none;
+             cursor:pointer;font-size:.9rem"> S'abonner → </button>
+
+</form>
 :::
+
+## Articles récents {.qibar-section-hd}
 
 ```{=html}
 <!-- ── CTA QIBAR CENTER ───────────────────────────────────────────────────── -->

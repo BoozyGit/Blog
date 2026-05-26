@@ -1,0 +1,460 @@
+---
+title: "[Boozy] : J'ai une idée de recherche — mais comment en faire une vraie question ?"
+subtitle: "De l'intuition floue à la question PICO structurée — sans perdre la tête"
+description: "Boozy a une idée de recherche brillante. Ou du moins, c'est ce qu'il pense. Mais quand son directeur lui demande 'Quelle est ta question de recherche ?', il reste sans voix. On décrypte ensemble comment transformer une intuition floue en question scientifique solide — avec l'entonnoir conceptuel et le cadre PICO."
+author: "QIBAR Center"
+date: "2026-05-26"
+categories:
+  - Méthodologie
+  - Épidémiologie
+  - Mindset
+image: "cover.png"
+lang: fr
+reading-time: true
+---
+
+```{=html}
+<style>
+/* ── Styles post #001 ─────────────────────────────────────────────────────── */
+.boozy-block {
+  background: linear-gradient(135deg, #0C2440, #1A3A5C);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  margin: 2rem 0 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.boozy-block::after {
+  content: "💡";
+  position: absolute;
+  top: -8px; right: 12px;
+  font-size: 6rem; opacity: 0.06; pointer-events: none;
+}
+.boozy-avatar { display:flex; align-items:center; gap:12px; margin-bottom:1.1rem; }
+.boozy-monogram {
+  width:50px; height:50px; border-radius:50%;
+  background:#C8A96E; display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:26px; font-weight:700;
+  color:#1A3A5C; flex-shrink:0;
+}
+.boozy-name  { font-size:.78rem; font-weight:700; color:#C8A96E; letter-spacing:.07em; text-transform:uppercase; display:block; }
+.boozy-role  { font-size:.76rem; color:#7A9AB8; display:block; margin-top:2px; }
+.boozy-speech { font-family:Georgia,serif; font-style:italic; font-size:1.05rem; color:#F0EBE3; line-height:1.7; margin:0; }
+
+/* Entonnoir visuel */
+.funnel-wrap {
+  margin: 2rem 0;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0;
+}
+.funnel-step {
+  border-radius: 10px;
+  padding: .9rem 1.4rem;
+  text-align: center;
+  margin-bottom: 4px;
+  position: relative;
+  transition: transform .2s;
+}
+.funnel-step:hover { transform: scale(1.01); }
+.funnel-step .fs-label {
+  font-size:.75rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.08em; display:block; margin-bottom:3px;
+}
+.funnel-step .fs-text { font-size:.92rem; line-height:1.5; margin:0; }
+.funnel-step .fs-ex   { font-size:.82rem; font-style:italic; margin:.3rem 0 0; opacity:.85; }
+.funnel-arrow { font-size:1.4rem; color:#C8A96E; margin: 2px 0; }
+
+.fs-1 { background:#E8EFF7; width:100%;       border-left:4px solid #1A3A5C; }
+.fs-2 { background:#EEF5FF; width:88%;        border-left:4px solid #2A5A8C; }
+.fs-3 { background:#F0F8F2; width:72%;        border-left:4px solid #2D7A5F; }
+.fs-4 { background:#FBF5EB; width:56%;        border-left:4px solid #C8A96E; }
+.fs-5 { background:#1A3A5C; width:40%; color:#F0EBE3; border-left:4px solid #C8A96E; }
+
+.fs-1 .fs-label { color:#1A3A5C; }
+.fs-2 .fs-label { color:#2A5A8C; }
+.fs-3 .fs-label { color:#2D7A5F; }
+.fs-4 .fs-label { color:#8B6F3A; }
+.fs-5 .fs-label { color:#C8A96E; }
+
+/* PICO tableau */
+.pico-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 10px;
+  margin: 1.75rem 0;
+}
+.pico-card {
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  border-top: 4px solid;
+}
+.pico-card.p { background:#E8EFF7; border-color:#1A3A5C; }
+.pico-card.i { background:#EBF5F0; border-color:#2D7A5F; }
+.pico-card.c { background:#FBF5EB; border-color:#C8A96E; }
+.pico-card.o { background:#F3EEFA; border-color:#6B4C9A; }
+.pico-letter {
+  font-family:Georgia,serif; font-size:2.2rem; font-weight:700;
+  display:block; line-height:1; margin-bottom:.3rem;
+}
+.pico-card.p .pico-letter { color:#1A3A5C; }
+.pico-card.i .pico-letter { color:#2D7A5F; }
+.pico-card.c .pico-letter { color:#8B6F3A; }
+.pico-card.o .pico-letter { color:#6B4C9A; }
+.pico-word  { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#5F5E5A; display:block; margin-bottom:.5rem; }
+.pico-def   { font-size:.85rem; color:#3D3428; margin:0 0 .4rem; }
+.pico-ex    { font-size:.82rem; font-style:italic; color:#7A7068; margin:0; }
+
+/* Scenario box */
+.scenario-box {
+  background: linear-gradient(120deg, #1A3A5C 0%, #2D7A5F 100%);
+  border-radius:14px; padding:1.5rem 1.75rem; margin:2rem 0;
+}
+.scenario-box .sc-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#9FE1CB; margin-bottom:.5rem; }
+.scenario-box p { font-size:.93rem; color:#F0EBE3; font-family:Georgia,serif; font-style:italic; line-height:1.65; margin:0 0 .5rem; }
+.scenario-box .sc-link { font-size:.82rem; color:#C8A96E; font-style:normal; }
+
+/* Callout QIBAR */
+.qibar-section {
+  border-left:4px solid #C8A96E; background:#ffffff;
+  border-radius:0 12px 12px 0; padding:1.1rem 1.4rem;
+  margin:1.75rem 0; box-shadow:0 2px 12px rgba(26,58,92,.06);
+}
+.qibar-section .qs-label {
+  font-size:.76rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.08em; color:#C8A96E; margin:0 0 .5rem;
+  display:flex; align-items:center; gap:6px;
+}
+.qibar-section p, .qibar-section li { font-size:.95rem; color:#3D3428; margin:0 0 .5rem; line-height:1.7; }
+
+/* Tableau transformation */
+.transf-table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; border-radius:12px; overflow:hidden; }
+.transf-table thead tr { background:#1A3A5C; }
+.transf-table thead th { color:#C8A96E; font-weight:600; padding:.65rem 1rem; text-align:left; }
+.transf-table tbody tr:nth-child(even) { background:#F5F2EE; }
+.transf-table tbody tr:nth-child(odd)  { background:#ffffff; }
+.transf-table tbody td { padding:.6rem 1rem; color:#3D3428; vertical-align:top; line-height:1.5; }
+.transf-table .bad  { color:#9B3A2A; font-style:italic; }
+.transf-table .good { color:#1A3A5C; font-weight:500; }
+
+/* Erreurs fréquentes */
+.error-grid { display:grid; grid-template-columns:repeat(auto-fit,minmax(220px,1fr)); gap:10px; margin:1.5rem 0; }
+.error-card { background:#FFF3CD; border-radius:10px; padding:1rem 1.1rem; border-left:4px solid #C8A96E; }
+.error-card .err-title { font-size:.85rem; font-weight:700; color:#856404; margin:0 0 4px; }
+.error-card .err-fix   { font-size:.82rem; color:#3D3428; margin:0; }
+.error-card .err-icon  { font-size:1.2rem; display:block; margin-bottom:4px; }
+
+/* Steps numérotés */
+.step-list { list-style:none; padding:0; margin:1.5rem 0; }
+.step-list li { display:grid; grid-template-columns:36px 1fr; gap:12px; align-items:flex-start; margin-bottom:1rem; }
+.step-num { width:36px; height:36px; border-radius:50%; background:#1A3A5C; color:#C8A96E; display:flex; align-items:center; justify-content:center; font-family:Georgia,serif; font-size:1rem; font-weight:700; flex-shrink:0; margin-top:2px; }
+.step-content .step-title { font-size:.9rem; font-weight:600; color:#1A3A5C; margin:0 0 3px; }
+.step-content p { font-size:.88rem; color:#5F5E5A; margin:0; line-height:1.55; }
+
+/* CTA */
+.post-cta {
+  background:linear-gradient(135deg,#1A3A5C,#0C2440); border-radius:14px;
+  padding:1.75rem 2rem; margin-top:3rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1.25rem; flex-wrap:wrap;
+}
+.post-cta p { color:#F0E6CC; margin:0; font-family:Georgia,serif; font-style:italic; font-size:1rem; }
+.post-cta a { background:#C8A96E; color:#1A3A5C; font-weight:700; font-size:.88rem; padding:.6rem 1.4rem; border-radius:8px; text-decoration:none; white-space:nowrap; }
+</style>
+
+<!-- ── BLOC BOOZY ───────────────────────────────────────────────────────────── -->
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy</span>
+      <span class="boozy-role">Étudiant en master de santé publique · QIBAR Blog</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Salut ! Moi c'est Boozy.<br><br>
+    Ce matin, mon directeur de mémoire m'a posé une question toute simple. Une question à laquelle j'aurais dû répondre les yeux fermés après des semaines de lectures et de réflexion.<br><br>
+    Il m'a demandé : <strong style="color:#C8A96E">"Quelle est ta question de recherche ?"</strong><br><br>
+    Et moi, j'ai ouvert la bouche. Puis je l'ai refermée. Puis j'ai regardé mes chaussures.<br><br>
+    J'avais une idée. Une intuition. Un sujet. Mais une <em>question</em> ? Non. Pas vraiment. »
+  </p>
+</div>
+```
+
+## Le constat de Boozy
+
+Boozy voulait travailler sur "la drépanocytose chez les enfants". Il avait lu des dizaines d'articles, rempli un cahier de notes, créé un dossier Zotero impeccable. Il se sentait prêt.
+
+Mais en réalité, il avait un **thème** — pas une **question de recherche**. Et la différence entre les deux est exactement la différence entre une promenade et une expédition : l'une est agréable, l'autre a une destination.
+
+```{=html}
+<div class="scenario-box">
+  <p class="sc-label">🔀 Mindset × Épidémiologie (#3)</p>
+  <p>La page blanche du chercheur débutant n'est pas un problème de motivation. C'est un problème de <strong style="color:#C8A96E">structure cognitive</strong>. Le cerveau humain génère des idées en mode divergent — large, flou, associatif. La science, elle, exige un mode convergent — précis, délimité, testable. Apprendre à structurer une question de recherche, c'est apprendre à basculer consciemment entre ces deux modes. C'est aussi le fondement de tout design d'étude (#3) : impossible de choisir entre une étude descriptive et analytique si la question n'est pas encore posée.</p>
+  <span class="sc-link">→ À lire aussi : [#3] Boozy doit choisir son design d'étude — Descriptif vs Analytique</span>
+</div>
+```
+
+## Le décryptage : thème ≠ question ≠ hypothèse
+
+Avant de chercher une méthode, il faut distinguer trois niveaux que Boozy — comme beaucoup d'étudiants — confondait allègrement.
+
+```{=html}
+<table class="transf-table">
+  <thead>
+    <tr><th>Niveau</th><th>Ce que c'est</th><th>Exemple de Boozy</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Thème</strong></td>
+      <td>Un domaine vaste, une préoccupation générale</td>
+      <td class="bad">"La drépanocytose chez les enfants"</td>
+    </tr>
+    <tr>
+      <td><strong>Problématique</strong></td>
+      <td>Un problème identifié dans ce domaine, avec un contexte</td>
+      <td>"La prise en charge de la douleur vaso-occlusive est insuffisante dans les centres périphériques"</td>
+    </tr>
+    <tr>
+      <td><strong>Question de recherche</strong></td>
+      <td>Une question précise, délimitée, à laquelle on peut répondre avec des données</td>
+      <td class="good">"Quelle est la prévalence des crises vaso-occlusives sévères chez les enfants SS de 2 à 10 ans suivis au CRLD en 2023 ?"</td>
+    </tr>
+    <tr>
+      <td><strong>Hypothèse</strong></td>
+      <td>Une réponse anticipée, testable statistiquement (études analytiques)</td>
+      <td>"Les enfants SS sous hydroxyurée présentent moins de crises sévères que ceux sans traitement"</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## L'outil n°1 : L'entonnoir conceptuel
+
+L'entonnoir est la façon la plus naturelle de structurer sa réflexion : on part du général pour arriver au spécifique et au mesurable. Chaque étape filtre, précise, délimite.
+
+```{=html}
+<div class="funnel-wrap">
+
+  <div class="funnel-step fs-1" style="width:100%">
+    <span class="fs-label">① Domaine large</span>
+    <p class="fs-text">Le grand territoire scientifique dans lequel vous opérez</p>
+    <p class="fs-ex">Ex : "Maladies hématologiques pédiatriques en Afrique subsaharienne"</p>
+  </div>
+  <div class="funnel-arrow">▼</div>
+
+  <div class="funnel-step fs-2" style="width:88%">
+    <span class="fs-label">② Problème de santé ciblé</span>
+    <p class="fs-text">Un problème précis, documenté, avec un enjeu de santé publique</p>
+    <p class="fs-ex">Ex : "Morbidité liée aux crises vaso-occlusives chez les enfants drépanocytaires"</p>
+  </div>
+  <div class="funnel-arrow">▼</div>
+
+  <div class="funnel-step fs-3" style="width:72%">
+    <span class="fs-label">③ Population & contexte</span>
+    <p class="fs-text">Qui ? Où ? Quand ? Les bornes de votre étude</p>
+    <p class="fs-ex">Ex : "Enfants de 2 à 10 ans, génotype SS, suivis au CRLD, Bamako, 2023"</p>
+  </div>
+  <div class="funnel-arrow">▼</div>
+
+  <div class="funnel-step fs-4" style="width:56%">
+    <span class="fs-label">④ Variable d'intérêt</span>
+    <p class="fs-text">Ce que vous mesurez concrètement — doit être opérationnalisable</p>
+    <p class="fs-ex">Ex : "Fréquence et sévérité des crises (échelle QLDB), durée d'hospitalisation"</p>
+  </div>
+  <div class="funnel-arrow">▼</div>
+
+  <div class="funnel-step fs-5" style="width:40%">
+    <span class="fs-label">⑤ Question finale</span>
+    <p class="fs-text" style="color:#F0EBE3">Précise · Délimitée · Mesurable · Faisable</p>
+    <p class="fs-ex" style="color:#C8A96E">"Quelle est la prévalence des CVO sévères chez les enfants SS du CRLD en 2023 ?"</p>
+  </div>
+
+</div>
+```
+
+## L'outil n°2 : Le cadre PICO
+
+L'entonnoir vous aide à réfléchir. PICO vous aide à **formuler** — particulièrement pour les questions analytiques et les revues systématiques. C'est l'outil de référence en médecine evidence-based.
+
+```{=html}
+<div class="pico-grid">
+  <div class="pico-card p">
+    <span class="pico-letter">P</span>
+    <span class="pico-word">Population</span>
+    <p class="pico-def">Qui sont vos patients ou sujets ? Avec quelles caractéristiques ?</p>
+    <p class="pico-ex">Enfants de 2–10 ans, génotype HbSS, suivis au CRLD de Bamako</p>
+  </div>
+  <div class="pico-card i">
+    <span class="pico-letter">I</span>
+    <span class="pico-word">Intervention / Exposition</span>
+    <p class="pico-def">Quel facteur, traitement ou exposition étudiez-vous ?</p>
+    <p class="pico-ex">Traitement par hydroxyurée (≥ 6 mois, dose standard)</p>
+  </div>
+  <div class="pico-card c">
+    <span class="pico-letter">C</span>
+    <span class="pico-word">Comparaison</span>
+    <p class="pico-def">Par rapport à quoi ? Le groupe contrôle ou l'absence d'exposition</p>
+    <p class="pico-ex">Enfants HbSS sans hydroxyurée (traitement symptomatique seul)</p>
+  </div>
+  <div class="pico-card o">
+    <span class="pico-letter">O</span>
+    <span class="pico-word">Outcome (résultat)</span>
+    <p class="pico-def">Quel résultat mesurez-vous ? Doit être précis et quantifiable</p>
+    <p class="pico-ex">Fréquence annuelle des crises vaso-occlusives sévères (≥ 1 hospitalisation)</p>
+  </div>
+</div>
+
+<div class="qibar-section">
+  <p class="qs-label">✏️ La question PICO assemblée</p>
+  <p>« Chez les <strong>enfants de 2 à 10 ans atteints de drépanocytose HbSS suivis au CRLD (P)</strong>, le traitement par <strong>hydroxyurée pendant au moins 6 mois (I)</strong> est-il associé à une réduction de la fréquence des crises vaso-occlusives sévères <strong>par rapport à un traitement symptomatique seul (C)</strong>, mesurée par le <strong>nombre annuel d'hospitalisations pour CVO (O)</strong> ? »</p>
+  <p>Cette question appelle un design analytique — étude de cohorte ou cas-témoin. Exactement ce qu'on verra au post #3.</p>
+</div>
+```
+
+## Les 4 erreurs que Boozy a faites (et que tout le monde fait)
+
+```{=html}
+<div class="error-grid">
+  <div class="error-card">
+    <span class="err-icon">🎯</span>
+    <p class="err-title">Trop large</p>
+    <p class="err-fix">"La santé des enfants en Afrique" → non mesurable, non faisable. Restreignez à une maladie, une population, un lieu, une période.</p>
+  </div>
+  <div class="error-card">
+    <span class="err-icon">🔬</span>
+    <p class="err-title">Trop narrow</p>
+    <p class="err-fix">"Les CVO chez 3 enfants HbSS vus en janvier" → pas de puissance statistique. Assurez-vous d'avoir assez de sujets pour répondre.</p>
+  </div>
+  <div class="error-card">
+    <span class="err-icon">📊</span>
+    <p class="err-title">Non mesurable</p>
+    <p class="err-fix">"Comprendre la souffrance des patients" → trop subjectif. Quelle échelle ? Quel indicateur ? Toute question doit avoir une variable de réponse quantifiable.</p>
+  </div>
+  <div class="error-card">
+    <span class="err-icon">⏱️</span>
+    <p class="err-title">Non faisable</p>
+    <p class="err-fix">"Suivre 5000 enfants sur 10 ans" pour un mémoire de master. La question doit être réalisable avec vos ressources, votre temps et votre accès aux données.</p>
+  </div>
+</div>
+```
+
+## La méthode de Boozy en 4 étapes
+
+```{=html}
+<ul class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <p class="step-title">Écrire l'idée brute sans se censurer</p>
+      <p>Prenez une feuille et écrivez votre idée telle qu'elle est — floue, imparfaite, générale. "Je veux comprendre pourquoi les enfants drépanocytaires souffrent autant à Bamako." C'est votre point de départ, pas votre arrivée.</p>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <p class="step-title">Passer l'idée dans l'entonnoir</p>
+      <p>Appliquez les 5 niveaux de l'entonnoir. Pour chaque niveau, posez-vous : <em>"Est-ce que je peux délimiter davantage ?"</em> Restez dans l'entonnoir jusqu'à ce que vous ayez une variable mesurable et une population précise.</p>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <p class="step-title">Structurer avec PICO (si analytique)</p>
+      <p>Si votre question compare deux groupes ou évalue un facteur de risque, remplissez le tableau PICO. Si elle décrit seulement une situation (prévalence, fréquence), le P et le O suffisent — c'est une étude descriptive.</p>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <p class="step-title">Tester la question avec le critère SMART</p>
+      <p>Votre question est-elle <strong>S</strong>pécifique, <strong>M</strong>esurable, <strong>A</strong>tteignable, <strong>R</strong>éaliste, et <strong>T</strong>emporellement délimitée ? Si vous répondez "oui" aux cinq, vous êtes prêt pour le design d'étude.</p>
+    </div>
+  </li>
+</ul>
+
+<div class="qibar-section">
+  <p class="qs-label">📋 Checklist avant de soumettre votre question à votre directeur</p>
+  <p>
+  ☐ Ma question contient une population précise (âge, diagnostic, lieu)<br>
+  ☐ Ma question contient une variable mesurable (taux, fréquence, score, durée)<br>
+  ☐ Ma question est délimitée dans le temps (année, période de suivi)<br>
+  ☐ Ma question est réalisable avec les données disponibles dans mon contexte<br>
+  ☐ Je peux répondre à la question en moins de 18 mois (mémoire) ou 3 ans (thèse)<br>
+  ☐ La réponse n'est pas déjà évidente — elle apporte quelque chose de nouveau
+  </p>
+</div>
+
+<!-- ── MOT DE LA FIN ──────────────────────────────────────────────────────── -->
+<div class="boozy-block" style="margin-top:2.5rem">
+  <div class="boozy-block::after" style="content:'🎓'"></div>
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy — la suite de l'histoire</span>
+      <span class="boozy-role">Il est retourné voir son directeur</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Le lendemain, je suis retourné voir mon directeur avec une feuille. En haut : mon entonnoir en 5 niveaux. En bas : ma question PICO assemblée.<br><br>
+    Il l'a lue. Il a hoché la tête. Et il m'a dit : <strong style="color:#C8A96E">"Voilà. C'est ça, une question de recherche."</strong><br><br>
+    Ça m'a pris 90 minutes. Pas 6 semaines.<br><br>
+    La page blanche n'était pas un problème de talent. C'était un problème de méthode. Et la méthode, ça s'apprend. C'est exactement pour ça que ce blog existe. »
+  </p>
+</div>
+
+<!-- ── QUESTION COMMUNAUTÉ ─────────────────────────────────────────────────── -->
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Et toi ?</span>
+      <span class="boozy-role">Boozy veut savoir où tu en es</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Est-ce que tu as une idée de recherche en tête en ce moment — mais tu ne sais pas encore comment la formuler ?<br><br>
+    Écris-la en commentaire, même floue. On la passe ensemble dans l'entonnoir. C'est une promesse. »
+  </p>
+</div>
+
+<!-- ── CTA ────────────────────────────────────────────────────────────────── -->
+<div class="post-cta">
+  <p>Vous avez une idée de recherche et besoin d'aide pour construire votre protocole ?<br>QIBAR Conseil accompagne de la question à l'analyse.</p>
+  <a href="mailto:mahamoud.koureichi@gmail.com">Contacter QIBAR →</a>
+</div>
+```
+
+::: {style="
+```{=html}
+<p style="font-family:Georgia,serif;font-size:1.1rem;
+    font-style:italic;color:#F0EBE3;margin:0 0 .5rem">
+```
+
+Chaque nouvel article de Boozy dans ta boîte mail.
+
+</p>
+
+<p style="font-size:.85rem;color:#7A9AB8;margin:0 0 1.25rem">
+
+Pas de spam. Juste de la méthode, du R et de la motivation.
+
+</p>
+
+<!-- Remplace l'action par ton URL Brevo/Mailchimp -->
+
+<form action="https://05f21676.sibforms.com/serve/MUIFAHfzQavUsQ25ClxHkhgyITPxGFeTR79hKPi-i-VOfFk0F7R3HuIbFokqmCDqXvOhNsdF7CX5LhuQrvl6nKX_k08wLqu-LnjIdSjL4w2xH8boR3DhVGDterAmxByQH7Cyy5tWnpPJHGihMKzOlKClCXmgCFVLsj2_d9gZhFQu9U6QZK9zAQ0F-ABrMl4oZi1bgAJP8RPKvlo7LA==" method="post" style="display:flex;gap:10px;justify-content:center;flex-wrap:wrap">
+
+<input type="email" name="EMAIL" placeholder="votre@email.com"
+      style="padding:.6rem 1rem;border-radius:8px;border:none;
+             font-size:.9rem;width:240px;outline:none"/> <button type="submit"
+      style="background:#C8A96E;color:#1A3A5C;font-weight:700;
+             padding:.6rem 1.4rem;border-radius:8px;border:none;
+             cursor:pointer;font-size:.9rem"> S'abonner → </button>
+
+</form>
+:::
+
+------------------------------------------------------------------------
+
+*Cet article est le **#1** de la série QIBAR Blog — Cycle 1 : La Fondation. Prochain épisode : \[#2\] Boozy est submergé par la littérature — comment organiser ses lectures avec Zotero.*
