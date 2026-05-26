@@ -3,7 +3,7 @@ title: "[Boozy] : Pourquoi je ne veux plus jamais manipuler mes données dans Ex
 subtitle: "Reproductibilité, automatisation et dignité du chercheur — bienvenue dans R"
 description: "Boozy a failli changer de carrière après 4 heures perdues sur un tableau Excel. On décrypte ensemble pourquoi Excel est un piège pour le chercheur, et comment R — même sans être informaticien — change tout."
 author: "QIBAR Center"
-date: "2025-07-01"
+date: "2026-05-25"
 categories:
   - Analyse & R
   - Technique
