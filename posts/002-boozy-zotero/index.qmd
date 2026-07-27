@@ -3,7 +3,7 @@ title: "[Boozy] : 47 onglets ouverts et aucune idée de ce que j'ai lu"
 subtitle: "Zotero comme mémoire externe. Pourquoi votre cerveau ne peut pas faire ce travail seul."
 description: "Boozy a lu 40 articles en deux semaines. Il ne se souvient de presque rien. On décrypte pourquoi le cerveau humain est biologiquement incapable de gérer une revue de littérature sans système externe, et comment Zotero règle ce problème en 20 minutes."
 author: "QIBAR Center"
-date: "2026-07-01"
+date: "2026-06-01"
 categories:
   - Méthodologie
   - Outils
