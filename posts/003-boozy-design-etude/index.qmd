@@ -1,0 +1,377 @@
+---
+title: "[Boozy] : Descriptif ou analytique ? Le choix qui bloque tout le monde"
+subtitle: "Choisir son design d'étude n'est pas un problème de méthode. C'est un problème de question."
+description: "Boozy a passé trois jours à hésiter entre une étude transversale et un cas-témoin. Son directeur lui a posé une seule question. En deux minutes, tout était clair. On décrypte la logique derrière le choix d'un design d'étude, avec une grille de décision opérationnelle."
+author: "QIBAR Center"
+date: "2026-07-27"
+categories:
+  - Méthodologie
+  - Épidémiologie
+  - Mindset
+image: "cover.png"
+lang: fr
+reading-time: true
+---
+
+```{=html}
+<style>
+.boozy-block {
+  background: linear-gradient(135deg, #0C2440, #1A3A5C);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  margin: 2rem 0 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.boozy-block::after {
+  content: "🔬";
+  position: absolute;
+  top: -8px; right: 12px;
+  font-size: 6rem; opacity: 0.06; pointer-events: none;
+}
+.boozy-avatar { display:flex; align-items:center; gap:12px; margin-bottom:1.1rem; }
+.boozy-monogram {
+  width:50px; height:50px; border-radius:50%;
+  background:#C8A96E; display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:26px; font-weight:700;
+  color:#1A3A5C; flex-shrink:0;
+}
+.boozy-name  { font-size:.78rem; font-weight:700; color:#C8A96E; letter-spacing:.07em; text-transform:uppercase; display:block; }
+.boozy-role  { font-size:.76rem; color:#7A9AB8; display:block; margin-top:2px; }
+.boozy-speech { font-family:Georgia,serif; font-style:italic; font-size:1.05rem; color:#F0EBE3; line-height:1.7; margin:0; }
+
+.crossover-box {
+  background: linear-gradient(120deg, #2D7A5F 0%, #1A3A5C 100%);
+  border-radius:14px; padding:1.5rem 1.75rem; margin:2rem 0;
+}
+.crossover-box .cx-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#9FE1CB; margin-bottom:.5rem; display:block; }
+.crossover-box p { font-size:.93rem; color:#F0EBE3; font-family:Georgia,serif; font-style:italic; line-height:1.65; margin:0 0 .5rem; }
+.crossover-box .cx-link { font-size:.82rem; color:#C8A96E; font-style:normal; }
+
+.qibar-section {
+  border-left:4px solid #C8A96E; background:#ffffff;
+  border-radius:0 12px 12px 0; padding:1.1rem 1.4rem;
+  margin:1.75rem 0; box-shadow:0 2px 12px rgba(26,58,92,.06);
+}
+.qibar-section .qs-label {
+  font-size:.76rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.08em; color:#C8A96E; margin:0 0 .5rem;
+  display:flex; align-items:center; gap:6px;
+}
+.qibar-section p, .qibar-section li { font-size:.95rem; color:#3D3428; margin:0 0 .5rem; line-height:1.7; }
+
+/* Grille des designs */
+.design-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+  gap: 14px;
+  margin: 1.5rem 0;
+}
+.design-card {
+  background: #fff;
+  border: 0.5px solid var(--qibar-bordure, #D8D0C5);
+  border-radius: 12px;
+  padding: 1.1rem 1.2rem;
+  border-top: 4px solid;
+}
+.design-card .dc-type { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; display:block; margin-bottom:4px; }
+.design-card .dc-name { font-size:.95rem; font-weight:600; color:#1A3A5C; margin:0 0 .4rem; }
+.design-card .dc-question { font-size:.82rem; font-style:italic; color:#7A7068; margin:0 0 .5rem; }
+.design-card .dc-when { font-size:.82rem; color:#3D3428; margin:0; line-height:1.5; }
+
+/* Arbre de décision */
+.tree-wrap { margin: 1.75rem 0; }
+.tree-node {
+  background: #F5F2EE;
+  border-radius: 10px;
+  padding: .9rem 1.2rem;
+  margin-bottom: 8px;
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+}
+.tree-node .tn-q {
+  font-size:.9rem; font-weight:600; color:#1A3A5C;
+  flex: 1; margin:0;
+}
+.tree-arrow { font-size:.85rem; color:#C8A96E; margin-top:2px; flex-shrink:0; }
+.tree-answer {
+  background: #EEF2F7;
+  border-radius: 0 0 10px 10px;
+  padding: .6rem 1.2rem .6rem 2.6rem;
+  margin-top: -8px;
+  margin-bottom: 12px;
+  font-size:.85rem; color:#1A3A5C;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 6px;
+}
+.tree-answer .ans-yes { color:#2D7A5F; font-weight:600; }
+.tree-answer .ans-no  { color:#993C1D; font-weight:600; }
+
+/* Tableau comparatif */
+.comp-table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.88rem; border-radius:12px; overflow:hidden; }
+.comp-table thead tr { background:#1A3A5C; }
+.comp-table thead th { color:#C8A96E; font-weight:600; padding:.65rem 1rem; text-align:left; }
+.comp-table tbody tr:nth-child(even) { background:#F5F2EE; }
+.comp-table tbody tr:nth-child(odd)  { background:#fff; }
+.comp-table tbody td { padding:.55rem 1rem; color:#3D3428; vertical-align:top; line-height:1.5; }
+.comp-table .td-desc { color:#2D7A5F; font-weight:500; }
+.comp-table .td-anal { color:#6B4C9A; font-weight:500; }
+
+.post-cta {
+  background:linear-gradient(135deg,#1A3A5C,#0C2440); border-radius:14px;
+  padding:1.75rem 2rem; margin-top:3rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1.25rem; flex-wrap:wrap;
+}
+.post-cta p { color:#F0E6CC; margin:0; font-family:Georgia,serif; font-style:italic; font-size:1rem; }
+.post-cta a { background:#C8A96E; color:#1A3A5C; font-weight:700; font-size:.88rem; padding:.6rem 1.4rem; border-radius:8px; text-decoration:none; white-space:nowrap; }
+</style>
+
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy</span>
+      <span class="boozy-role">Étudiant en master · paralysé devant un tableau blanc · QIBAR Blog</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Salut. C'est Boozy.<br><br>
+    Ça fait trois jours que j'ai ce tableau blanc devant moi. D'un côté j'ai écrit "étude transversale". De l'autre "cas-témoin". Et entre les deux, une grande flèche qui ne pointe nulle part.<br><br>
+    J'ai lu six chapitres de méthodologie. J'ai regardé deux vidéos. J'ai demandé à deux camarades de promo qui m'ont donné deux réponses différentes.<br><br>
+    Ce matin, mon directeur m'a posé <strong style="color:#C8A96E">une seule question</strong>. En deux minutes, j'avais ma réponse. »
+  </p>
+</div>
+```
+
+## La question de son directeur
+
+Le directeur de Boozy n'a pas sorti un manuel. Il a demandé :
+
+> "Tu veux mesurer quelque chose, ou tu veux expliquer quelque chose ?"
+
+Boozy a répondu sans hésiter : "Expliquer. Je veux savoir si le niveau socio-économique influence la fréquence des crises chez mes patients."
+
+Son directeur a posé son stylo. "Alors tu as besoin d'un design analytique. La discussion est terminée."
+
+```{=html}
+<div class="crossover-box">
+  <span class="cx-label">🔀 Narration croisée : Épidémiologie × Mindset (#1)</span>
+  <p>La paralysie de Boozy n'est pas un problème de méthode. C'est un problème de question mal posée, exactement ce qu'on a vu au post #1. Quand la question de recherche est floue, chaque design semble plausible. Quand elle est précise, le design s'impose de lui-même. Boozy a passé trois jours à chercher la bonne méthode sans avoir encore la bonne question. Il cherchait dans le mauvais tiroir.</p>
+  <span class="cx-link">→ Relire d'abord : [#1] Boozy a une idée de recherche. Comment en faire une vraie question ?</span>
+</div>
+```
+
+## Descriptif ou analytique : la distinction centrale
+
+Toute étude en épidémiologie répond à l'une de ces deux questions fondamentales.
+
+**Combien ?** C'est la question descriptive. Quelle est la prévalence de la drépanocytose dans ce district ? Quel est le taux de couverture vaccinale chez les enfants de 0 à 5 ans ? Quelle est la létalité du paludisme grave dans cette unité de soins intensifs ?
+
+**Pourquoi ?** C'est la question analytique. Le niveau socio-économique influence-t-il la fréquence des crises ? L'allaitement maternel protège-t-il contre les infections respiratoires ? L'hydroxyurée réduit-elle le nombre d'hospitalisations chez les drépanocytaires SS ?
+
+```{=html}
+<div class="qibar-section">
+  <p class="qs-label">🎯 Le test en une phrase</p>
+  <p>Reformulez votre objectif principal en commençant par un verbe. Si vous écrivez <strong>« Déterminer la prévalence / fréquence / distribution de... »</strong>, votre étude est descriptive. Si vous écrivez <strong>« Évaluer l'association / l'effet / le rôle de... »</strong>, elle est analytique. Ce test fonctionne dans 90% des cas.</p>
+</div>
+```
+
+## Les designs disponibles, classés par famille
+
+```{=html}
+<div class="design-grid">
+
+  <div class="design-card" style="border-top-color:#2D7A5F">
+    <span class="dc-type" style="color:#2D7A5F">Descriptif</span>
+    <p class="dc-name">Étude transversale</p>
+    <p class="dc-question">Quelle est la prévalence de X dans cette population à ce moment ?</p>
+    <p class="dc-when">Données collectées une seule fois. Rapide, peu coûteux. Idéal pour les mémoires et les premières études sur un sujet.</p>
+  </div>
+
+  <div class="design-card" style="border-top-color:#2D7A5F">
+    <span class="dc-type" style="color:#2D7A5F">Descriptif</span>
+    <p class="dc-name">Étude écologique</p>
+    <p class="dc-question">Quelle est la distribution de X selon les zones géographiques ou les périodes ?</p>
+    <p class="dc-when">Données agrégées au niveau de populations entières. Génère des hypothèses, ne les teste pas.</p>
+  </div>
+
+  <div class="design-card" style="border-top-color:#6B4C9A">
+    <span class="dc-type" style="color:#6B4C9A">Analytique observationnel</span>
+    <p class="dc-name">Cas-témoin</p>
+    <p class="dc-question">Les cas ont-ils été plus exposés que les témoins ?</p>
+    <p class="dc-when">Part des cas (malades) et remonte vers l'exposition. Rapide pour les maladies rares. Risque de biais de mémorisation.</p>
+  </div>
+
+  <div class="design-card" style="border-top-color:#6B4C9A">
+    <span class="dc-type" style="color:#6B4C9A">Analytique observationnel</span>
+    <p class="dc-name">Cohorte</p>
+    <p class="dc-question">Les exposés développent-ils plus souvent la maladie que les non-exposés ?</p>
+    <p class="dc-when">Part de l'exposition et suit les sujets dans le temps. Coûteux mais solide. Calcule directement l'incidence.</p>
+  </div>
+
+  <div class="design-card" style="border-top-color:#C8A96E">
+    <span class="dc-type" style="color:#8B6F3A">Analytique expérimental</span>
+    <p class="dc-name">Essai contrôlé randomisé</p>
+    <p class="dc-question">Cette intervention est-elle plus efficace que le comparateur ?</p>
+    <p class="dc-when">Le chercheur assigne lui-même l'exposition. Standard d'or pour évaluer les traitements. Éthique et logistique complexes.</p>
+  </div>
+
+  <div class="design-card" style="border-top-color:#1A3A5C">
+    <span class="dc-type" style="color:#1A3A5C">Synthèse</span>
+    <p class="dc-name">Revue systématique et méta-analyse</p>
+    <p class="dc-question">Quelle est la conclusion de l'ensemble des études sur ce sujet ?</p>
+    <p class="dc-when">Synthétise les résultats de plusieurs études. Niveau de preuve le plus élevé. Nécessite une question PICO rigoureuse.</p>
+  </div>
+
+</div>
+```
+
+## Le tableau de comparaison clé
+
+```{=html}
+<table class="comp-table">
+  <thead>
+    <tr>
+      <th>Critère</th>
+      <th class="td-desc">Descriptif</th>
+      <th class="td-anal">Analytique</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Question centrale</td>
+      <td>Combien ? Qui ? Où ? Quand ?</td>
+      <td>Pourquoi ? Quel facteur ? Quelle association ?</td>
+    </tr>
+    <tr>
+      <td>Mesure produite</td>
+      <td>Prévalence, fréquence, distribution</td>
+      <td>Risque relatif, odds ratio, hazard ratio</td>
+    </tr>
+    <tr>
+      <td>Hypothèse testée</td>
+      <td>Aucune, on décrit</td>
+      <td>Oui, une hypothèse nulle (H0)</td>
+    </tr>
+    <tr>
+      <td>Groupe de comparaison</td>
+      <td>Pas nécessaire</td>
+      <td>Obligatoire (témoins ou non-exposés)</td>
+    </tr>
+    <tr>
+      <td>Causalité</td>
+      <td>Ne peut pas conclure à la causalité</td>
+      <td>Peut suggérer une causalité (pas la prouver, sauf ECR)</td>
+    </tr>
+    <tr>
+      <td>Complexité</td>
+      <td>Plus simple à mettre en oeuvre</td>
+      <td>Plus exigeant en taille d'échantillon et analyse</td>
+    </tr>
+    <tr>
+      <td>Exemple typique</td>
+      <td>Prévalence du diabète dans le district de Bamako</td>
+      <td>Facteurs associés aux complications du diabète</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## La grille de décision de Boozy
+
+Quand Boozy hésite encore, il pose ces quatre questions dans l'ordre.
+
+```{=html}
+<div class="tree-wrap">
+
+  <div class="tree-node">
+    <p class="tn-q">1. Ma question commence par "Quelle est la prévalence / fréquence / distribution de..." ?</p>
+  </div>
+  <div class="tree-answer">
+    <span class="ans-yes">Oui : étude descriptive. Transversale en priorité.</span>
+    <span class="ans-no">Non : passer à la question 2.</span>
+  </div>
+
+  <div class="tree-node">
+    <p class="tn-q">2. Je compare deux groupes (malades vs sains, exposés vs non-exposés) ?</p>
+  </div>
+  <div class="tree-answer">
+    <span class="ans-yes">Oui : étude analytique observationnelle. Passer à la question 3.</span>
+    <span class="ans-no">Non : retravailler la question de recherche.</span>
+  </div>
+
+  <div class="tree-node">
+    <p class="tn-q">3. Je pars des malades et je remonte vers l'exposition, ou je pars de l'exposition et je suis dans le temps ?</p>
+  </div>
+  <div class="tree-answer">
+    <span class="ans-yes">Je pars des malades : cas-témoin.</span>
+    <span class="ans-no">Je pars de l'exposition : cohorte.</span>
+  </div>
+
+  <div class="tree-node">
+    <p class="tn-q">4. Je peux assigner moi-même l'intervention aux participants (contexte d'essai clinique) ?</p>
+  </div>
+  <div class="tree-answer">
+    <span class="ans-yes">Oui : essai contrôlé randomisé.</span>
+    <span class="ans-no">Non : rester sur un observationnel.</span>
+  </div>
+
+</div>
+```
+
+```{=html}
+<div class="qibar-section">
+  <p class="qs-label">⚠️ L'erreur la plus fréquente</p>
+  <p>Choisir un design analytique pour une question descriptive. Cela arrive quand l'étudiant pense qu'un design analytique est "plus sérieux" ou "plus scientifique". Le design le plus rigoureux est celui qui répond à la question posée. Une transversale bien conduite vaut mieux qu'un cas-témoin bancal sur une mauvaise hypothèse.</p>
+</div>
+```
+
+## Ce que Boozy a fait après la conversation
+
+Il a effacé le tableau blanc. Il a repris sa question PICO du post #1. Il a relancé le test en une phrase : "Évaluer l'association entre le niveau socio-économique et la fréquence des crises vaso-occlusives chez les enfants drépanocytaires SS suivis au CRLD."
+
+Le verbe "évaluer l'association" a tout dit. Design analytique. Données rétrospectives disponibles dans les dossiers. Deux groupes : patients avec crises fréquentes et patients avec crises rares. Cas-témoin.
+
+Il a envoyé sa proposition à son directeur le soir même.
+
+```{=html}
+<div class="boozy-block" style="margin-top:2.5rem">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy, trois jours plus tard</span>
+      <span class="boozy-role">Tableau blanc effacé. Protocole en cours.</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Mon directeur a lu ma proposition en cinq minutes. Il a juste rajouté une note sur la taille de l'échantillon à calculer.<br><br>
+    Trois jours de paralysie. Deux minutes de conversation. Une question bien posée.<br><br>
+    Le design d'étude ne se choisit pas dans un livre de méthodes. <strong style="color:#C8A96E">Il découle de la question.</strong> Quand la question est claire, le design suit. C'est dans cet ordre, pas dans l'autre. »
+  </p>
+</div>
+
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Et toi ?</span>
+      <span class="boozy-role">Boozy veut savoir</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Tu travailles sur quel type d'étude en ce moment ? Descriptif ou analytique ? Et est-ce que tu as hésité longtemps avant de choisir ton design ?<br><br>
+    Écris-le en commentaire. Si tu bloques encore sur le choix, pose ta question de recherche, on regarde ensemble avec la grille. »
+  </p>
+</div>
+
+<div class="post-cta">
+  <p>Vous construisez un protocole de recherche et voulez valider votre design avant de démarrer ?<br>QIBAR Conseil vous accompagne dès la conception.</p>
+  <a href="mailto:mahamoud.koureichi@gmail.com">Contacter QIBAR →</a>
+</div>
+```
+
+------------------------------------------------------------------------
+
+*Cet article est le **#3** de la série QIBAR Blog, Cycle 1 : La Fondation. Prochain épisode : \[#4\] Boozy veut créer un protocole de recherche solide sans y passer 6 mois.*
