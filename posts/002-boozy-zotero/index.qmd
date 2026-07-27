@@ -1,0 +1,277 @@
+---
+title: "[Boozy] : 47 onglets ouverts et aucune idée de ce que j'ai lu"
+subtitle: "Zotero comme mémoire externe. Pourquoi votre cerveau ne peut pas faire ce travail seul."
+description: "Boozy a lu 40 articles en deux semaines. Il ne se souvient de presque rien. On décrypte pourquoi le cerveau humain est biologiquement incapable de gérer une revue de littérature sans système externe, et comment Zotero règle ce problème en 20 minutes."
+author: "QIBAR Center"
+date: "2026-07-01"
+categories:
+  - Méthodologie
+  - Outils
+  - Neurosciences
+image: "cover.png"
+lang: fr
+reading-time: true
+---
+
+```{=html}
+<style>
+.boozy-block {
+  background: linear-gradient(135deg, #0C2440, #1A3A5C);
+  border-radius: 16px;
+  padding: 1.75rem 2rem;
+  margin: 2rem 0 2.5rem;
+  position: relative;
+  overflow: hidden;
+}
+.boozy-block::after {
+  content: "📚";
+  position: absolute;
+  top: -8px; right: 12px;
+  font-size: 6rem; opacity: 0.06; pointer-events: none;
+}
+.boozy-avatar { display:flex; align-items:center; gap:12px; margin-bottom:1.1rem; }
+.boozy-monogram {
+  width:50px; height:50px; border-radius:50%;
+  background:#C8A96E; display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:26px; font-weight:700;
+  color:#1A3A5C; flex-shrink:0;
+}
+.boozy-name  { font-size:.78rem; font-weight:700; color:#C8A96E; letter-spacing:.07em; text-transform:uppercase; display:block; }
+.boozy-role  { font-size:.76rem; color:#7A9AB8; display:block; margin-top:2px; }
+.boozy-speech { font-family:Georgia,serif; font-style:italic; font-size:1.05rem; color:#F0EBE3; line-height:1.7; margin:0; }
+
+.crossover-box {
+  background: linear-gradient(120deg, #1A3A5C 0%, #6B4C9A 100%);
+  border-radius:14px; padding:1.5rem 1.75rem; margin:2rem 0;
+}
+.crossover-box .cx-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#C4AFDF; margin-bottom:.5rem; display:block; }
+.crossover-box p { font-size:.93rem; color:#F0EBE3; font-family:Georgia,serif; font-style:italic; line-height:1.65; margin:0 0 .5rem; }
+.crossover-box .cx-link { font-size:.82rem; color:#C8A96E; font-style:normal; }
+
+.qibar-section {
+  border-left:4px solid #C8A96E; background:#ffffff;
+  border-radius:0 12px 12px 0; padding:1.1rem 1.4rem;
+  margin:1.75rem 0; box-shadow:0 2px 12px rgba(26,58,92,.06);
+}
+.qibar-section .qs-label {
+  font-size:.76rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.08em; color:#C8A96E; margin:0 0 .5rem;
+  display:flex; align-items:center; gap:6px;
+}
+.qibar-section p, .qibar-section li { font-size:.95rem; color:#3D3428; margin:0 0 .5rem; line-height:1.7; }
+
+.step-list { list-style:none; padding:0; margin:1.5rem 0; }
+.step-list li { display:grid; grid-template-columns:36px 1fr; gap:12px; align-items:flex-start; margin-bottom:1rem; }
+.step-num { width:36px; height:36px; border-radius:50%; background:#1A3A5C; color:#C8A96E; display:flex; align-items:center; justify-content:center; font-family:Georgia,serif; font-size:1rem; font-weight:700; flex-shrink:0; margin-top:2px; }
+.step-content .step-title { font-size:.9rem; font-weight:600; color:#1A3A5C; margin:0 0 3px; }
+.step-content p { font-size:.88rem; color:#5F5E5A; margin:0; line-height:1.55; }
+
+.zotero-schema {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(160px, 1fr));
+  gap: 12px;
+  margin: 1.5rem 0;
+}
+.z-card {
+  background: #F5F2EE;
+  border-radius: 10px;
+  padding: 1rem;
+  border-top: 3px solid;
+  text-align: center;
+}
+.z-card .z-icon { font-size: 1.6rem; margin-bottom: .5rem; display: block; }
+.z-card .z-title { font-size: .85rem; font-weight: 600; color: #1A3A5C; margin: 0 0 4px; }
+.z-card .z-desc  { font-size: .78rem; color: #7A7068; margin: 0; line-height: 1.5; }
+
+.post-cta {
+  background:linear-gradient(135deg,#1A3A5C,#0C2440); border-radius:14px;
+  padding:1.75rem 2rem; margin-top:3rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1.25rem; flex-wrap:wrap;
+}
+.post-cta p { color:#F0E6CC; margin:0; font-family:Georgia,serif; font-style:italic; font-size:1rem; }
+.post-cta a { background:#C8A96E; color:#1A3A5C; font-weight:700; font-size:.88rem; padding:.6rem 1.4rem; border-radius:8px; text-decoration:none; white-space:nowrap; }
+</style>
+
+<!-- ── BLOC BOOZY ───────────────────────────────────────────────────────────── -->
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy</span>
+      <span class="boozy-role">Étudiant en master · en train de se noyer · QIBAR Blog</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Salut. C'est Boozy.<br><br>
+    J'ai 47 onglets ouverts. 23 PDFs téléchargés dans un dossier qui s'appelle "Articles à lire". Un carnet avec des notes prises en urgence que je ne comprends plus. Et mon directeur qui me demande depuis deux semaines où en est ma revue de littérature.<br><br>
+    La vérité ? <strong style="color:#C8A96E">J'ai lu quarante articles. Je me souviens de presque rien.</strong><br><br>
+    Ce n'est pas de la paresse. C'est de la biologie. »
+  </p>
+</div>
+```
+
+## Ce qui se passe dans le cerveau de Boozy
+
+Boozy lit un article sur la prévalence de la drépanocytose. Il prend deux notes. Il passe à l'article suivant. À la fin de la journée, il a parcouru sept articles. Il serait incapable de citer les chiffres clés du troisième.
+
+Ce n'est pas un problème de concentration. C'est la **courbe de l'oubli d'Ebbinghaus** en action.
+
+```{=html}
+<div class="crossover-box">
+  <span class="cx-label">🔀 Narration croisée : Technique × Neurosciences (#46)</span>
+  <p>Hermann Ebbinghaus a montré en 1885 que le cerveau humain oublie 50% d'une information nouvelle dans l'heure qui suit sa lecture, 70% en 24 heures, et plus de 90% en une semaine, sans révision active. Une revue de littérature conduite sans système de capture externe n'est pas une revue. C'est une promenade dont vous n'avez gardé aucune photo. Boozy ne lit pas mal. Il demande à sa mémoire biologique de faire un travail pour lequel elle n'a pas été conçue.</p>
+  <span class="cx-link">→ À lire aussi : [#46] Boozy comprend la courbe de l'oubli. Comment réviser ses bases de statistiques ?</span>
+</div>
+```
+
+La mémoire de travail humaine traite environ 7 éléments simultanément (Miller, 1956). Un article scientifique dense contient des dizaines de concepts, chiffres, auteurs, méthodes. Demander à votre cerveau de retenir tout ça pendant que vous lisez le suivant revient à verser de l'eau dans un verre déjà plein.
+
+**Zotero est un cerveau externe.**
+
+## Ce que Boozy faisait avant Zotero
+
+Boozy gérait sa bibliographie à la main. Copier-coller les références dans Word. Reformater manuellement selon les exigences de la revue ou de l'université. Chercher pendant vingt minutes un article dont il se souvenait vaguement. Quelque chose sur la sensibilité d'un test de dépistage, auteur en K, année 2021 peut-être.
+
+```{=html}
+<div class="qibar-section">
+  <p class="qs-label">⏱️ Coût réel de la gestion manuelle</p>
+  <p>Une revue de 40 articles gérée manuellement coûte en moyenne 8 à 12 heures de mise en forme bibliographique pure. Zotero ramène ce chiffre à zéro. Ces heures sont récupérables dès la première utilisation.</p>
+</div>
+```
+
+## Ce que Zotero fait concrètement
+
+Zotero est un logiciel gratuit et open-source qui fait quatre choses :
+
+```{=html}
+<div class="zotero-schema">
+  <div class="z-card" style="border-color:#1A3A5C">
+    <span class="z-icon">📥</span>
+    <p class="z-title">Capturer</p>
+    <p class="z-desc">Importer un article en un clic depuis le navigateur. Métadonnées complètes récupérées automatiquement.</p>
+  </div>
+  <div class="z-card" style="border-color:#C8A96E">
+    <span class="z-icon">🗂️</span>
+    <p class="z-title">Organiser</p>
+    <p class="z-desc">Collections par thème, tags, sous-dossiers. Retrouver n'importe quel article en 10 secondes.</p>
+  </div>
+  <div class="z-card" style="border-color:#2D7A5F">
+    <span class="z-icon">📝</span>
+    <p class="z-title">Annoter</p>
+    <p class="z-desc">Surligner et commenter le PDF directement dans Zotero. Les notes restent liées à l'article.</p>
+  </div>
+  <div class="z-card" style="border-color:#6B4C9A">
+    <span class="z-icon">📄</span>
+    <p class="z-title">Citer</p>
+    <p class="z-desc">Générer automatiquement la bibliographie dans Word ou Google Docs, dans n'importe quel style (APA, Vancouver, Chicago...).</p>
+  </div>
+</div>
+```
+
+## L'installation en 20 minutes
+
+```{=html}
+<ul class="step-list">
+  <li>
+    <div class="step-num">1</div>
+    <div class="step-content">
+      <p class="step-title">Télécharger Zotero et le connecteur navigateur</p>
+      <p>Aller sur <a href="https://www.zotero.org" target="_blank">zotero.org</a>. Télécharger Zotero (Windows/Mac/Linux) et installer le connecteur Chrome ou Firefox. C'est gratuit. C'est tout.</p>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">2</div>
+    <div class="step-content">
+      <p class="step-title">Créer votre première collection</p>
+      <p>Dans Zotero : clic droit dans le panneau gauche → "Nouvelle collection". Nommez-la avec le titre de votre mémoire ou thèse. Créez des sous-collections par thème : "Épidémiologie descriptive", "Drépanocytose", "Traitement".</p>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">3</div>
+    <div class="step-content">
+      <p class="step-title">Importer votre premier article</p>
+      <p>Ouvrez un article sur PubMed ou Google Scholar. Cliquez sur l'icône Zotero dans votre navigateur (une petite page ou un dossier). L'article entre dans Zotero avec son titre, ses auteurs, la revue, l'année et le DOI. En une seconde.</p>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">4</div>
+    <div class="step-content">
+      <p class="step-title">Annoter pendant la lecture</p>
+      <p>Ouvrez le PDF dans Zotero. Surlignez les passages clés. Ajoutez une note avec la synthèse en 2 lignes : "Prévalence HbSS = 1,2% dans le district de Bamako. Étude transversale, n=1200. Limite : pas de confirmation génotypique." Ces notes restent liées à l'article pour toujours.</p>
+    </div>
+  </li>
+  <li>
+    <div class="step-num">5</div>
+    <div class="step-content">
+      <p class="step-title">Installer le plugin Word</p>
+      <p>Dans Word, l'onglet Zotero apparaît après installation. Pour citer : cliquez sur "Add/Edit Citation", cherchez l'auteur ou le titre, sélectionnez. La bibliographie se génère et se met à jour automatiquement à chaque ajout.</p>
+    </div>
+  </li>
+</ul>
+```
+
+## La règle des 3 lignes
+
+Boozy a adopté une règle après avoir perdu des semaines à relire des articles déjà lus. Chaque article importé dans Zotero reçoit une note de 3 lignes maximum dans les 5 minutes qui suivent la lecture.
+
+```{=html}
+<div class="qibar-section">
+  <p class="qs-label">📋 Template de note Zotero (3 lignes)</p>
+  <p>
+    <strong>Résultat principal :</strong> [Le chiffre ou la conclusion centrale, en une phrase]<br>
+    <strong>Méthode :</strong> [Design d'étude, taille d'échantillon, population]<br>
+    <strong>Pertinence pour mon travail :</strong> [Pourquoi j'ai gardé cet article, ou pourquoi je l'exclus]
+  </p>
+  <p style="margin-top:.75rem">Ce template prend 3 minutes à remplir. Il fait économiser 30 minutes lors de la rédaction de la section Méthodes.</p>
+</div>
+```
+
+## Ce que Zotero ne fait pas
+
+Zotero classe et cite. Il ne lit pas à votre place, ne synthétise pas, et ne remplace pas la lecture critique. Un article mal compris reste mal compris même bien référencé.
+
+L'outil résout le problème logistique. Comprendre, relier et critiquer les sources reste entièrement votre travail.
+
+```{=html}
+<!-- ── MOT DE LA FIN ──────────────────────────────────────────────────────── -->
+<div class="boozy-block" style="margin-top:2.5rem">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy, ce soir</span>
+      <span class="boozy-role">47 onglets fermés. 1 collection Zotero ouverte.</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « J'ai passé deux heures à tout importer. Les 23 PDFs, les articles ouverts dans les onglets, les références notées à la main dans mon carnet.<br><br>
+    Maintenant j'ai une collection propre. Chaque article a ses 3 lignes de note. Je retrouve n'importe quelle référence en tapant un mot-clé.<br><br>
+    Mon directeur m'a demandé ce matin la liste de mes sources. <strong style="color:#C8A96E">J'ai exporté la bibliographie complète en 8 secondes.</strong><br><br>
+    C'était la première fois en deux mois que je ne cherchais pas quelque chose que j'avais déjà. »
+  </p>
+</div>
+
+<!-- ── QUESTION COMMUNAUTÉ ─────────────────────────────────────────────────── -->
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Et toi ?</span>
+      <span class="boozy-role">Boozy veut savoir</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Comment tu gères ta bibliographie en ce moment ? Excel, Word, Post-it, ou encore à la main ?<br><br>
+    Écris-le en commentaire. Et si tu as une astuce Zotero que je n'ai pas mentionnée, je veux savoir. »
+  </p>
+</div>
+
+<!-- ── CTA ────────────────────────────────────────────────────────────────── -->
+<div class="post-cta">
+  <p>Vous avez une revue de littérature à construire ?<br>QIBAR Conseil vous aide à structurer votre analyse de A à Z.</p>
+  <a href="mailto:mahamoud.koureichi@gmail.com">Contacter QIBAR →</a>
+</div>
+```
+
+------------------------------------------------------------------------
+
+*Cet article est le **#2** de la série QIBAR Blog, Cycle 1 : La Fondation. Références : Ebbinghaus, H. (1885). Über das Gedächtnis. Miller, G.A. (1956). "The magical number seven, plus or minus two." Psychological Review, 63(2), 81-97.*
