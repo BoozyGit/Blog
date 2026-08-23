@@ -1,0 +1,275 @@
+---
+title: "[Boozy] : Un protocole de recherche solide en 6 étapes, sans y passer 6 mois"
+subtitle: "La structure qui transforme une idée floue en projet défendable devant un comité d'éthique."
+description: "Boozy a mis trois semaines à rédiger son protocole. Son directeur l'a retourné en rouge en 48 heures. Deuxième tentative : 5 jours, zéro correction majeure. Ce qui a changé, c'est la structure. On la décrypte ici."
+author: "QIBAR Center"
+date: "2026-08-01"
+categories:
+  - Méthodologie
+  - Outils
+  - Mindset
+image: "cover.png"
+lang: fr
+reading-time: true
+---
+
+```{=html}
+<style>
+.boozy-block {
+  background: linear-gradient(135deg, #0C2440, #1A3A5C);
+  border-radius: 16px; padding: 1.75rem 2rem;
+  margin: 2rem 0 2.5rem; position: relative; overflow: hidden;
+}
+.boozy-block::after {
+  content: "📋"; position: absolute; top: -8px; right: 12px;
+  font-size: 6rem; opacity: 0.06; pointer-events: none;
+}
+.boozy-avatar { display:flex; align-items:center; gap:12px; margin-bottom:1.1rem; }
+.boozy-monogram {
+  width:50px; height:50px; border-radius:50%; background:#C8A96E;
+  display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:26px; font-weight:700;
+  color:#1A3A5C; flex-shrink:0;
+}
+.boozy-name { font-size:.78rem; font-weight:700; color:#C8A96E; letter-spacing:.07em; text-transform:uppercase; display:block; }
+.boozy-role { font-size:.76rem; color:#7A9AB8; display:block; margin-top:2px; }
+.boozy-speech { font-family:Georgia,serif; font-style:italic; font-size:1.05rem; color:#F0EBE3; line-height:1.7; margin:0; }
+
+.crossover-box {
+  background: linear-gradient(120deg, #1A3A5C 0%, #8B6F3A 100%);
+  border-radius:14px; padding:1.5rem 1.75rem; margin:2rem 0;
+}
+.crossover-box .cx-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#F0E6CC; margin-bottom:.5rem; display:block; }
+.crossover-box p { font-size:.93rem; color:#F0EBE3; font-family:Georgia,serif; font-style:italic; line-height:1.65; margin:0 0 .5rem; }
+.crossover-box .cx-link { font-size:.82rem; color:#C8A96E; font-style:normal; }
+
+.qibar-section {
+  border-left:4px solid #C8A96E; background:#ffffff;
+  border-radius:0 12px 12px 0; padding:1.1rem 1.4rem;
+  margin:1.75rem 0; box-shadow:0 2px 12px rgba(26,58,92,.06);
+}
+.qibar-section .qs-label {
+  font-size:.76rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.08em; color:#C8A96E; margin:0 0 .5rem;
+  display:flex; align-items:center; gap:6px;
+}
+.qibar-section p, .qibar-section li { font-size:.95rem; color:#3D3428; margin:0 0 .5rem; line-height:1.7; }
+
+.proto-grid {
+  display: grid;
+  grid-template-columns: 44px 1fr;
+  gap: 0 16px;
+  margin: 1.5rem 0;
+}
+.proto-num {
+  width:44px; height:44px; border-radius:50%;
+  background:#1A3A5C; color:#C8A96E;
+  display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:1.1rem; font-weight:700;
+  flex-shrink:0; margin-top:4px;
+  grid-row: span 1;
+}
+.proto-connector {
+  grid-column: 1;
+  width:2px; background: linear-gradient(#1A3A5C, #C8A96E);
+  margin: 0 auto; height: 24px;
+}
+.proto-body { margin-bottom:1.25rem; }
+.proto-title { font-size:.95rem; font-weight:600; color:#1A3A5C; margin:0 0 4px; }
+.proto-desc { font-size:.87rem; color:#5F5E5A; margin:0 0 .5rem; line-height:1.6; }
+.proto-template {
+  background:#F5F2EE; border-radius:8px;
+  padding:.65rem .9rem; font-size:.82rem;
+  color:#3D3428; font-style:italic; line-height:1.55;
+}
+
+.error-row {
+  display:flex; align-items:flex-start; gap:10px;
+  padding:.75rem 0; border-bottom:0.5px solid #EAE5DC;
+}
+.error-row:last-child { border:none; }
+.error-badge {
+  font-size:.72rem; font-weight:700; padding:2px 8px;
+  border-radius:99px; white-space:nowrap; flex-shrink:0; margin-top:2px;
+}
+.eb-red   { background:#FCEAEA; color:#8B1A1A; }
+.eb-green { background:#EBF5F0; color:#1A6B3A; }
+.error-text { font-size:.88rem; color:#3D3428; line-height:1.55; }
+
+.post-cta {
+  background:linear-gradient(135deg,#1A3A5C,#0C2440); border-radius:14px;
+  padding:1.75rem 2rem; margin-top:3rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1.25rem; flex-wrap:wrap;
+}
+.post-cta p { color:#F0E6CC; margin:0; font-family:Georgia,serif; font-style:italic; font-size:1rem; }
+.post-cta a { background:#C8A96E; color:#1A3A5C; font-weight:700; font-size:.88rem; padding:.6rem 1.4rem; border-radius:8px; text-decoration:none; white-space:nowrap; }
+</style>
+
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy</span>
+      <span class="boozy-role">Étudiant en master · premier protocole retourné en rouge · QIBAR Blog</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Salut. C'est Boozy.<br><br>
+    J'ai passé trois semaines sur mon premier protocole. Vingt-deux pages. Des tableaux, des sous-sections, des annexes que je n'avais pas demandées à moi-même.<br><br>
+    Mon directeur me l'a retourné en 48 heures. Couvert de rouge. Avec une note en bas : <strong style="color:#C8A96E">"Structure à revoir. Objectifs non opérationnels. Population mal définie."</strong><br><br>
+    La deuxième version a pris 5 jours. Zéro correction majeure. Ce qui a changé, c'est que j'ai compris à quoi sert un protocole. »
+  </p>
+</div>
+```
+
+## Ce qu'est un protocole
+
+Un protocole de recherche n'est pas un résumé de votre sujet. Ce n'est pas une revue de littérature non plus.
+
+Un protocole répond à une seule question : **si quelqu'un d'autre lit ce document, peut-il reproduire votre étude exactement, sans vous appeler une seule fois ?**
+
+Si la réponse est non, le protocole est incomplet.
+
+```{=html}
+<div class="crossover-box">
+  <span class="cx-label">🔀 Narration croisée : Méthodologie × Mindset (#37)</span>
+  <p>Boozy a cru pendant trois semaines qu'un protocole long était un protocole sérieux. Cette confusion entre volume et rigueur est l'une des erreurs cognitives les plus répandues chez les chercheurs débutants. Un comité d'éthique lit cent protocoles par session. Il cherche la clarté, pas l'exhaustivité. La rigueur se mesure à la précision des définitions, pas au nombre de pages.</p>
+  <span class="cx-link">→ À lire aussi : [#37] Boozy et le syndrome de l'imposteur : gérer le doute en milieu académique</span>
+</div>
+```
+
+## Les 6 sections d'un protocole solide
+
+Chaque section répond à une question précise. Ni plus, ni moins.
+
+```{=html}
+<div class="proto-grid">
+
+  <div class="proto-num">1</div>
+  <div class="proto-body">
+    <p class="proto-title">Contexte et justification</p>
+    <p class="proto-desc">Montrer que le problème existe, qu'il est important, et que votre étude comble un manque réel dans la littérature. Trois paragraphes suffisent : ampleur du problème, état des connaissances, lacune que vous comblerez.</p>
+    <div class="proto-template">Modèle : "La drépanocytose touche X personnes en Afrique subsaharienne [réf]. Au Mali, la prévalence est estimée à X% [réf]. Les facteurs associés à la fréquence des crises restent peu étudiés dans notre contexte [réf]. Cette étude vise à combler cette lacune."</div>
+  </div>
+
+  <div class="proto-num">2</div>
+  <div class="proto-body">
+    <p class="proto-title">Objectifs</p>
+    <p class="proto-desc">Un objectif général, deux ou trois objectifs spécifiques. Chaque objectif spécifique doit contenir un verbe d'action mesurable, une population, une variable, et un contexte. Si vous ne pouvez pas cocher ces quatre éléments, l'objectif n'est pas opérationnel.</p>
+    <div class="proto-template">Mauvais : "Étudier la drépanocytose au CRLD."<br>Bon : "Identifier les facteurs socio-économiques associés à la fréquence des crises vaso-occlusives chez les enfants HbSS de 2 à 10 ans suivis au CRLD entre 2020 et 2024."</div>
+  </div>
+
+  <div class="proto-num">3</div>
+  <div class="proto-body">
+    <p class="proto-title">Méthodes</p>
+    <p class="proto-desc">La section la plus longue et la plus importante. Elle doit décrire le design (avec justification), la population cible, les critères d'inclusion et d'exclusion, la taille de l'échantillon avec calcul, le mode de collecte, et les variables avec leurs définitions opérationnelles.</p>
+    <div class="proto-template">Pour chaque variable : nom, type (quantitative continue / qualitative ordinale...), source (dossier médical / questionnaire / mesure directe), modalités si qualitative. Une variable sans définition opérationnelle est une variable inutilisable.</div>
+  </div>
+
+  <div class="proto-num">4</div>
+  <div class="proto-body">
+    <p class="proto-title">Plan d'analyse statistique</p>
+    <p class="proto-desc">Décrire les tests statistiques prévus pour chaque objectif spécifique, le seuil de signification retenu, et le logiciel utilisé. Ce plan doit être rédigé avant de voir les données. Un plan d'analyse rédigé après avoir vu les résultats n'est pas un plan : c'est une justification.</p>
+    <div class="proto-template">Modèle : "Pour l'objectif 2, nous comparerons les fréquences de crises entre les groupes socio-économiques par un test de Kruskal-Wallis (seuil alpha = 0,05). Les facteurs associés seront identifiés par régression logistique multivariée. Logiciel : R 4.3.2."</div>
+  </div>
+
+  <div class="proto-num">5</div>
+  <div class="proto-body">
+    <p class="proto-title">Considérations éthiques</p>
+    <p class="proto-desc">Consentement éclairé, anonymisation des données, absence de risque pour les participants, soumission au comité d'éthique compétent. En Afrique de l'Ouest, la référence est souvent le comité national ou institutionnel. Nommer explicitement l'institution.</p>
+    <div class="proto-template">Modèle : "Cette étude a été soumise au Comité d'Éthique de la FMOS/FAPH (protocole N° XX/20XX). Les données seront anonymisées avant analyse. Aucune procédure invasive n'est prévue."</div>
+  </div>
+
+  <div class="proto-num">6</div>
+  <div class="proto-body">
+    <p class="proto-title">Calendrier et ressources</p>
+    <p class="proto-desc">Un chronogramme réaliste en semaines ou en mois, avec les grandes phases : revue de littérature, collecte, saisie, analyse, rédaction. Et un budget succinct si la recherche implique des dépenses. Beaucoup de protocoles omettent cette section. Les comités d'éthique la cherchent systématiquement.</p>
+    <div class="proto-template">Format minimal : tableau avec Phase / Durée / Responsable. Trois colonnes, six lignes. Pas besoin d'un diagramme de Gantt complexe pour un mémoire de master.</div>
+  </div>
+
+</div>
+```
+
+## Les 5 erreurs qui ont coûté 3 semaines à Boozy
+
+```{=html}
+<div style="margin:1.5rem 0">
+
+  <div class="error-row">
+    <span class="error-badge eb-red">Erreur</span>
+    <p class="error-text"><strong>Objectifs sans verbe mesurable.</strong> "Étudier", "analyser", "comprendre" ne sont pas des objectifs. Un comité ne peut pas évaluer si l'étude a atteint un objectif flou.</p>
+  </div>
+
+  <div class="error-row">
+    <span class="error-badge eb-red">Erreur</span>
+    <p class="error-text"><strong>Population sans critères d'exclusion.</strong> Définir qui entre dans l'étude sans dire qui en sort laisse la porte ouverte à des biais de sélection non maîtrisés.</p>
+  </div>
+
+  <div class="error-row">
+    <span class="error-badge eb-red">Erreur</span>
+    <p class="error-text"><strong>Taille d'échantillon sans calcul.</strong> Écrire "n = 100 patients" sans formule de calcul ni hypothèses de départ n'est pas un calcul. C'est une estimation arbitraire.</p>
+  </div>
+
+  <div class="error-row">
+    <span class="error-badge eb-red">Erreur</span>
+    <p class="error-text"><strong>Variables listées sans définition opérationnelle.</strong> "Niveau socio-économique" peut vouloir dire dix choses différentes selon le lecteur. Comment vous le mesurez concrètement, voilà ce que le protocole doit dire.</p>
+  </div>
+
+  <div class="error-row">
+    <span class="error-badge eb-red">Erreur</span>
+    <p class="error-text"><strong>Plan d'analyse absent ou vague.</strong> "Les données seront analysées avec SPSS" n'est pas un plan d'analyse. Nommer quels tests, pour quels objectifs, avec quel seuil.</p>
+  </div>
+
+</div>
+
+<div class="qibar-section">
+  <p class="qs-label">📋 La règle des 48 heures</p>
+  <p>Avant de soumettre votre protocole à votre directeur, demandez à un pair de le lire. Une seule consigne : "Pourrais-tu reproduire cette étude sans me poser une seule question ?" Chaque question qu'il vous pose signale une section à préciser. C'est plus rapide que trois semaines de corrections en rouge.</p>
+</div>
+```
+
+## La longueur idéale
+
+Un protocole de mémoire de master : 10 à 15 pages hors annexes. Un protocole de thèse de doctorat : 20 à 30 pages. Au-delà, vous n'ajoutez plus de rigueur. Vous diluez la clarté.
+
+Boozy a rédigé 22 pages la première fois. La version approuvée en faisait 12.
+
+```{=html}
+<div class="boozy-block" style="margin-top:2.5rem">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy, cinq jours plus tard</span>
+      <span class="boozy-role">12 pages. Zéro correction majeure.</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Mon directeur m'a écrit un seul mot en retour : "Approuvé."<br><br>
+    La différence entre les deux versions ? La deuxième répondait à une question par section. Pas deux. Pas trois. Une.<br><br>
+    Un protocole, c'est un contrat avec votre futur lecteur. <strong style="color:#C8A96E">Chaque phrase doit lui permettre de reproduire votre travail.</strong> Tout le reste est du bruit. »
+  </p>
+</div>
+
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Et toi ?</span>
+      <span class="boozy-role">Boozy veut savoir</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Tu en es où sur ton protocole ? Première version ? Cinquième correction ? Ou tu n'as pas encore commencé ?<br><br>
+    Partage ta section la plus difficile en commentaire. On regarde ensemble ce qui coince. »
+  </p>
+</div>
+
+<div class="post-cta">
+  <p>Vous voulez faire relire votre protocole avant de le soumettre ?<br>QIBAR Conseil évalue la solidité méthodologique de votre projet.</p>
+  <a href="mailto:mahamoud.koureichi@gmail.com">Contacter QIBAR →</a>
+</div>
+```
+
+------------------------------------------------------------------------
+
+*Cet article est le **#4** de la série QIBAR Blog, Cycle 1 : La Fondation. Prochain épisode : \[#5\] Boozy apprend R. Pourquoi abandonner Excel pour les statistiques ?*
