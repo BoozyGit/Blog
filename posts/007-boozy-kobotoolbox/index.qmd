@@ -1,0 +1,321 @@
+---
+title: "[Boozy] : Papier ou tablette sur le terrain ? J'ai essayé les deux."
+subtitle: "KoboToolbox, la collecte hors-ligne, et les trois erreurs qui ruinent une base de données avant même l'analyse."
+description: "Boozy a collecté ses premières données sur papier. Puis sur tablette. Le papier s'est mouillé sous la pluie. La tablette s'est éteinte sans prévenir. Ce post décrit ce qu'il a appris, et pourquoi KoboToolbox change la donne pour la recherche de terrain en Afrique."
+author: "QIBAR Center"
+date: "2026-09-28"
+categories:
+  - Collecte de données
+  - Outils
+  - Terrain
+image: "cover.png"
+lang: fr
+reading-time: true
+---
+
+```{=html}
+<style>
+.boozy-block {
+  background: linear-gradient(135deg, #0C2440, #1A3A5C);
+  border-radius: 16px; padding: 1.75rem 2rem;
+  margin: 2rem 0 2.5rem; position: relative; overflow: hidden;
+}
+.boozy-block::after {
+  content: "🌧️"; position: absolute; top: -8px; right: 12px;
+  font-size: 6rem; opacity: 0.06; pointer-events: none;
+}
+.boozy-avatar { display:flex; align-items:center; gap:12px; margin-bottom:1.1rem; }
+.boozy-monogram {
+  width:50px; height:50px; border-radius:50%; background:#C8A96E;
+  display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:26px; font-weight:700;
+  color:#1A3A5C; flex-shrink:0;
+}
+.boozy-name  { font-size:.78rem; font-weight:700; color:#C8A96E; letter-spacing:.07em; text-transform:uppercase; display:block; }
+.boozy-role  { font-size:.76rem; color:#7A9AB8; display:block; margin-top:2px; }
+.boozy-speech { font-family:Georgia,serif; font-style:italic; font-size:1.05rem; color:#F0EBE3; line-height:1.7; margin:0; }
+
+.crossover-box {
+  background: linear-gradient(120deg, #1A3A5C 0%, #6B4C9A 100%);
+  border-radius:14px; padding:1.5rem 1.75rem; margin:2rem 0;
+}
+.crossover-box .cx-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#C4AFDF; margin-bottom:.5rem; display:block; }
+.crossover-box p { font-size:.93rem; color:#F0EBE3; font-family:Georgia,serif; font-style:italic; line-height:1.65; margin:0 0 .5rem; }
+.crossover-box .cx-link { font-size:.82rem; color:#C8A96E; font-style:normal; }
+
+.qibar-section {
+  border-left:4px solid #C8A96E; background:#ffffff;
+  border-radius:0 12px 12px 0; padding:1.1rem 1.4rem;
+  margin:1.75rem 0; box-shadow:0 2px 12px rgba(26,58,92,.06);
+}
+.qibar-section .qs-label {
+  font-size:.76rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.08em; color:#C8A96E; margin:0 0 .5rem;
+  display:flex; align-items:center; gap:6px;
+}
+.qibar-section p, .qibar-section li { font-size:.95rem; color:#3D3428; margin:0 0 .5rem; line-height:1.7; }
+
+/* Comparatif papier vs tablette */
+.compare-grid {
+  display:grid; grid-template-columns:1fr 1fr;
+  gap:0; border-radius:14px; overflow:hidden;
+  margin:1.75rem 0; box-shadow:0 2px 12px rgba(26,58,92,.08);
+}
+.cg-header {
+  padding:.85rem 1.2rem;
+  font-size:.8rem; font-weight:700;
+  text-transform:uppercase; letter-spacing:.07em;
+  display:flex; align-items:center; gap:8px;
+}
+.cg-paper  { background:#FBF5EB; border-right:2px solid #C8A96E; }
+.cg-tablet { background:#EEF2F7; }
+.cg-paper .cg-header  { color:#8B6F3A; }
+.cg-tablet .cg-header { color:#1A3A5C; }
+.cg-body { padding:.75rem 1.2rem 1.2rem; }
+.cg-row {
+  display:flex; align-items:flex-start; gap:8px;
+  font-size:.87rem; color:#3D3428; margin-bottom:.5rem;
+  line-height:1.5;
+}
+.cg-row:last-child { margin-bottom:0; }
+.cg-icon { flex-shrink:0; font-size:.95rem; margin-top:1px; }
+
+/* Étapes KoboToolbox */
+.kobo-steps { margin:1.75rem 0; }
+.ks-item {
+  display:grid; grid-template-columns:44px 1fr;
+  gap:0 14px; margin-bottom:1rem;
+}
+.ks-num {
+  width:40px; height:40px; border-radius:10px;
+  background:#1A3A5C; color:#C8A96E;
+  display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:.95rem; font-weight:700;
+  flex-shrink:0; margin-top:3px;
+}
+.ks-title { font-size:.93rem; font-weight:600; color:#1A3A5C; margin:0 0 3px; }
+.ks-desc  { font-size:.86rem; color:#5F5E5A; margin:0; line-height:1.6; }
+.ks-tip   {
+  background:#F5F2EE; border-radius:8px;
+  padding:.55rem .85rem; margin-top:.5rem;
+  font-size:.81rem; color:#3D3428; font-style:italic; line-height:1.5;
+}
+
+/* Erreurs terrain */
+.err-card {
+  background:#fff; border:0.5px solid #D8D0C5;
+  border-left:4px solid #A32D2D;
+  border-radius:0 10px 10px 0;
+  padding:.9rem 1.1rem; margin-bottom:.75rem;
+}
+.err-card .ec-label { font-size:.72rem; font-weight:700; text-transform:uppercase; letter-spacing:.07em; color:#A32D2D; display:block; margin-bottom:4px; }
+.err-card .ec-title { font-size:.92rem; font-weight:600; color:#1A3A5C; margin:0 0 4px; }
+.err-card .ec-desc  { font-size:.85rem; color:#5F5E5A; margin:0; line-height:1.55; }
+.err-card .ec-fix   { font-size:.83rem; color:#2D7A5F; font-weight:500; margin-top:6px 0 0; display:block; }
+
+.post-cta {
+  background:linear-gradient(135deg,#1A3A5C,#0C2440); border-radius:14px;
+  padding:1.75rem 2rem; margin-top:3rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1.25rem; flex-wrap:wrap;
+}
+.post-cta p { color:#F0E6CC; margin:0; font-family:Georgia,serif; font-style:italic; font-size:1rem; }
+.post-cta a { background:#C8A96E; color:#1A3A5C; font-weight:700; font-size:.88rem; padding:.6rem 1.4rem; border-radius:8px; text-decoration:none; white-space:nowrap; }
+</style>
+
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy</span>
+      <span class="boozy-role">Étudiant en master · retour de terrain mouillé · QIBAR Blog</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Salut. C'est Boozy.<br><br>
+    Premier jour de collecte. Centre de santé communautaire, périphérie de Bamako. Cent fiches papier imprimées la veille. Stylos neufs. Organisateur enthousiaste.<br><br>
+    Il a plu. Pas une averse. Une vraie pluie de saison. En quarante minutes, dix-huit fiches étaient illisibles. Deux avaient disparu dans le vent. Une s'était retrouvée dans la boue.<br><br>
+    J'avais perdu <strong style="color:#C8A96E">19% de mes données du premier jour</strong> avant même de rentrer au bureau. »
+  </p>
+</div>
+```
+
+## Papier ou tablette : le vrai débat
+
+Avant de parler de KoboToolbox, il faut poser la comparaison honnêtement. Les deux options ont des avantages réels. Choisir sans connaître le terrain, c'est se créer des problèmes.
+
+```{=html}
+<div class="compare-grid">
+  <div class="cg-paper">
+    <div class="cg-header">📄 Papier</div>
+    <div class="cg-body">
+      <div class="cg-row"><span class="cg-icon">✅</span>Fonctionne sans électricité ni réseau</div>
+      <div class="cg-row"><span class="cg-icon">✅</span>Les agents de terrain le maîtrisent</div>
+      <div class="cg-row"><span class="cg-icon">✅</span>Pas de panne, pas de mise à jour</div>
+      <div class="cg-row"><span class="cg-icon">❌</span>Saisie informatique après = double travail</div>
+      <div class="cg-row"><span class="cg-icon">❌</span>Erreurs de saisie non détectables en temps réel</div>
+      <div class="cg-row"><span class="cg-icon">❌</span>Pluie, soleil, vent, taches : données perdues</div>
+      <div class="cg-row"><span class="cg-icon">❌</span>Pas de sauvegarde automatique</div>
+    </div>
+  </div>
+  <div class="cg-tablet">
+    <div class="cg-header">📱 Tablette / smartphone (KoboToolbox)</div>
+    <div class="cg-body">
+      <div class="cg-row"><span class="cg-icon">✅</span>Collecte hors-ligne : les données se synchronisent au retour au réseau</div>
+      <div class="cg-row"><span class="cg-icon">✅</span>Validation des réponses en temps réel (valeurs impossibles bloquées)</div>
+      <div class="cg-row"><span class="cg-icon">✅</span>Saut automatique de questions selon les réponses</div>
+      <div class="cg-row"><span class="cg-icon">✅</span>Export direct vers Excel, CSV, SPSS, R</div>
+      <div class="cg-row"><span class="cg-icon">❌</span>Batterie à gérer (prévoir power bank)</div>
+      <div class="cg-row"><span class="cg-icon">❌</span>Formation des agents nécessaire</div>
+      <div class="cg-row"><span class="cg-icon">❌</span>Coût si parc de tablettes à constituer</div>
+    </div>
+  </div>
+</div>
+
+<div class="qibar-section">
+  <p class="qs-label">🎯 La règle de décision</p>
+  <p>Terrain en zone urbaine ou péri-urbaine avec accès à l'électricité le soir : KoboToolbox sur smartphone personnel des agents (application gratuite). Terrain en zone rurale reculée, plusieurs jours sans électricité : papier pour la collecte, saisie KoboToolbox le soir au chef-lieu. Les deux cas excluent la saisie dans Excel.</p>
+</div>
+```
+
+## Pourquoi pas Excel pour la collecte
+
+Boozy a essayé. Un collègue lui avait transmis un fichier Excel avec les colonnes pré-définies. Les agents de saisie entraient les données directement.
+
+Résultat : des âges en lettres ("trente-deux"), des dates dans trois formats différents, une colonne "sexe" avec huit valeurs distinctes pour ce qui aurait dû en avoir deux, et des cellules fusionnées qui ont bloqué l'import dans R pendant deux heures.
+
+Excel est un outil d'affichage et de calcul. La collecte de données structurées demande un outil avec validation intégrée. KoboToolbox en est un.
+
+```{=html}
+<div class="crossover-box">
+  <span class="cx-label">🔀 Narration croisée : Terrain × Épidémiologie (#9)</span>
+  <p>La qualité d'une base de données se construit au moment de la collecte, pas au moment du nettoyage. Chaque erreur de saisie non détectée sur le terrain coûte dix fois plus de temps à corriger sous R. Et certaines erreurs ne se corrigent pas : une date impossible, une valeur hors-plage sans source papier de vérification, une variable manquante sur cent fiches. Le nettoyage des données répare les dommages. La conception du formulaire les prévient.</p>
+  <span class="cx-link">→ À lire aussi : [#9] Boozy veut éviter les erreurs de saisie. Les règles de validation.</span>
+</div>
+```
+
+## KoboToolbox en pratique : ce que Boozy fait maintenant
+
+KoboToolbox est gratuit pour les chercheurs et les ONG. Il fonctionne depuis un navigateur pour créer le formulaire, et depuis l'application KoboCollect (Android, gratuit) pour collecter sur le terrain.
+
+```{=html}
+<div class="kobo-steps">
+
+  <div class="ks-item">
+    <div class="ks-num">1</div>
+    <div>
+      <p class="ks-title">Créer un compte sur kobotoolbox.org</p>
+      <p class="ks-desc">Deux serveurs disponibles : le serveur humanitaire (OCHA, pour les ONG) et le serveur global (pour les chercheurs). Choisir le serveur global pour la recherche académique. L'espace de stockage est gratuit et sans limite pour les projets non commerciaux.</p>
+    </div>
+  </div>
+
+  <div class="ks-item">
+    <div class="ks-num">2</div>
+    <div>
+      <p class="ks-title">Construire le formulaire avec l'éditeur visuel</p>
+      <p class="ks-desc">Glisser-déposer des questions de différents types : texte, nombre, date, liste de choix, GPS, photo. Pour chaque question numérique, définir une plage de valeurs acceptables. Pour les dates, bloquer les dates futures si la variable est rétrospective. Pour les listes, saisir toutes les modalités à l'avance et interdire la saisie libre.</p>
+      <div class="ks-tip">Ajouter une question "Notes enquêteur" en texte libre à la fin de chaque section. Les agents terrain y notent les particularités : participant difficile à contacter, donnée estimée, contexte inhabituel. Ces notes sauvent l'analyse quand une valeur aberrante apparaît trois mois plus tard.</div>
+    </div>
+  </div>
+
+  <div class="ks-item">
+    <div class="ks-num">3</div>
+    <div>
+      <p class="ks-title">Configurer les sauts conditionnels</p>
+      <p class="ks-desc">Si le participant est de sexe masculin, sauter les questions sur la grossesse. Si la réponse à "Avez-vous déjà été hospitalisé ?" est "Non", passer directement à la section suivante. Ces sauts réduisent le temps de collecte de 15 à 30% et éliminent les valeurs "non applicable" qui compliquent l'analyse.</p>
+    </div>
+  </div>
+
+  <div class="ks-item">
+    <div class="ks-num">4</div>
+    <div>
+      <p class="ks-title">Tester le formulaire avant le terrain</p>
+      <p class="ks-desc">Déployer le formulaire en mode test. Remplir 10 fiches fictives en simulant des erreurs : entrer un âge de 200 ans, une date future, une valeur hors plage. Vérifier que toutes les validations bloquent. Faire tester par un agent de terrain qui n'a pas participé à la conception : ses blocages signalent les questions mal formulées.</p>
+      <div class="ks-tip">Le test pilote sur le terrain (5 à 10 participants réels) n'est pas optionnel. Il révèle toujours au moins deux problèmes que le test en bureau n'avait pas trouvés.</div>
+    </div>
+  </div>
+
+  <div class="ks-item">
+    <div class="ks-num">5</div>
+    <div>
+      <p class="ks-title">Configurer la collecte hors-ligne</p>
+      <p class="ks-desc">Sur chaque smartphone ou tablette : installer KoboCollect, entrer l'URL du serveur et les identifiants. Télécharger le formulaire en Wi-Fi avant de partir sur le terrain. Les données collectées sans réseau se stockent localement et se synchronisent automatiquement dès que le réseau est retrouvé. Pas besoin de réseau pendant la collecte.</p>
+      <div class="ks-tip">Configurer la synchronisation automatique au lieu de la synchronisation manuelle. Des agents oublient de synchroniser. Les données restent sur l'appareil jusqu'à ce qu'il tombe en panne ou soit perdu.</div>
+    </div>
+  </div>
+
+  <div class="ks-item">
+    <div class="ks-num">6</div>
+    <div>
+      <p class="ks-title">Exporter et importer dans R</p>
+      <p class="ks-desc">Sur le tableau de bord KoboToolbox : Données → Télécharger → choisir le format XLS ou CSV. L'export inclut toutes les réponses avec les métadonnées (heure de soumission, durée de remplissage, identifiant de l'enquêteur). Dans R, le package <code>readxl</code> ou <code>robotoolbox</code> importe directement depuis l'API KoboToolbox sans passer par un fichier intermédiaire.</p>
+    </div>
+  </div>
+
+</div>
+```
+
+## Les 3 erreurs qui ruinent une base avant l'analyse
+
+```{=html}
+<div class="err-card">
+  <span class="ec-label">Erreur terrain #1</span>
+  <p class="ec-title">Lancer la collecte sans test pilote</p>
+  <p class="ec-desc">Boozy a déployé son formulaire sans test pilote sur les deux premières semaines. La question sur le "niveau d'instruction" avait six modalités qui se chevauchaient. Les agents cochaient au hasard entre "primaire incomplet" et "sans instruction formelle". Deux semaines de données inutilisables sur cette variable.</p>
+  <span class="ec-fix">→ Correction : 5 participants en test pilote, révision du formulaire, redéploiement.</span>
+</div>
+
+<div class="err-card">
+  <span class="ec-label">Erreur terrain #2</span>
+  <p class="ec-title">Pas d'identifiant unique par participant</p>
+  <p class="ec-desc">Sans identifiant unique, il est impossible de relier une fiche collectée en semaine 1 avec un suivi collecté en semaine 4 pour le même patient. Boozy a dû reconstituer les appariements manuellement sur 200 fiches. 14 patients n'ont pas pu être retrouvés.</p>
+  <span class="ec-fix">→ Correction : ajouter une question "ID patient" en première position, format fixe (ex : CRLD-2024-001), renseignée par l'agent à partir du registre du centre.</span>
+</div>
+
+<div class="err-card">
+  <span class="ec-label">Erreur terrain #3</span>
+  <p class="ec-title">Variables texte là où des listes s'imposaient</p>
+  <p class="ec-desc">La question "Quel médicament prenez-vous ?" était en texte libre. Boozy a récupéré "hydroxyurée", "hydroxiuree", "HU", "hydro", "le médicament rouge" pour le même produit. Le nettoyage a pris deux jours. Une liste de choix avec la possibilité d'ajouter "autre" aurait réduit ça à zéro.</p>
+  <span class="ec-fix">→ Correction : pré-lister tous les médicaments attendus, laisser un champ "autre" avec précision pour les cas non couverts.</span>
+</div>
+```
+
+```{=html}
+<div class="boozy-block" style="margin-top:2.5rem">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy, collecte numéro deux</span>
+      <span class="boozy-role">Smartphones chargés. Power banks prêts. Formulaire testé.</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Deuxième terrain. Même centre de santé. Il a plu encore plus fort.<br><br>
+    Les smartphones étaient dans des pochettes plastiques. Les données se synchronisaient pendant la pause déjeuner en Wi-Fi. Le soir, j'avais 94 fiches complètes dans mon tableau de bord KoboToolbox.<br><br>
+    <strong style="color:#C8A96E">Zéro donnée perdue. Zéro valeur impossible. Zéro double saisie.</strong><br><br>
+    Le formulaire avait mis trois heures à construire. Il a économisé deux jours de nettoyage. »
+  </p>
+</div>
+
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Et toi ?</span>
+      <span class="boozy-role">Boozy veut savoir</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Tu collectes encore sur papier ? Ou tu as déjà testé KoboToolbox ?<br><br>
+    Et si tu as une erreur de collecte qui t'a coûté cher, raconte-la en commentaire. Les meilleures leçons viennent des pires expériences de terrain. »
+  </p>
+</div>
+
+<div class="post-cta">
+  <p>Vous préparez une collecte de données et voulez un formulaire KoboToolbox solide avant d'aller sur le terrain ?<br>QIBAR Conseil configure votre formulaire avec vous.</p>
+  <a href="mailto:mahamoud.koureichi@gmail.com">Contacter QIBAR →</a>
+</div>
+```
+
+------------------------------------------------------------------------
+
+*Cet article est le **#7** de la série QIBAR Blog, Cycle 2 : La Collecte et la Gestion des Données. Prochain épisode : \[#8\] Boozy doit construire un dictionnaire de données cohérent.*

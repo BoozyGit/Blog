@@ -37,5 +37,11 @@
   },
   "posts/HS001-boozy-copilot/index.qmd": {
     "index.html": "58fbe75f"
+  },
+  "posts/006-boozy-workflow-biblio/index.qmd": {
+    "index.html": "e6ad080a"
+  },
+  "posts/007-boozy-kobotoolbox/index.qmd": {
+    "index.html": "9f08582b"
   }
 }

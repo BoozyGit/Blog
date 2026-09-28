@@ -1,0 +1,301 @@
+---
+title: "[Boozy] : J'ai perdu 11 heures sur ma bibliographie. La dernière fois."
+subtitle: "Le workflow complet pour ne plus jamais formater une référence à la main."
+description: "Boozy a soumis son article avec une référence en double, deux DOI incorrects et un style bibliographique mal appliqué. Le reviewer l'a remarqué avant lui. On construit ici le workflow qui élimine ce problème une fois pour toutes."
+author: "QIBAR Center"
+date: "2026-09-07"
+categories:
+  - Méthodologie
+  - Outils
+  - Mindset
+image: "cover.png"
+lang: fr
+reading-time: true
+---
+
+```{=html}
+<style>
+.boozy-block {
+  background: linear-gradient(135deg, #0C2440, #1A3A5C);
+  border-radius: 16px; padding: 1.75rem 2rem;
+  margin: 2rem 0 2.5rem; position: relative; overflow: hidden;
+}
+.boozy-block::after {
+  content: "📑"; position: absolute; top: -8px; right: 12px;
+  font-size: 6rem; opacity: 0.06; pointer-events: none;
+}
+.boozy-avatar { display:flex; align-items:center; gap:12px; margin-bottom:1.1rem; }
+.boozy-monogram {
+  width:50px; height:50px; border-radius:50%; background:#C8A96E;
+  display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:26px; font-weight:700;
+  color:#1A3A5C; flex-shrink:0;
+}
+.boozy-name  { font-size:.78rem; font-weight:700; color:#C8A96E; letter-spacing:.07em; text-transform:uppercase; display:block; }
+.boozy-role  { font-size:.76rem; color:#7A9AB8; display:block; margin-top:2px; }
+.boozy-speech { font-family:Georgia,serif; font-style:italic; font-size:1.05rem; color:#F0EBE3; line-height:1.7; margin:0; }
+
+.crossover-box {
+  background: linear-gradient(120deg, #1A3A5C 0%, #2D7A5F 100%);
+  border-radius:14px; padding:1.5rem 1.75rem; margin:2rem 0;
+}
+.crossover-box .cx-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#9FE1CB; margin-bottom:.5rem; display:block; }
+.crossover-box p { font-size:.93rem; color:#F0EBE3; font-family:Georgia,serif; font-style:italic; line-height:1.65; margin:0 0 .5rem; }
+.crossover-box .cx-link { font-size:.82rem; color:#C8A96E; font-style:normal; }
+
+.qibar-section {
+  border-left:4px solid #C8A96E; background:#ffffff;
+  border-radius:0 12px 12px 0; padding:1.1rem 1.4rem;
+  margin:1.75rem 0; box-shadow:0 2px 12px rgba(26,58,92,.06);
+}
+.qibar-section .qs-label {
+  font-size:.76rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.08em; color:#C8A96E; margin:0 0 .5rem;
+  display:flex; align-items:center; gap:6px;
+}
+.qibar-section p, .qibar-section li { font-size:.95rem; color:#3D3428; margin:0 0 .5rem; line-height:1.7; }
+.qibar-section code { font-size:.88rem; background:#F5F2EE; padding:1px 6px; border-radius:4px; }
+
+/* Workflow visuel */
+.wf-grid {
+  display:grid; gap:0;
+  margin:1.75rem 0;
+}
+.wf-step {
+  display:grid; grid-template-columns:48px 1fr;
+  gap:0 16px; margin-bottom:4px;
+}
+.wf-num {
+  width:44px; height:44px; border-radius:50%;
+  background:#1A3A5C; color:#C8A96E;
+  display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:1rem; font-weight:700;
+  flex-shrink:0; margin-top:4px;
+}
+.wf-body { padding-bottom:1rem; border-left:2px solid #EAE5DC; padding-left:16px; margin-left:-32px; padding-bottom:1.25rem; }
+.wf-step:last-child .wf-body { border-color:transparent; }
+.wf-title { font-size:.95rem; font-weight:600; color:#1A3A5C; margin:0 0 4px; }
+.wf-desc { font-size:.87rem; color:#5F5E5A; margin:0 0 .5rem; line-height:1.6; }
+.wf-tip {
+  background:#F5F2EE; border-radius:8px;
+  padding:.6rem .9rem; font-size:.82rem;
+  color:#3D3428; line-height:1.55; font-style:italic;
+}
+
+/* Tableau styles bibliographiques */
+.style-table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.87rem; border-radius:12px; overflow:hidden; }
+.style-table thead tr { background:#1A3A5C; }
+.style-table thead th { color:#C8A96E; font-weight:600; padding:.65rem 1rem; text-align:left; }
+.style-table tbody tr:nth-child(even) { background:#F5F2EE; }
+.style-table tbody tr:nth-child(odd)  { background:#fff; }
+.style-table tbody td { padding:.55rem 1rem; color:#3D3428; vertical-align:top; line-height:1.5; }
+
+/* Erreurs */
+.err-row { display:flex; align-items:flex-start; gap:10px; padding:.75rem 0; border-bottom:0.5px solid #EAE5DC; }
+.err-row:last-child { border:none; }
+.err-badge { font-size:.72rem; font-weight:700; padding:2px 8px; border-radius:99px; white-space:nowrap; flex-shrink:0; margin-top:2px; }
+.eb-red   { background:#FCEAEA; color:#8B1A1A; }
+.eb-fix   { background:#EBF5F0; color:#1A6B3A; }
+.err-text { font-size:.88rem; color:#3D3428; line-height:1.6; }
+
+.post-cta {
+  background:linear-gradient(135deg,#1A3A5C,#0C2440); border-radius:14px;
+  padding:1.75rem 2rem; margin-top:3rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1.25rem; flex-wrap:wrap;
+}
+.post-cta p { color:#F0E6CC; margin:0; font-family:Georgia,serif; font-style:italic; font-size:1rem; }
+.post-cta a { background:#C8A96E; color:#1A3A5C; font-weight:700; font-size:.88rem; padding:.6rem 1.4rem; border-radius:8px; text-decoration:none; white-space:nowrap; }
+</style>
+
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy</span>
+      <span class="boozy-role">Étudiant en master · revenant d'une soumission humiliante · QIBAR Blog</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Salut. C'est Boozy.<br><br>
+    Mon premier article soumis à une revue indexée. Trois semaines de travail. Cinq relectures. Un plan d'analyse validé par mon directeur.<br><br>
+    Le reviewer numéro deux a mis trois lignes dans ses commentaires. Pas sur la méthodologie. Pas sur les résultats. Sur la bibliographie.<br><br>
+    <strong style="color:#C8A96E">Une référence en double. Deux DOI incorrects. Un style Vancouver mal appliqué sur quatre entrées.</strong><br><br>
+    J'avais passé 11 heures sur cette bibliographie. À la main. »
+  </p>
+</div>
+```
+
+## Ce que Boozy faisait avant
+
+Boozy copiait ses références depuis Google Scholar. Il les collait dans Word. Il reformatait chaque entrée manuellement selon le guide de style de la revue. Il vérifiait les majuscules, les virgules, les points, les italiques.
+
+Chaque révision de l'article déclenchait une nouvelle vérification bibliographique. Parce qu'il avait ajouté une référence, en avait supprimé une autre, et les numéros de citation dans le texte ne correspondaient plus.
+
+```{=html}
+<div class="crossover-box">
+  <span class="cx-label">🔀 Narration croisée : Technique × Mindset (#45)</span>
+  <p>Ce que Boozy faisait n'était pas de la rigueur. C'était de la friction cognitive répétée sur une tâche à zéro valeur intellectuelle. Chaque minute passée à vérifier un point après une virgule était une minute retirée à la lecture critique, à l'interprétation, à la discussion des résultats. La rigueur scientifique s'exerce sur le fond. Zéro rigueur supplémentaire ne sort d'un formatage bibliographique manuel.</p>
+  <span class="cx-link">→ À lire aussi : [#2] Boozy a 47 onglets ouverts. Zotero comme mémoire externe.</span>
+</div>
+```
+
+## Le workflow complet : du premier article au dernier
+
+Ce workflow a quatre étapes. Il fonctionne avec Zotero gratuit et le plugin pour Word ou Google Docs. Aucun abonnement, aucun logiciel payant.
+
+```{=html}
+<div class="wf-grid">
+
+  <div class="wf-step">
+    <div class="wf-num">1</div>
+    <div class="wf-body">
+      <p class="wf-title">Capturer chaque source au moment où vous la lisez</p>
+      <p class="wf-desc">Le connecteur Zotero dans Chrome ou Firefox importe automatiquement les métadonnées depuis PubMed, Google Scholar, ScienceDirect et la plupart des revues. Un clic. Auteur, titre, revue, volume, pages, DOI : tout entre sans recopier.</p>
+      <div class="wf-tip">Sur PubMed, l'icône Zotero dans la barre du navigateur reconnaît jusqu'à 20 articles à la fois depuis une page de résultats. Sélectionnez-les tous et importez en une opération.</div>
+    </div>
+  </div>
+
+  <div class="wf-step">
+    <div class="wf-num">2</div>
+    <div class="wf-body">
+      <p class="wf-title">Vérifier les métadonnées à l'import</p>
+      <p class="wf-desc">Zotero importe ce que la source lui donne. Certaines bases de données ont des métadonnées incomplètes ou mal formatées. Après chaque import, vérifier : le type de document (article, chapitre, rapport), le nom des auteurs (inversion prénom/nom fréquente), et l'année de publication. Trente secondes par article à l'import évitent deux heures de corrections à la soumission.</p>
+      <div class="wf-tip">Clic droit sur une entrée Zotero → "Récupérer les métadonnées du PDF" : Zotero retrouve les informations manquantes à partir du fichier PDF lui-même, via son DOI ou son titre.</div>
+    </div>
+  </div>
+
+  <div class="wf-step">
+    <div class="wf-num">3</div>
+    <div class="wf-body">
+      <p class="wf-title">Citer dans le texte sans quitter Word</p>
+      <p class="wf-desc">Après installation du plugin Zotero pour Word : onglet Zotero → "Ajouter/Modifier une citation". Une barre de recherche apparaît. Tapez le nom de l'auteur ou un mot du titre. Sélectionnez la référence. Elle s'insère dans le texte au bon format, numérotée automatiquement. Déplacez un paragraphe : les numéros se mettent à jour seuls.</p>
+      <div class="wf-tip">Pour changer de style bibliographique (Vancouver vers APA, APA vers Chicago) : Document Zotero → "Paramètres du document" → choisir le style. Toutes les citations du document se reformatent en cinq secondes.</div>
+    </div>
+  </div>
+
+  <div class="wf-step">
+    <div class="wf-num">4</div>
+    <div class="wf-body">
+      <p class="wf-title">Générer la bibliographie finale en un clic</p>
+      <p class="wf-desc">Placez le curseur en fin de document. Onglet Zotero → "Ajouter/Modifier la bibliographie". Zotero génère la liste complète, dans le bon ordre, au bon format, en incluant uniquement les références citées dans le texte. Ajoutez une source en cours de rédaction : elle apparaît dans la bibliographie à sa place correcte sans aucune action supplémentaire.</p>
+      <div class="wf-tip">Avant la soumission finale : Zotero → "Créer une bibliographie à partir de la collection" en mode texte non lié. Cette version figée n'est plus connectée à Zotero, ce qui évite les modifications accidentelles lors du dernier envoi.</div>
+    </div>
+  </div>
+
+</div>
+```
+
+## Les styles bibliographiques selon votre contexte
+
+```{=html}
+<table class="style-table">
+  <thead>
+    <tr><th>Style</th><th>Utilisé par</th><th>Format type</th></tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td><strong>Vancouver</strong></td>
+      <td>Revues médicales (NEJM, Lancet, BMJ, PLoS Medicine). Standard en Afrique pour les thèses de médecine dans la plupart des facultés francophones.</td>
+      <td>Numéros entre crochets [1] dans le texte. Références numérotées par ordre d'apparition.</td>
+    </tr>
+    <tr>
+      <td><strong>APA 7e</strong></td>
+      <td>Sciences sociales, psychologie, santé publique, revues interdisciplinaires.</td>
+      <td>(Auteur, Année) dans le texte. Références classées par ordre alphabétique.</td>
+    </tr>
+    <tr>
+      <td><strong>Harvard</strong></td>
+      <td>Universités anglophones, rapports ONG, publications institutionnelles.</td>
+      <td>(Auteur Année) dans le texte. Proches de l'APA avec des variantes selon l'institution.</td>
+    </tr>
+    <tr>
+      <td><strong>ISO 690</strong></td>
+      <td>Norme internationale, certains organismes de normalisation et rapports techniques.</td>
+      <td>Flexible : auteur-date ou numérique selon la variante choisie.</td>
+    </tr>
+  </tbody>
+</table>
+```
+
+## Les 4 erreurs que le reviewer de Boozy a trouvées
+
+```{=html}
+<div style="margin:1.5rem 0">
+  <div class="err-row">
+    <span class="err-badge eb-red">Erreur</span>
+    <p class="err-text"><strong>Référence en double.</strong> Même article cité deux fois sous deux numéros différents parce que Boozy l'avait importé deux fois dans Zotero depuis deux sources différentes. Zotero détecte les doublons : onglet "Doublons" dans le panneau gauche. Fusionner avant d'écrire.</p>
+  </div>
+  <div class="err-row">
+    <span class="err-badge eb-red">Erreur</span>
+    <p class="err-text"><strong>DOI incorrects.</strong> Copiés à la main depuis le site de la revue, deux caractères transposés. Zotero récupère les DOI automatiquement. Ne jamais recopier un DOI à la main.</p>
+  </div>
+  <div class="err-row">
+    <span class="err-badge eb-red">Erreur</span>
+    <p class="err-text"><strong>Style mal appliqué sur quatre entrées.</strong> Boozy avait manuellement ajouté quatre références après que Zotero avait généré la bibliographie. Il les avait formatées à la main, avec des erreurs de ponctuation. Règle : toute référence passe par Zotero, sans exception.</p>
+  </div>
+  <div class="err-row">
+    <span class="err-badge eb-red">Erreur</span>
+    <p class="err-text"><strong>Titre de revue non abrégé.</strong> Vancouver exige les abréviations de titres de revues selon la liste NLM (ex : "The Lancet" devient "Lancet"). Zotero gère ça via le style sélectionné, à condition que le style installé soit la version correcte de Vancouver.</p>
+  </div>
+</div>
+
+<div class="qibar-section">
+  <p class="qs-label">✅ La checklist pré-soumission</p>
+  <p>
+    ☐ Vérifier les doublons dans Zotero (onglet "Doublons")<br>
+    ☐ Contrôler le type de document de chaque entrée (article, chapitre, rapport...)<br>
+    ☐ Confirmer que le style Zotero correspond aux instructions aux auteurs de la revue<br>
+    ☐ Générer la bibliographie finale en mode "texte non lié" pour la version de soumission<br>
+    ☐ Vérifier que chaque référence citée dans le texte apparaît dans la liste finale, et inversement
+  </p>
+</div>
+```
+
+## Ce que Boozy a changé après la correction
+
+Il a passé une journée à importer toutes ses références dans Zotero. Il a fusionné les doublons. Il a vérifié les métadonnées des trente-deux entrées de son article. Il a installé le style Vancouver correct depuis le dépôt officiel Zotero.
+
+La deuxième soumission n'a eu aucun commentaire sur la bibliographie.
+
+Le temps total passé sur les références : 40 minutes, contre 11 heures la première fois.
+
+```{=html}
+<div class="boozy-block" style="margin-top:2.5rem">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy, après la deuxième soumission</span>
+      <span class="boozy-role">40 minutes. Zéro commentaire sur la bibliographie.</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Le reviewer numéro deux a envoyé ses commentaires. Deux pages sur la discussion, une question sur la taille d'échantillon, une suggestion de référence supplémentaire.<br><br>
+    Rien sur la bibliographie.<br><br>
+    Les 11 heures perdues lors de la première soumission n'étaient pas du travail. <strong style="color:#C8A96E">C'était de la friction inutile sur une tâche que l'outil fait mieux que moi.</strong><br><br>
+    La rigueur scientifique, je l'applique là où elle fait une différence. Pas sur les virgules. »
+  </p>
+</div>
+
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Et toi ?</span>
+      <span class="boozy-role">Boozy veut savoir</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Tu gères encore ta bibliographie à la main ? Ou tu as un workflow qui tourne ?<br><br>
+    Si tu bloques sur une étape de l'installation, écris-le en commentaire. Et si tu connais une astuce Zotero que je n'ai pas mentionnée ici, je veux l'ajouter au prochain post. »
+  </p>
+</div>
+
+<div class="post-cta">
+  <p>Vous préparez une soumission et voulez un regard externe sur votre méthodologie et votre bibliographie ?<br>QIBAR Conseil intervient avant la soumission.</p>
+  <a href="mailto:mahamoud.koureichi@gmail.com">Contacter QIBAR →</a>
+</div>
+```
+
+------------------------------------------------------------------------
+
+*Cet article est le **#6** de la série QIBAR Blog, Cycle 1 : La Fondation. Prochain épisode : \[#7\] Boozy prépare une collecte de données sur le terrain. Papier ou tablette ?*

@@ -1,0 +1,957 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="fr" xml:lang="fr"><head>
+
+<meta charset="utf-8">
+<meta name="generator" content="quarto-1.6.32">
+
+<meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes">
+
+<meta name="author" content="QIBAR Center">
+<meta name="description" content="Boozy a soumis son article avec une référence en double, deux DOI incorrects et un style bibliographique mal appliqué. Le reviewer l’a remarqué avant lui. On construit ici le workflow qui élimine ce problème une fois pour toutes.">
+
+<title>[Boozy] : J’ai perdu 11 heures sur ma bibliographie. La dernière fois. – QIBAR · Data &amp; Recherche</title>
+<style>
+code{white-space: pre-wrap;}
+span.smallcaps{font-variant: small-caps;}
+div.columns{display: flex; gap: min(4vw, 1.5em);}
+div.column{flex: auto; overflow-x: auto;}
+div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+ul.task-list{list-style: none;}
+ul.task-list li input[type="checkbox"] {
+  width: 0.8em;
+  margin: 0 0.8em 0.2em -1em; /* quarto-specific, see https://github.com/quarto-dev/quarto-cli/issues/4556 */ 
+  vertical-align: middle;
+}
+</style>
+
+
+<script src="../../site_libs/quarto-nav/quarto-nav.js"></script>
+<script src="../../site_libs/clipboard/clipboard.min.js"></script>
+<script src="../../site_libs/quarto-search/autocomplete.umd.js"></script>
+<script src="../../site_libs/quarto-search/fuse.min.js"></script>
+<script src="../../site_libs/quarto-search/quarto-search.js"></script>
+<meta name="quarto:offset" content="../../">
+<script src="../../site_libs/quarto-html/quarto.js"></script>
+<script src="../../site_libs/quarto-html/popper.min.js"></script>
+<script src="../../site_libs/quarto-html/tippy.umd.min.js"></script>
+<script src="../../site_libs/quarto-html/anchor.min.js"></script>
+<link href="../../site_libs/quarto-html/tippy.css" rel="stylesheet">
+<link href="../../site_libs/quarto-html/quarto-syntax-highlighting-fc6d358c97f25a8ea829b86655043430.css" rel="stylesheet" id="quarto-text-highlighting-styles">
+<script src="../../site_libs/bootstrap/bootstrap.min.js"></script>
+<link href="../../site_libs/bootstrap/bootstrap-icons.css" rel="stylesheet">
+<link href="../../site_libs/bootstrap/bootstrap-5cda604207b2522b33111d29a4a27806.min.css" rel="stylesheet" append-hash="true" id="quarto-bootstrap" data-mode="light">
+<script id="quarto-search-options" type="application/json">{
+  "location": "navbar",
+  "copy-button": false,
+  "collapse-after": 3,
+  "panel-placement": "end",
+  "type": "overlay",
+  "limit": 50,
+  "keyboard-shortcut": [
+    "f",
+    "/",
+    "s"
+  ],
+  "show-item-context": false,
+  "language": {
+    "search-no-results-text": "Pas de résultats",
+    "search-matching-documents-text": "documents trouvés",
+    "search-copy-link-title": "Copier le lien vers la recherche",
+    "search-hide-matches-text": "Cacher les correspondances additionnelles",
+    "search-more-match-text": "correspondance de plus dans ce document",
+    "search-more-matches-text": "correspondances de plus dans ce document",
+    "search-clear-button-title": "Effacer",
+    "search-text-placeholder": "",
+    "search-detached-cancel-button-title": "Annuler",
+    "search-submit-button-title": "Envoyer",
+    "search-label": "Recherche"
+  }
+}</script>
+<style>html{ scroll-behavior: smooth; }</style>
+
+
+<link rel="stylesheet" href="../../styles.css">
+<meta property="og:title" content="QIBAR · Data &amp; Recherche">
+<meta property="og:description" content="Analyse de données, épidémiologie et mindset du chercheur">
+<meta property="og:image" content="cover.png">
+<meta property="og:site_name" content="QIBAR · Data &amp; Recherche">
+<meta name="twitter:title" content="[Boozy] : J’ai perdu 11 heures sur ma bibliographie. La dernière fois. – QIBAR · Data &amp; Recherche">
+<meta name="twitter:description" content="Boozy a soumis son article avec une référence en double, deux DOI incorrects et un style bibliographique mal appliqué. Le reviewer l’a remarqué avant lui. On construit ici le workflow qui élimine ce problème une fois pour toutes.">
+<meta name="twitter:image" content="cover.png">
+<meta name="twitter:creator" content="@mahamoudkourei1">
+<meta name="twitter:card" content="summary_large_image">
+</head>
+
+<body class="nav-fixed">
+
+<div id="quarto-search-results"></div>
+  <header id="quarto-header" class="headroom fixed-top">
+    <nav class="navbar navbar-expand-lg " data-bs-theme="dark">
+      <div class="navbar-container container-fluid">
+            <div id="quarto-search" class="" title="Recherche"></div>
+          <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarCollapse" aria-controls="navbarCollapse" role="menu" aria-expanded="false" aria-label="Basculer la navigation" onclick="if (window.quartoToggleHeadroom) { window.quartoToggleHeadroom(); }">
+  <span class="navbar-toggler-icon"></span>
+</button>
+          <div class="collapse navbar-collapse" id="navbarCollapse">
+            <ul class="navbar-nav navbar-nav-scroll me-auto">
+  <li class="nav-item">
+    <a class="nav-link" href="../../index.html"> 
+<span class="menu-text"><strong>Q</strong>IBAR</span></a>
+  </li>  
+</ul>
+            <ul class="navbar-nav navbar-nav-scroll ms-auto">
+  <li class="nav-item dropdown ">
+    <a class="nav-link dropdown-toggle" href="#" id="nav-menu-articles" role="link" data-bs-toggle="dropdown" aria-expanded="false">
+ <span class="menu-text">Articles</span>
+    </a>
+    <ul class="dropdown-menu dropdown-menu-end" aria-labelledby="nav-menu-articles">    
+        <li>
+    <a class="dropdown-item" href="../../index.html#analyse">
+ <span class="dropdown-text">📊 Analyse &amp; R</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../index.html#carto">
+ <span class="dropdown-text">🗺️ Cartographie</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../index.html#meta">
+ <span class="dropdown-text">🔬 Méta-analyse</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../index.html#mindset">
+ <span class="dropdown-text">🧠 Mindset &amp; Soft Skills</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../index.html#epi">
+ <span class="dropdown-text">🧬 Épidémiologie</span></a>
+  </li>  
+        <li>
+    <a class="dropdown-item" href="../../index.html#neuro">
+ <span class="dropdown-text">⚡ Neurosciences</span></a>
+  </li>  
+    </ul>
+  </li>
+  <li class="nav-item">
+    <a class="nav-link" href="../../about.html"> 
+<span class="menu-text">À propos</span></a>
+  </li>  
+  <li class="nav-item">
+    <a class="nav-link" href="mailto:mahamoud.koureichi@gmail.com"> 
+<span class="menu-text">QIBAR Conseil</span></a>
+  </li>  
+  <li class="nav-item compact">
+    <a class="nav-link" href="mailto:mahamoud.koureichi@gmail.com"> <i class="bi bi-envelope" role="img" aria-label="Email">
+</i> 
+<span class="menu-text"></span></a>
+  </li>  
+</ul>
+          </div> <!-- /navcollapse -->
+            <div class="quarto-navbar-tools">
+</div>
+      </div> <!-- /container-fluid -->
+    </nav>
+</header>
+<!-- content -->
+<div id="quarto-content" class="quarto-container page-columns page-rows-contents page-layout-article page-navbar">
+<!-- sidebar -->
+<!-- margin-sidebar -->
+    <div id="quarto-margin-sidebar" class="sidebar margin-sidebar">
+        <nav id="TOC" role="doc-toc" class="toc-active">
+    <h2 id="toc-title">Dans cet article</h2>
+   
+  <ul>
+  <li><a href="#ce-que-boozy-faisait-avant" id="toc-ce-que-boozy-faisait-avant" class="nav-link active" data-scroll-target="#ce-que-boozy-faisait-avant">Ce que Boozy faisait avant</a></li>
+  <li><a href="#le-workflow-complet-du-premier-article-au-dernier" id="toc-le-workflow-complet-du-premier-article-au-dernier" class="nav-link" data-scroll-target="#le-workflow-complet-du-premier-article-au-dernier">Le workflow complet : du premier article au dernier</a></li>
+  <li><a href="#les-styles-bibliographiques-selon-votre-contexte" id="toc-les-styles-bibliographiques-selon-votre-contexte" class="nav-link" data-scroll-target="#les-styles-bibliographiques-selon-votre-contexte">Les styles bibliographiques selon votre contexte</a></li>
+  <li><a href="#les-4-erreurs-que-le-reviewer-de-boozy-a-trouvées" id="toc-les-4-erreurs-que-le-reviewer-de-boozy-a-trouvées" class="nav-link" data-scroll-target="#les-4-erreurs-que-le-reviewer-de-boozy-a-trouvées">Les 4 erreurs que le reviewer de Boozy a trouvées</a></li>
+  <li><a href="#ce-que-boozy-a-changé-après-la-correction" id="toc-ce-que-boozy-a-changé-après-la-correction" class="nav-link" data-scroll-target="#ce-que-boozy-a-changé-après-la-correction">Ce que Boozy a changé après la correction</a></li>
+  </ul>
+</nav>
+    </div>
+<!-- main -->
+<main class="content" id="quarto-document-content">
+
+<header id="title-block-header" class="quarto-title-block default">
+<div class="quarto-title">
+<h1 class="title">[Boozy] : J’ai perdu 11 heures sur ma bibliographie. La dernière fois.</h1>
+<p class="subtitle lead">Le workflow complet pour ne plus jamais formater une référence à la main.</p>
+  <div class="quarto-categories">
+    <div class="quarto-category">Méthodologie</div>
+    <div class="quarto-category">Outils</div>
+    <div class="quarto-category">Mindset</div>
+  </div>
+  </div>
+
+<div>
+  <div class="description">
+    Boozy a soumis son article avec une référence en double, deux DOI incorrects et un style bibliographique mal appliqué. Le reviewer l’a remarqué avant lui. On construit ici le workflow qui élimine ce problème une fois pour toutes.
+  </div>
+</div>
+
+
+<div class="quarto-title-meta">
+
+    <div>
+    <div class="quarto-title-meta-heading">Auteur·rice</div>
+    <div class="quarto-title-meta-contents">
+             <p>QIBAR Center </p>
+          </div>
+  </div>
+    
+    <div>
+    <div class="quarto-title-meta-heading">Date de publication</div>
+    <div class="quarto-title-meta-contents">
+      <p class="date">7 septembre 2026</p>
+    </div>
+  </div>
+  
+    
+  </div>
+  
+
+
+</header>
+
+
+<style>
+.boozy-block {
+  background: linear-gradient(135deg, #0C2440, #1A3A5C);
+  border-radius: 16px; padding: 1.75rem 2rem;
+  margin: 2rem 0 2.5rem; position: relative; overflow: hidden;
+}
+.boozy-block::after {
+  content: "📑"; position: absolute; top: -8px; right: 12px;
+  font-size: 6rem; opacity: 0.06; pointer-events: none;
+}
+.boozy-avatar { display:flex; align-items:center; gap:12px; margin-bottom:1.1rem; }
+.boozy-monogram {
+  width:50px; height:50px; border-radius:50%; background:#C8A96E;
+  display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:26px; font-weight:700;
+  color:#1A3A5C; flex-shrink:0;
+}
+.boozy-name  { font-size:.78rem; font-weight:700; color:#C8A96E; letter-spacing:.07em; text-transform:uppercase; display:block; }
+.boozy-role  { font-size:.76rem; color:#7A9AB8; display:block; margin-top:2px; }
+.boozy-speech { font-family:Georgia,serif; font-style:italic; font-size:1.05rem; color:#F0EBE3; line-height:1.7; margin:0; }
+
+.crossover-box {
+  background: linear-gradient(120deg, #1A3A5C 0%, #2D7A5F 100%);
+  border-radius:14px; padding:1.5rem 1.75rem; margin:2rem 0;
+}
+.crossover-box .cx-label { font-size:.75rem; font-weight:700; text-transform:uppercase; letter-spacing:.08em; color:#9FE1CB; margin-bottom:.5rem; display:block; }
+.crossover-box p { font-size:.93rem; color:#F0EBE3; font-family:Georgia,serif; font-style:italic; line-height:1.65; margin:0 0 .5rem; }
+.crossover-box .cx-link { font-size:.82rem; color:#C8A96E; font-style:normal; }
+
+.qibar-section {
+  border-left:4px solid #C8A96E; background:#ffffff;
+  border-radius:0 12px 12px 0; padding:1.1rem 1.4rem;
+  margin:1.75rem 0; box-shadow:0 2px 12px rgba(26,58,92,.06);
+}
+.qibar-section .qs-label {
+  font-size:.76rem; font-weight:700; text-transform:uppercase;
+  letter-spacing:.08em; color:#C8A96E; margin:0 0 .5rem;
+  display:flex; align-items:center; gap:6px;
+}
+.qibar-section p, .qibar-section li { font-size:.95rem; color:#3D3428; margin:0 0 .5rem; line-height:1.7; }
+.qibar-section code { font-size:.88rem; background:#F5F2EE; padding:1px 6px; border-radius:4px; }
+
+/* Workflow visuel */
+.wf-grid {
+  display:grid; gap:0;
+  margin:1.75rem 0;
+}
+.wf-step {
+  display:grid; grid-template-columns:48px 1fr;
+  gap:0 16px; margin-bottom:4px;
+}
+.wf-num {
+  width:44px; height:44px; border-radius:50%;
+  background:#1A3A5C; color:#C8A96E;
+  display:flex; align-items:center; justify-content:center;
+  font-family:Georgia,serif; font-size:1rem; font-weight:700;
+  flex-shrink:0; margin-top:4px;
+}
+.wf-body { padding-bottom:1rem; border-left:2px solid #EAE5DC; padding-left:16px; margin-left:-32px; padding-bottom:1.25rem; }
+.wf-step:last-child .wf-body { border-color:transparent; }
+.wf-title { font-size:.95rem; font-weight:600; color:#1A3A5C; margin:0 0 4px; }
+.wf-desc { font-size:.87rem; color:#5F5E5A; margin:0 0 .5rem; line-height:1.6; }
+.wf-tip {
+  background:#F5F2EE; border-radius:8px;
+  padding:.6rem .9rem; font-size:.82rem;
+  color:#3D3428; line-height:1.55; font-style:italic;
+}
+
+/* Tableau styles bibliographiques */
+.style-table { width:100%; border-collapse:collapse; margin:1.5rem 0; font-size:.87rem; border-radius:12px; overflow:hidden; }
+.style-table thead tr { background:#1A3A5C; }
+.style-table thead th { color:#C8A96E; font-weight:600; padding:.65rem 1rem; text-align:left; }
+.style-table tbody tr:nth-child(even) { background:#F5F2EE; }
+.style-table tbody tr:nth-child(odd)  { background:#fff; }
+.style-table tbody td { padding:.55rem 1rem; color:#3D3428; vertical-align:top; line-height:1.5; }
+
+/* Erreurs */
+.err-row { display:flex; align-items:flex-start; gap:10px; padding:.75rem 0; border-bottom:0.5px solid #EAE5DC; }
+.err-row:last-child { border:none; }
+.err-badge { font-size:.72rem; font-weight:700; padding:2px 8px; border-radius:99px; white-space:nowrap; flex-shrink:0; margin-top:2px; }
+.eb-red   { background:#FCEAEA; color:#8B1A1A; }
+.eb-fix   { background:#EBF5F0; color:#1A6B3A; }
+.err-text { font-size:.88rem; color:#3D3428; line-height:1.6; }
+
+.post-cta {
+  background:linear-gradient(135deg,#1A3A5C,#0C2440); border-radius:14px;
+  padding:1.75rem 2rem; margin-top:3rem;
+  display:flex; align-items:center; justify-content:space-between; gap:1.25rem; flex-wrap:wrap;
+}
+.post-cta p { color:#F0E6CC; margin:0; font-family:Georgia,serif; font-style:italic; font-size:1rem; }
+.post-cta a { background:#C8A96E; color:#1A3A5C; font-weight:700; font-size:.88rem; padding:.6rem 1.4rem; border-radius:8px; text-decoration:none; white-space:nowrap; }
+</style>
+
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy</span>
+      <span class="boozy-role">Étudiant en master · revenant d'une soumission humiliante · QIBAR Blog</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Salut. C'est Boozy.<br><br>
+    Mon premier article soumis à une revue indexée. Trois semaines de travail. Cinq relectures. Un plan d'analyse validé par mon directeur.<br><br>
+    Le reviewer numéro deux a mis trois lignes dans ses commentaires. Pas sur la méthodologie. Pas sur les résultats. Sur la bibliographie.<br><br>
+    <strong style="color:#C8A96E">Une référence en double. Deux DOI incorrects. Un style Vancouver mal appliqué sur quatre entrées.</strong><br><br>
+    J'avais passé 11 heures sur cette bibliographie. À la main. »
+  </p>
+</div>
+<section id="ce-que-boozy-faisait-avant" class="level2">
+<h2 class="anchored" data-anchor-id="ce-que-boozy-faisait-avant">Ce que Boozy faisait avant</h2>
+<p>Boozy copiait ses références depuis Google Scholar. Il les collait dans Word. Il reformatait chaque entrée manuellement selon le guide de style de la revue. Il vérifiait les majuscules, les virgules, les points, les italiques.</p>
+<p>Chaque révision de l’article déclenchait une nouvelle vérification bibliographique. Parce qu’il avait ajouté une référence, en avait supprimé une autre, et les numéros de citation dans le texte ne correspondaient plus.</p>
+<div class="crossover-box">
+  <span class="cx-label">🔀 Narration croisée : Technique × Mindset (#45)</span>
+  <p>Ce que Boozy faisait n'était pas de la rigueur. C'était de la friction cognitive répétée sur une tâche à zéro valeur intellectuelle. Chaque minute passée à vérifier un point après une virgule était une minute retirée à la lecture critique, à l'interprétation, à la discussion des résultats. La rigueur scientifique s'exerce sur le fond. Zéro rigueur supplémentaire ne sort d'un formatage bibliographique manuel.</p>
+  <span class="cx-link">→ À lire aussi : [#2] Boozy a 47 onglets ouverts. Zotero comme mémoire externe.</span>
+</div>
+</section>
+<section id="le-workflow-complet-du-premier-article-au-dernier" class="level2">
+<h2 class="anchored" data-anchor-id="le-workflow-complet-du-premier-article-au-dernier">Le workflow complet : du premier article au dernier</h2>
+<p>Ce workflow a quatre étapes. Il fonctionne avec Zotero gratuit et le plugin pour Word ou Google Docs. Aucun abonnement, aucun logiciel payant.</p>
+<div class="wf-grid">
+
+  <div class="wf-step">
+    <div class="wf-num">1</div>
+    <div class="wf-body">
+      <p class="wf-title">Capturer chaque source au moment où vous la lisez</p>
+      <p class="wf-desc">Le connecteur Zotero dans Chrome ou Firefox importe automatiquement les métadonnées depuis PubMed, Google Scholar, ScienceDirect et la plupart des revues. Un clic. Auteur, titre, revue, volume, pages, DOI : tout entre sans recopier.</p>
+      <div class="wf-tip">Sur PubMed, l'icône Zotero dans la barre du navigateur reconnaît jusqu'à 20 articles à la fois depuis une page de résultats. Sélectionnez-les tous et importez en une opération.</div>
+    </div>
+  </div>
+
+  <div class="wf-step">
+    <div class="wf-num">2</div>
+    <div class="wf-body">
+      <p class="wf-title">Vérifier les métadonnées à l'import</p>
+      <p class="wf-desc">Zotero importe ce que la source lui donne. Certaines bases de données ont des métadonnées incomplètes ou mal formatées. Après chaque import, vérifier : le type de document (article, chapitre, rapport), le nom des auteurs (inversion prénom/nom fréquente), et l'année de publication. Trente secondes par article à l'import évitent deux heures de corrections à la soumission.</p>
+      <div class="wf-tip">Clic droit sur une entrée Zotero → "Récupérer les métadonnées du PDF" : Zotero retrouve les informations manquantes à partir du fichier PDF lui-même, via son DOI ou son titre.</div>
+    </div>
+  </div>
+
+  <div class="wf-step">
+    <div class="wf-num">3</div>
+    <div class="wf-body">
+      <p class="wf-title">Citer dans le texte sans quitter Word</p>
+      <p class="wf-desc">Après installation du plugin Zotero pour Word : onglet Zotero → "Ajouter/Modifier une citation". Une barre de recherche apparaît. Tapez le nom de l'auteur ou un mot du titre. Sélectionnez la référence. Elle s'insère dans le texte au bon format, numérotée automatiquement. Déplacez un paragraphe : les numéros se mettent à jour seuls.</p>
+      <div class="wf-tip">Pour changer de style bibliographique (Vancouver vers APA, APA vers Chicago) : Document Zotero → "Paramètres du document" → choisir le style. Toutes les citations du document se reformatent en cinq secondes.</div>
+    </div>
+  </div>
+
+  <div class="wf-step">
+    <div class="wf-num">4</div>
+    <div class="wf-body">
+      <p class="wf-title">Générer la bibliographie finale en un clic</p>
+      <p class="wf-desc">Placez le curseur en fin de document. Onglet Zotero → "Ajouter/Modifier la bibliographie". Zotero génère la liste complète, dans le bon ordre, au bon format, en incluant uniquement les références citées dans le texte. Ajoutez une source en cours de rédaction : elle apparaît dans la bibliographie à sa place correcte sans aucune action supplémentaire.</p>
+      <div class="wf-tip">Avant la soumission finale : Zotero → "Créer une bibliographie à partir de la collection" en mode texte non lié. Cette version figée n'est plus connectée à Zotero, ce qui évite les modifications accidentelles lors du dernier envoi.</div>
+    </div>
+  </div>
+
+</div>
+</section>
+<section id="les-styles-bibliographiques-selon-votre-contexte" class="level2">
+<h2 class="anchored" data-anchor-id="les-styles-bibliographiques-selon-votre-contexte">Les styles bibliographiques selon votre contexte</h2>
+<table class="style-table caption-top table" data-quarto-postprocess="true">
+<thead>
+<tr class="header">
+<th data-quarto-table-cell-role="th">Style</th>
+<th data-quarto-table-cell-role="th">Utilisé par</th>
+<th data-quarto-table-cell-role="th">Format type</th>
+</tr>
+</thead>
+<tbody>
+<tr class="odd">
+<td><strong>Vancouver</strong></td>
+<td>Revues médicales (NEJM, Lancet, BMJ, PLoS Medicine). Standard en Afrique pour les thèses de médecine dans la plupart des facultés francophones.</td>
+<td>Numéros entre crochets [1] dans le texte. Références numérotées par ordre d'apparition.</td>
+</tr>
+<tr class="even">
+<td><strong>APA 7e</strong></td>
+<td>Sciences sociales, psychologie, santé publique, revues interdisciplinaires.</td>
+<td>(Auteur, Année) dans le texte. Références classées par ordre alphabétique.</td>
+</tr>
+<tr class="odd">
+<td><strong>Harvard</strong></td>
+<td>Universités anglophones, rapports ONG, publications institutionnelles.</td>
+<td>(Auteur Année) dans le texte. Proches de l'APA avec des variantes selon l'institution.</td>
+</tr>
+<tr class="even">
+<td><strong>ISO 690</strong></td>
+<td>Norme internationale, certains organismes de normalisation et rapports techniques.</td>
+<td>Flexible : auteur-date ou numérique selon la variante choisie.</td>
+</tr>
+</tbody>
+</table>
+</section>
+<section id="les-4-erreurs-que-le-reviewer-de-boozy-a-trouvées" class="level2">
+<h2 class="anchored" data-anchor-id="les-4-erreurs-que-le-reviewer-de-boozy-a-trouvées">Les 4 erreurs que le reviewer de Boozy a trouvées</h2>
+<div style="margin:1.5rem 0">
+  <div class="err-row">
+    <span class="err-badge eb-red">Erreur</span>
+    <p class="err-text"><strong>Référence en double.</strong> Même article cité deux fois sous deux numéros différents parce que Boozy l'avait importé deux fois dans Zotero depuis deux sources différentes. Zotero détecte les doublons : onglet "Doublons" dans le panneau gauche. Fusionner avant d'écrire.</p>
+  </div>
+  <div class="err-row">
+    <span class="err-badge eb-red">Erreur</span>
+    <p class="err-text"><strong>DOI incorrects.</strong> Copiés à la main depuis le site de la revue, deux caractères transposés. Zotero récupère les DOI automatiquement. Ne jamais recopier un DOI à la main.</p>
+  </div>
+  <div class="err-row">
+    <span class="err-badge eb-red">Erreur</span>
+    <p class="err-text"><strong>Style mal appliqué sur quatre entrées.</strong> Boozy avait manuellement ajouté quatre références après que Zotero avait généré la bibliographie. Il les avait formatées à la main, avec des erreurs de ponctuation. Règle : toute référence passe par Zotero, sans exception.</p>
+  </div>
+  <div class="err-row">
+    <span class="err-badge eb-red">Erreur</span>
+    <p class="err-text"><strong>Titre de revue non abrégé.</strong> Vancouver exige les abréviations de titres de revues selon la liste NLM (ex : "The Lancet" devient "Lancet"). Zotero gère ça via le style sélectionné, à condition que le style installé soit la version correcte de Vancouver.</p>
+  </div>
+</div>
+
+<div class="qibar-section">
+  <p class="qs-label">✅ La checklist pré-soumission</p>
+  <p>
+    ☐ Vérifier les doublons dans Zotero (onglet "Doublons")<br>
+    ☐ Contrôler le type de document de chaque entrée (article, chapitre, rapport...)<br>
+    ☐ Confirmer que le style Zotero correspond aux instructions aux auteurs de la revue<br>
+    ☐ Générer la bibliographie finale en mode "texte non lié" pour la version de soumission<br>
+    ☐ Vérifier que chaque référence citée dans le texte apparaît dans la liste finale, et inversement
+  </p>
+</div>
+</section>
+<section id="ce-que-boozy-a-changé-après-la-correction" class="level2">
+<h2 class="anchored" data-anchor-id="ce-que-boozy-a-changé-après-la-correction">Ce que Boozy a changé après la correction</h2>
+<p>Il a passé une journée à importer toutes ses références dans Zotero. Il a fusionné les doublons. Il a vérifié les métadonnées des trente-deux entrées de son article. Il a installé le style Vancouver correct depuis le dépôt officiel Zotero.</p>
+<p>La deuxième soumission n’a eu aucun commentaire sur la bibliographie.</p>
+<p>Le temps total passé sur les références : 40 minutes, contre 11 heures la première fois.</p>
+<div class="boozy-block" style="margin-top:2.5rem">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Boozy, après la deuxième soumission</span>
+      <span class="boozy-role">40 minutes. Zéro commentaire sur la bibliographie.</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Le reviewer numéro deux a envoyé ses commentaires. Deux pages sur la discussion, une question sur la taille d'échantillon, une suggestion de référence supplémentaire.<br><br>
+    Rien sur la bibliographie.<br><br>
+    Les 11 heures perdues lors de la première soumission n'étaient pas du travail. <strong style="color:#C8A96E">C'était de la friction inutile sur une tâche que l'outil fait mieux que moi.</strong><br><br>
+    La rigueur scientifique, je l'applique là où elle fait une différence. Pas sur les virgules. »
+  </p>
+</div>
+
+<div class="boozy-block">
+  <div class="boozy-avatar">
+    <div class="boozy-monogram">B</div>
+    <div>
+      <span class="boozy-name">Et toi ?</span>
+      <span class="boozy-role">Boozy veut savoir</span>
+    </div>
+  </div>
+  <p class="boozy-speech">
+    « Tu gères encore ta bibliographie à la main ? Ou tu as un workflow qui tourne ?<br><br>
+    Si tu bloques sur une étape de l'installation, écris-le en commentaire. Et si tu connais une astuce Zotero que je n'ai pas mentionnée ici, je veux l'ajouter au prochain post. »
+  </p>
+</div>
+
+<div class="post-cta">
+  <p>Vous préparez une soumission et voulez un regard externe sur votre méthodologie et votre bibliographie ?<br>QIBAR Conseil intervient avant la soumission.</p>
+  <a href="mailto:mahamoud.koureichi@gmail.com">Contacter QIBAR →</a>
+</div>
+<hr>
+<p><em>Cet article est le <strong>#6</strong> de la série QIBAR Blog, Cycle 1 : La Fondation. Prochain épisode : [#7] Boozy prépare une collecte de données sur le terrain. Papier ou tablette ?</em></p>
+
+
+</section>
+
+</main> <!-- /main -->
+<script id="quarto-html-after-body" type="application/javascript">
+window.document.addEventListener("DOMContentLoaded", function (event) {
+  const toggleBodyColorMode = (bsSheetEl) => {
+    const mode = bsSheetEl.getAttribute("data-mode");
+    const bodyEl = window.document.querySelector("body");
+    if (mode === "dark") {
+      bodyEl.classList.add("quarto-dark");
+      bodyEl.classList.remove("quarto-light");
+    } else {
+      bodyEl.classList.add("quarto-light");
+      bodyEl.classList.remove("quarto-dark");
+    }
+  }
+  const toggleBodyColorPrimary = () => {
+    const bsSheetEl = window.document.querySelector("link#quarto-bootstrap");
+    if (bsSheetEl) {
+      toggleBodyColorMode(bsSheetEl);
+    }
+  }
+  toggleBodyColorPrimary();  
+  const icon = "";
+  const anchorJS = new window.AnchorJS();
+  anchorJS.options = {
+    placement: 'right',
+    icon: icon
+  };
+  anchorJS.add('.anchored');
+  const isCodeAnnotation = (el) => {
+    for (const clz of el.classList) {
+      if (clz.startsWith('code-annotation-')) {                     
+        return true;
+      }
+    }
+    return false;
+  }
+  const onCopySuccess = function(e) {
+    // button target
+    const button = e.trigger;
+    // don't keep focus
+    button.blur();
+    // flash "checked"
+    button.classList.add('code-copy-button-checked');
+    var currentTitle = button.getAttribute("title");
+    button.setAttribute("title", "Copié");
+    let tooltip;
+    if (window.bootstrap) {
+      button.setAttribute("data-bs-toggle", "tooltip");
+      button.setAttribute("data-bs-placement", "left");
+      button.setAttribute("data-bs-title", "Copié");
+      tooltip = new bootstrap.Tooltip(button, 
+        { trigger: "manual", 
+          customClass: "code-copy-button-tooltip",
+          offset: [0, -8]});
+      tooltip.show();    
+    }
+    setTimeout(function() {
+      if (tooltip) {
+        tooltip.hide();
+        button.removeAttribute("data-bs-title");
+        button.removeAttribute("data-bs-toggle");
+        button.removeAttribute("data-bs-placement");
+      }
+      button.setAttribute("title", currentTitle);
+      button.classList.remove('code-copy-button-checked');
+    }, 1000);
+    // clear code selection
+    e.clearSelection();
+  }
+  const getTextToCopy = function(trigger) {
+      const codeEl = trigger.previousElementSibling.cloneNode(true);
+      for (const childEl of codeEl.children) {
+        if (isCodeAnnotation(childEl)) {
+          childEl.remove();
+        }
+      }
+      return codeEl.innerText;
+  }
+  const clipboard = new window.ClipboardJS('.code-copy-button:not([data-in-quarto-modal])', {
+    text: getTextToCopy
+  });
+  clipboard.on('success', onCopySuccess);
+  if (window.document.getElementById('quarto-embedded-source-code-modal')) {
+    // For code content inside modals, clipBoardJS needs to be initialized with a container option
+    // TODO: Check when it could be a function (https://github.com/zenorocha/clipboard.js/issues/860)
+    const clipboardModal = new window.ClipboardJS('.code-copy-button[data-in-quarto-modal]', {
+      text: getTextToCopy,
+      container: window.document.getElementById('quarto-embedded-source-code-modal')
+    });
+    clipboardModal.on('success', onCopySuccess);
+  }
+    var localhostRegex = new RegExp(/^(?:http|https):\/\/localhost\:?[0-9]*\//);
+    var mailtoRegex = new RegExp(/^mailto:/);
+      var filterRegex = new RegExp('/' + window.location.host + '/');
+    var isInternal = (href) => {
+        return filterRegex.test(href) || localhostRegex.test(href) || mailtoRegex.test(href);
+    }
+    // Inspect non-navigation links and adorn them if external
+ 	var links = window.document.querySelectorAll('a[href]:not(.nav-link):not(.navbar-brand):not(.toc-action):not(.sidebar-link):not(.sidebar-item-toggle):not(.pagination-link):not(.no-external):not([aria-hidden]):not(.dropdown-item):not(.quarto-navigation-tool):not(.about-link)');
+    for (var i=0; i<links.length; i++) {
+      const link = links[i];
+      if (!isInternal(link.href)) {
+        // undo the damage that might have been done by quarto-nav.js in the case of
+        // links that we want to consider external
+        if (link.dataset.originalHref !== undefined) {
+          link.href = link.dataset.originalHref;
+        }
+          // target, if specified
+          link.setAttribute("target", "_blank");
+          if (link.getAttribute("rel") === null) {
+            link.setAttribute("rel", "noopener");
+          }
+      }
+    }
+  function tippyHover(el, contentFn, onTriggerFn, onUntriggerFn) {
+    const config = {
+      allowHTML: true,
+      maxWidth: 500,
+      delay: 100,
+      arrow: false,
+      appendTo: function(el) {
+          return el.parentElement;
+      },
+      interactive: true,
+      interactiveBorder: 10,
+      theme: 'quarto',
+      placement: 'bottom-start',
+    };
+    if (contentFn) {
+      config.content = contentFn;
+    }
+    if (onTriggerFn) {
+      config.onTrigger = onTriggerFn;
+    }
+    if (onUntriggerFn) {
+      config.onUntrigger = onUntriggerFn;
+    }
+    window.tippy(el, config); 
+  }
+  const noterefs = window.document.querySelectorAll('a[role="doc-noteref"]');
+  for (var i=0; i<noterefs.length; i++) {
+    const ref = noterefs[i];
+    tippyHover(ref, function() {
+      // use id or data attribute instead here
+      let href = ref.getAttribute('data-footnote-href') || ref.getAttribute('href');
+      try { href = new URL(href).hash; } catch {}
+      const id = href.replace(/^#\/?/, "");
+      const note = window.document.getElementById(id);
+      if (note) {
+        return note.innerHTML;
+      } else {
+        return "";
+      }
+    });
+  }
+  const xrefs = window.document.querySelectorAll('a.quarto-xref');
+  const processXRef = (id, note) => {
+    // Strip column container classes
+    const stripColumnClz = (el) => {
+      el.classList.remove("page-full", "page-columns");
+      if (el.children) {
+        for (const child of el.children) {
+          stripColumnClz(child);
+        }
+      }
+    }
+    stripColumnClz(note)
+    if (id === null || id.startsWith('sec-')) {
+      // Special case sections, only their first couple elements
+      const container = document.createElement("div");
+      if (note.children && note.children.length > 2) {
+        container.appendChild(note.children[0].cloneNode(true));
+        for (let i = 1; i < note.children.length; i++) {
+          const child = note.children[i];
+          if (child.tagName === "P" && child.innerText === "") {
+            continue;
+          } else {
+            container.appendChild(child.cloneNode(true));
+            break;
+          }
+        }
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(container);
+        }
+        return container.innerHTML
+      } else {
+        if (window.Quarto?.typesetMath) {
+          window.Quarto.typesetMath(note);
+        }
+        return note.innerHTML;
+      }
+    } else {
+      // Remove any anchor links if they are present
+      const anchorLink = note.querySelector('a.anchorjs-link');
+      if (anchorLink) {
+        anchorLink.remove();
+      }
+      if (window.Quarto?.typesetMath) {
+        window.Quarto.typesetMath(note);
+      }
+      // TODO in 1.5, we should make sure this works without a callout special case
+      if (note.classList.contains("callout")) {
+        return note.outerHTML;
+      } else {
+        return note.innerHTML;
+      }
+    }
+  }
+  for (var i=0; i<xrefs.length; i++) {
+    const xref = xrefs[i];
+    tippyHover(xref, undefined, function(instance) {
+      instance.disable();
+      let url = xref.getAttribute('href');
+      let hash = undefined; 
+      if (url.startsWith('#')) {
+        hash = url;
+      } else {
+        try { hash = new URL(url).hash; } catch {}
+      }
+      if (hash) {
+        const id = hash.replace(/^#\/?/, "");
+        const note = window.document.getElementById(id);
+        if (note !== null) {
+          try {
+            const html = processXRef(id, note.cloneNode(true));
+            instance.setContent(html);
+          } finally {
+            instance.enable();
+            instance.show();
+          }
+        } else {
+          // See if we can fetch this
+          fetch(url.split('#')[0])
+          .then(res => res.text())
+          .then(html => {
+            const parser = new DOMParser();
+            const htmlDoc = parser.parseFromString(html, "text/html");
+            const note = htmlDoc.getElementById(id);
+            if (note !== null) {
+              const html = processXRef(id, note);
+              instance.setContent(html);
+            } 
+          }).finally(() => {
+            instance.enable();
+            instance.show();
+          });
+        }
+      } else {
+        // See if we can fetch a full url (with no hash to target)
+        // This is a special case and we should probably do some content thinning / targeting
+        fetch(url)
+        .then(res => res.text())
+        .then(html => {
+          const parser = new DOMParser();
+          const htmlDoc = parser.parseFromString(html, "text/html");
+          const note = htmlDoc.querySelector('main.content');
+          if (note !== null) {
+            // This should only happen for chapter cross references
+            // (since there is no id in the URL)
+            // remove the first header
+            if (note.children.length > 0 && note.children[0].tagName === "HEADER") {
+              note.children[0].remove();
+            }
+            const html = processXRef(null, note);
+            instance.setContent(html);
+          } 
+        }).finally(() => {
+          instance.enable();
+          instance.show();
+        });
+      }
+    }, function(instance) {
+    });
+  }
+      let selectedAnnoteEl;
+      const selectorForAnnotation = ( cell, annotation) => {
+        let cellAttr = 'data-code-cell="' + cell + '"';
+        let lineAttr = 'data-code-annotation="' +  annotation + '"';
+        const selector = 'span[' + cellAttr + '][' + lineAttr + ']';
+        return selector;
+      }
+      const selectCodeLines = (annoteEl) => {
+        const doc = window.document;
+        const targetCell = annoteEl.getAttribute("data-target-cell");
+        const targetAnnotation = annoteEl.getAttribute("data-target-annotation");
+        const annoteSpan = window.document.querySelector(selectorForAnnotation(targetCell, targetAnnotation));
+        const lines = annoteSpan.getAttribute("data-code-lines").split(",");
+        const lineIds = lines.map((line) => {
+          return targetCell + "-" + line;
+        })
+        let top = null;
+        let height = null;
+        let parent = null;
+        if (lineIds.length > 0) {
+            //compute the position of the single el (top and bottom and make a div)
+            const el = window.document.getElementById(lineIds[0]);
+            top = el.offsetTop;
+            height = el.offsetHeight;
+            parent = el.parentElement.parentElement;
+          if (lineIds.length > 1) {
+            const lastEl = window.document.getElementById(lineIds[lineIds.length - 1]);
+            const bottom = lastEl.offsetTop + lastEl.offsetHeight;
+            height = bottom - top;
+          }
+          if (top !== null && height !== null && parent !== null) {
+            // cook up a div (if necessary) and position it 
+            let div = window.document.getElementById("code-annotation-line-highlight");
+            if (div === null) {
+              div = window.document.createElement("div");
+              div.setAttribute("id", "code-annotation-line-highlight");
+              div.style.position = 'absolute';
+              parent.appendChild(div);
+            }
+            div.style.top = top - 2 + "px";
+            div.style.height = height + 4 + "px";
+            div.style.left = 0;
+            let gutterDiv = window.document.getElementById("code-annotation-line-highlight-gutter");
+            if (gutterDiv === null) {
+              gutterDiv = window.document.createElement("div");
+              gutterDiv.setAttribute("id", "code-annotation-line-highlight-gutter");
+              gutterDiv.style.position = 'absolute';
+              const codeCell = window.document.getElementById(targetCell);
+              const gutter = codeCell.querySelector('.code-annotation-gutter');
+              gutter.appendChild(gutterDiv);
+            }
+            gutterDiv.style.top = top - 2 + "px";
+            gutterDiv.style.height = height + 4 + "px";
+          }
+          selectedAnnoteEl = annoteEl;
+        }
+      };
+      const unselectCodeLines = () => {
+        const elementsIds = ["code-annotation-line-highlight", "code-annotation-line-highlight-gutter"];
+        elementsIds.forEach((elId) => {
+          const div = window.document.getElementById(elId);
+          if (div) {
+            div.remove();
+          }
+        });
+        selectedAnnoteEl = undefined;
+      };
+        // Handle positioning of the toggle
+    window.addEventListener(
+      "resize",
+      throttle(() => {
+        elRect = undefined;
+        if (selectedAnnoteEl) {
+          selectCodeLines(selectedAnnoteEl);
+        }
+      }, 10)
+    );
+    function throttle(fn, ms) {
+    let throttle = false;
+    let timer;
+      return (...args) => {
+        if(!throttle) { // first call gets through
+            fn.apply(this, args);
+            throttle = true;
+        } else { // all the others get throttled
+            if(timer) clearTimeout(timer); // cancel #2
+            timer = setTimeout(() => {
+              fn.apply(this, args);
+              timer = throttle = false;
+            }, ms);
+        }
+      };
+    }
+      // Attach click handler to the DT
+      const annoteDls = window.document.querySelectorAll('dt[data-target-cell]');
+      for (const annoteDlNode of annoteDls) {
+        annoteDlNode.addEventListener('click', (event) => {
+          const clickedEl = event.target;
+          if (clickedEl !== selectedAnnoteEl) {
+            unselectCodeLines();
+            const activeEl = window.document.querySelector('dt[data-target-cell].code-annotation-active');
+            if (activeEl) {
+              activeEl.classList.remove('code-annotation-active');
+            }
+            selectCodeLines(clickedEl);
+            clickedEl.classList.add('code-annotation-active');
+          } else {
+            // Unselect the line
+            unselectCodeLines();
+            clickedEl.classList.remove('code-annotation-active');
+          }
+        });
+      }
+  const findCites = (el) => {
+    const parentEl = el.parentElement;
+    if (parentEl) {
+      const cites = parentEl.dataset.cites;
+      if (cites) {
+        return {
+          el,
+          cites: cites.split(' ')
+        };
+      } else {
+        return findCites(el.parentElement)
+      }
+    } else {
+      return undefined;
+    }
+  };
+  var bibliorefs = window.document.querySelectorAll('a[role="doc-biblioref"]');
+  for (var i=0; i<bibliorefs.length; i++) {
+    const ref = bibliorefs[i];
+    const citeInfo = findCites(ref);
+    if (citeInfo) {
+      tippyHover(citeInfo.el, function() {
+        var popup = window.document.createElement('div');
+        citeInfo.cites.forEach(function(cite) {
+          var citeDiv = window.document.createElement('div');
+          citeDiv.classList.add('hanging-indent');
+          citeDiv.classList.add('csl-entry');
+          var biblioDiv = window.document.getElementById('ref-' + cite);
+          if (biblioDiv) {
+            citeDiv.innerHTML = biblioDiv.innerHTML;
+          }
+          popup.appendChild(citeDiv);
+        });
+        return popup.innerHTML;
+      });
+    }
+  }
+});
+</script>
+<script src="https://giscus.app/client.js" data-repo="BoozyGit/Blog" data-repo-id="R_kgDONkFFBg" data-category="Commentaires" data-category-id="DIC_kwDONkFFBs4C9taP" data-mapping="pathname" data-reactions-enabled="1" data-emit-metadata="0" data-input-position="bottom" data-theme="noborder_light" data-lang="fr" crossorigin="anonymous" async="">
+</script>
+<input type="hidden" id="giscus-base-theme" value="noborder_light">
+<input type="hidden" id="giscus-alt-theme" value="noborder_light">
+</div> <!-- /content -->
+<footer class="footer">
+  <div class="nav-footer">
+    <div class="nav-footer-left">
+<p>© 2026 <strong>QIBAR Center</strong> · Bamako, Mali</p>
+</div>   
+    <div class="nav-footer-center">
+<p><em>L’information au service de la décision.</em></p>
+</div>
+    <div class="nav-footer-right">
+      <ul class="footer-items list-unstyled">
+    <li class="nav-item compact">
+    <a class="nav-link" href="mailto:mahamoud.koureichi@gmail.com">
+      <i class="bi bi-envelope" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://www.linkedin.com/in/mahamoud-mahamadou-koureichi-b6a1361a7/">
+      <i class="bi bi-linkedin" role="img">
+</i> 
+    </a>
+  </li>  
+    <li class="nav-item compact">
+    <a class="nav-link" href="https://github.com/boozygit">
+      <i class="bi bi-github" role="img">
+</i> 
+    </a>
+  </li>  
+</ul>
+    </div>
+  </div>
+</footer>
+
+
+
+
+<script src="../../site_libs/quarto-html/zenscroll-min.js"></script>
+</body></html>
